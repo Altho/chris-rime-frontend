@@ -2,8 +2,13 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import {getBlogPosts} from "../libs/fetchPosts";
+import BlogList from '../components/BlogList'
+import TopMenu from "../components/Topmenu";
+import {format} from 'date-fns'
 
 export async function getStaticProps() {
+
+
 const blogs = await getBlogPosts();
 
   return {
@@ -14,7 +19,9 @@ const blogs = await getBlogPosts();
 }
 
 export default function Home({blogs}) {
+console.log(blogs)
   return (
+
     <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
@@ -23,11 +30,11 @@ export default function Home({blogs}) {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-        <h1>{blogs.Content}</h1>
+        <ul>
+          {blogs.map(({ id, attributes: {title, content,publishedAt} }) => (
+              <BlogList id={id} title={title} content={content} publishedAt={publishedAt} />
+          ))}
+        </ul>
         <p className={styles.description}>
           Get started by editing{' '}
           <code className={styles.code}>pages/index.js</code>
