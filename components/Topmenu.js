@@ -1,23 +1,20 @@
-import {Tabs} from "@mui/material";
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
 
-function LinkTab(props) {
-    return (
-        <Tabs
-            component="a"
-            onClick={(event) => {
-                event.preventDefault();
-            }}
-            {...props}
-        />
-    );
-}
+
+
+
 
 export default function TopMenu(){
     return(
-    <Tabs value="Test" aria-label="nav tabs example">
-        <LinkTab label="Page One" href="/drafts" />
-        <LinkTab label="Page Two" href="/trash" />
-        <LinkTab label="Page Three" href="/spam" />
-    </Tabs>
+        <Box sx={{ flexGrow: 1 }}>
+            <AppBar position="fixed" style={{backgroundColor: 'hsl(6, 87%, 41%)', opacity:'0.8'}}>
+                <Toolbar>
+                    <Button color="inherit">christophe rime</Button>
+                </Toolbar>
+            </AppBar>
+        </Box>
     )
 }

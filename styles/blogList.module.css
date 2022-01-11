@@ -1,0 +1,24 @@
+.blogContainer{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width:100%;
+}
+
+.mainContainer{
+
+}
+
+.blogCard {
+    padding: 0 25px 0 25px ;
+
+}
+
+.blogCard:nth-child(2){
+    border-left : 4px dotted gray;
+    border-right :4px dotted gray;
+}
+
+
+
+

@@ -3,10 +3,11 @@
 }
 
 .main {
-  min-height: 100vh;
+  /*min-height: 100vh;*/
   padding: 4rem 0;
   flex: 1;
   display: flex;
+  background-color: darkgray;
   flex-direction: column;
   justify-content: center;
   align-items: center;
