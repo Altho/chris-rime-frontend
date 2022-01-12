@@ -6,6 +6,7 @@ import {getBlogPosts} from "../libs/fetchPosts";
 import BlogList from '../components/BlogList'
 import {Jumbotron} from "../components/Jumbotron";
 import TopMenu from "../components/Topmenu";
+import BlogContainer from'../components/blogContainer'
 import {format} from 'date-fns'
 
 export async function getStaticProps() {
@@ -33,27 +34,10 @@ console.log(blogs)
         <TopMenu/>
       <Jumbotron/>
       <main className={styles.main}>
-          <div className={blogStyles.blogContainer}>
-
-          {blogs.map(({ id, attributes: {title, content,publishedAt} }) => (
-              <BlogList id={id} title={title} content={content} publishedAt={publishedAt} />
-          ))}
-          </div>
-
-
+          <BlogContainer blogs={blogs}/>
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
       </footer>
     </div>
   )

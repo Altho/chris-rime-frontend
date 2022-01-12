@@ -1,7 +1,9 @@
 .blogContainer{
     display: flex;
     justify-content: space-evenly;
+    /*
     flex-wrap: wrap;
+    */
     width:100%;
 }
 
@@ -9,8 +11,21 @@
 
 }
 
+.blog{
+padding:25px;
+    margin :10px;
+}
+
+.blog img{
+    max-width: 400px;
+}
+
 .blogCard {
     padding: 0 25px 0 25px ;
+    flex-grow: 1; /* default 0 */
+    flex-shrink: 3;
+
+    width:100%;
 
 }
 
