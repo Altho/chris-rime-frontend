@@ -9,10 +9,10 @@ import TopMenu from "../components/Topmenu";
 import BlogContainer from'../components/blogContainer'
 import {format} from 'date-fns'
 
-export async function getStaticProps() {
+export async function getStaticProps({locale}) {
 
 
-const blogs = await getBlogPosts();
+const blogs = await getBlogPosts({locale});
 
   return {
     props: {
