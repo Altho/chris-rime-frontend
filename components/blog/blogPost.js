@@ -1,4 +1,4 @@
-import style from '../styles/blogList.module.css'
+import style from '../../styles/blogList.module.css'
 import {marked} from 'marked'
 import DOMPurify from 'isomorphic-dompurify'
 

@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import {remark} from 'remark'
-import styles from '../styles/blogList.module.css'
+import styles from '../../styles/blogList.module.css'
 import {format} from 'date-fns'
 import {  fr } from 'date-fns/locale'
 import Chip from "@mui/material/Chip";

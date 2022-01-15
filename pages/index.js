@@ -3,10 +3,10 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import blogStyles from '../styles/blogList.module.css'
 import {getBlogPosts} from "../libs/fetchPosts";
-import BlogList from '../components/BlogList'
+import BlogList from '../components/blog/BlogList'
 import {Jumbotron} from "../components/Jumbotron";
-import TopMenu from "../components/Topmenu";
-import BlogContainer from'../components/blogContainer'
+import TopMenu from "../components/topMenu/Topmenu";
+import BlogContainer from '../components/blog/blogContainer'
 import {format} from 'date-fns'
 import {getDomainLocale} from "next/dist/shared/lib/router/router";
 
@@ -16,8 +16,8 @@ const blogs = await getBlogPosts({locale});
   return {
 
     props: {
-      blogs,
-        locale
+      blogs
+
 
     }
   }

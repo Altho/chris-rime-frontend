@@ -1,6 +1,7 @@
-import styles from '../styles/Home.module.css'
+import styles from '../../styles/Home.module.css'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import LanguageSwitcher from './LanguageSwitcher'
 
 
 export default function TopMenu({locale}){
@@ -23,9 +24,9 @@ export default function TopMenu({locale}){
                {chosenMenu().map(({item, id}) => (
                    <li key={id}>{item}</li>
                ))}
-               <Link href="/" locale={router.locale === 'fr' ? 'en' : 'fr'}>
-                   <a>change language</a>
-               </Link>
+
+                   <LanguageSwitcher />
+
 
            </ul>
 

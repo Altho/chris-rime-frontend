@@ -1,5 +1,5 @@
 import BlogList from "./BlogList";
-import blogStyles from "../styles/blogList.module.css";
+import blogStyles from "../../styles/blogList.module.css";
 import {useState} from "react";
 import Chip from "@mui/material/Chip";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
