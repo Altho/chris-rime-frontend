@@ -26,6 +26,14 @@
 
 }
 
+.albumGallery{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 100px;
+}
+
+
+
 .menu ul {
   display: flex;
   color:white;
@@ -82,6 +90,10 @@
   margin: 4rem 0;
   line-height: 1.5;
   font-size: 1.5rem;
+}
+
+.flag{
+  border-radius: 100px;
 }
 
 .code {

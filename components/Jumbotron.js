@@ -8,7 +8,8 @@ export function Jumbotron(){
             <Image
                 src="/images/chrisrime.jpg" // Route of the image file
                 placeholder='blur'
-                blurDataURL='/images/chrisrime-blur.jpg'
+                priority
+                blurDataURL='/images/crblur.jpg'
                 layout='fill'
                 objectPosition='top'
                 objectFit='cover'

@@ -1,0 +1,28 @@
+.infos{
+  width: 200px;
+    position: relative;
+    text-align: center;
+    color: black;
+    z-index: 1;
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.albumCover{
+    transition: 0.5s;
+
+}
+
+.albumCover:hover{
+    transform: scale(1.2);
+    opacity:0.2;
+    transition: 0.5s;
+    -webkit-box-shadow: 5px 5px 15px 5px #000000;
+    box-shadow: 5px 5px 15px 5px #000000;
+    cursor: pointer;
+}

@@ -4,10 +4,10 @@ import Link from 'next/link'
 import LanguageSwitcher from './LanguageSwitcher'
 
 
-export default function TopMenu({locale}){
+export default function TopMenu(){
     const router = useRouter();
-    const frMenu = [{item: 'Accueil', id:1}, {item: 'Biographie', id:2}, {item : 'Média', id:3}];
-    const enMenu = [{item: 'Home', id:1}, {item: 'Bio', id:2}, {item : 'Media', id:3}];
+    const frMenu = [{item: 'Accueil', id:1,link:'/'}, {item: 'Biographie', id:2,link:'/'}, {item : 'Média', id:3,link:'/'},{item : 'Pédagogie', id:4,link:'/'}];
+    const enMenu = [{item: 'Home', id:1,link:'/'}, {item: 'Bio', id:2,link:'/'}, {item : 'Media', id:3,link:'/'},{item : 'Pedagogy', id:3,link:'/'}];
     const chosenMenu = () => {
         console.log(router.locale)
         if (router.locale === 'fr'){
@@ -21,11 +21,14 @@ export default function TopMenu({locale}){
        <nav className={styles.menu}>
            <div className={styles.cr}>Chris Rime</div>
            <ul>
-               {chosenMenu().map(({item, id}) => (
+               {chosenMenu().map(({item, id,link}) => (
+                   <Link href={link}>
                    <li key={id}>{item}</li>
+                   </Link>
                ))}
 
                    <LanguageSwitcher />
+
 
 
            </ul>

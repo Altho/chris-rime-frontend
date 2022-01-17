@@ -19,7 +19,7 @@ export default function BlogContainer( {blogs}){
         <div className={blogStyles.blogContainer}>
             {blogs.map(({ id, attributes: {title, description,publishedAt,content} }) => (
                 <>
-                <BlogList id={id} title={title} content={description} publishedAt={publishedAt} >
+                <BlogList id={id} key={id} title={title} content={description} publishedAt={publishedAt} >
                 <Chip  label='Lire la suite' icon={<DoubleArrowIcon />} onClick={()=>setMainContent(content)} />
                 </BlogList>
                 </>
@@ -29,7 +29,7 @@ export default function BlogContainer( {blogs}){
             </div>
 
         </div>
-            <BlogPost content={mainContent} />
+<BlogPost content={mainContent                                                                                                              } />
 
         </div>
 
