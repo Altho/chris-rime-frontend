@@ -1,4 +1,3 @@
-import TopMenu from "../components/topMenu/Topmenu";
 import styles from '../styles/Home.module.css'
 import  {getAlbums} from '../libs/fetchAlbums';
 import Layout, {siteTitle} from "../components/layout";
@@ -19,7 +18,7 @@ export async function getStaticProps({locale}) {
     }
 }
 
-export default function Albums({albums},locale){
+export default function Albums({albums}){
     return(
         <Layout>
 

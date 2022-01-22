@@ -1,8 +1,9 @@
 import Image from "next/image";
 import style from "../../styles/albums.module.css"
 import {useState} from "react";
+import Link from 'next/link'
 
-export default function Album({url,albumTitle,albumDate}){
+export default function Album({url,albumTitle,albumDate, link}){
     const [title, setTitle] = useState('');
     const [date, setDate] = useState('')
     function mouseIn(){
@@ -15,6 +16,7 @@ export default function Album({url,albumTitle,albumDate}){
         setDate('')
     }
 return (
+    <Link href={`/albums/${link}`}>
     <div className={style.infos} >
 
     <Image
@@ -27,6 +29,8 @@ return (
 
     />
         <div className={style.text} >{title}{date}</div>
+
     </div>
+    </Link>
 )
 }

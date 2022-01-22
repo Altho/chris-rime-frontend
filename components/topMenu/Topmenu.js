@@ -9,7 +9,6 @@ export default function TopMenu(){
     const frMenu = [{item: 'Accueil', id:1,link:'/'}, {item: 'Biographie', id:2,link:'/'}, {item : 'Média', id:3,link:'/'},{item : 'Pédagogie', id:4,link:'/'}];
     const enMenu = [{item: 'Home', id:1,link:'/'}, {item: 'Bio', id:2,link:'/'}, {item : 'Media', id:3,link:'/'},{item : 'Pedagogy', id:3,link:'/'}];
     const chosenMenu = () => {
-        console.log(router.locale)
         if (router.locale === 'fr'){
             return frMenu;
         }
