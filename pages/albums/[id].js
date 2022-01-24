@@ -11,7 +11,7 @@ export async function getStaticProps({ params}) {
 }
 
 export async function getStaticPaths({locales}) {
-    const fetchAlbums = await fetch('http://127.0.0.1:1337/api/albums?populate=*')
+    const fetchAlbums = await fetch('http://127.0.0.1:1337/api/albums?populate=*&locale=all')
     const albumsData = await fetchAlbums.json();
     const albums = albumsData.data
 

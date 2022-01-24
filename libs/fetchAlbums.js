@@ -8,11 +8,11 @@ export async function getAlbums({locale}) {
 
 export async function getAlbumId({locales}) {
 
-    const data = await getAlbums({locale: 'en'});
+    const data = await getAlbums({locale: 'all'});
 
     const paths = data.map((album) => locales.map((locale) => ({
         params: {
-            id: album.id.toString(),
+            slug: album.attributes.slug,
             locale
         }
     })))
