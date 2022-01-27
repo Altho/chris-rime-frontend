@@ -6,7 +6,7 @@ export function Jumbotron(){
     return(
         <div className={styles.jumbotron}>
             <Image
-                src="/images/chrisrime.webp" // Route of the image file
+                src="/images/chriscover.jpg" // Route of the image file
                 placeholder='blur'
                 priority={true}
                 blurDataURL='/images/crblur.jpg'

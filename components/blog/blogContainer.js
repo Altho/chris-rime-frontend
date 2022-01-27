@@ -7,29 +7,28 @@ import BlogPost from "./blogPost";
 import {format} from "date-fns";
 import {fr} from "date-fns/locale";
 
-export default function BlogContainer( {blogs}){
+export default function BlogContainer({blogs}) {
     const [mainContent, setMainContent] = useState('')
-    const handleClick = (title)=>{
-        setMainContent('')
-    }
 
 
-    return(
+
+    return (
         <div className={blogStyles.mainContainer}>
-        <div className={blogStyles.blogContainer}>
-            {blogs.map(({ id, attributes: {title, description,publishedAt,content} }) => (
-                <>
-                <BlogList id={id} key={id} title={title} content={description} publishedAt={publishedAt} >
-                <Chip  label='Lire la suite' icon={<DoubleArrowIcon />} onClick={()=>setMainContent(content)} />
-                </BlogList>
-                </>
+            <div className={blogStyles.blogContainer}>
+                {blogs.map(({id, attributes: {title, description, publishedAt, content}}) => (
+                    <>
+                        <BlogList id={id} key={id} title={title} content={description} publishedAt={publishedAt}>
+                            <Chip label='Lire la suite' icon={<DoubleArrowIcon />}
+                                  onClick={() => setMainContent(content)}/>
+                        </BlogList>
+                    </>
 
                 ))}
-            <div>
-            </div>
+                <div>
+                </div>
 
-        </div>
-<BlogPost content={mainContent                                                                                                              } />
+            </div>
+            <BlogPost content={mainContent}/>
 
         </div>
 

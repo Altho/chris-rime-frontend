@@ -1,0 +1,60 @@
+.menu {
+    position:sticky;
+    z-index:1;
+    top:0;
+    width:100%;
+    height:75px;
+    display: flex;
+    justify-content: center;
+    transition: 0.4s;
+    background-color: black;
+
+}
+
+.scrolled{
+    background-color: black;
+    -webkit-box-shadow: 5px 5px 15px 5px #000000;
+    box-shadow: 5px 5px 15px 5px #000000;
+    transition: 0.4s;
+}
+
+.logo{
+    margin-right:auto ;
+    font-family: 'Orbitron', sans-serif;
+    color:white;
+    font-size: 2.8em;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+    margin-top:10px;
+    transition: 0.5s;
+
+}
+
+
+.menu ul {
+    display: flex;
+    color:white;
+    justify-content: center;
+    align-items: center;
+    font-size : 1.4em;
+    list-style-type: none;
+    font-family: 'Nanum Gothic', sans-serif;
+
+}
+
+.menu li {
+    text-decoration: none;
+    margin: 0 20px 0 20px;
+    transition: 0.3s;
+
+
+}
+
+.menu li:hover {
+
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: 0.5s;
+;
+}
