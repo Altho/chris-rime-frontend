@@ -1,9 +1,15 @@
 .infos{
-  width: 200px;
+  width: 300px;
     position: relative;
     text-align: center;
     color: black;
     z-index: 1;
+
+}
+
+.albumCaptions{
+    display:block;
+    justify-content: left;
 }
 
 .text {
@@ -15,14 +21,33 @@
 
 .albumCover{
     transition: 0.5s;
+    width: 300px;
+    position: relative;
+    color: black;
+    z-index: 1;
 
 }
 
+.capTitle{
+    font-family: Orbitron, sans-serif;
+    margin: 10px 0 10px 0;
+    font-size: 1.2em;
+    color: white;
+
+}
+.capDate{
+    font-family: "Montserrat Alternates", sans-serif;
+    color:white;
+}
 .albumCover:hover{
-    transform: scale(1.2);
-    opacity:0.2;
-    transition: 0.5s;
-    -webkit-box-shadow: 5px 5px 15px 5px #000000;
-    box-shadow: 5px 5px 15px 5px #000000;
+
     cursor: pointer;
+    transform: scale(1.1);
+
+
 }
+
+
+
+
+

@@ -11,10 +11,9 @@ export default function CountrySwitcher() {
                 src={src}
                 width={30}
                 height={30}
-                onClick={() => {router.push(router.pathname, router.pathname, {locale : router.locale === 'fr' ? 'en' : 'fr'})}}
+                onClick={() => {router.push({pathname:router.asPath},{pathname:router.asPath},{locale : router.locale === 'fr' ? 'en' : 'fr'})}}
             />
 
         </>
     )
-
 }

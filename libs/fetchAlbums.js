@@ -2,7 +2,14 @@ import {useRouter} from "next/router";
 import qs from 'qs'
 
 export async function getAlbums({locale}) {
-    const fetchImages = await fetch(`http://127.0.0.1:1337/api/albums?locale=${locale}&populate=*`)
+    const qs = require('qs');
+    const query = qs.stringify({
+        sort: ['date:desc'],
+    }, {
+        encodeValuesOnly: true,
+    });
+    console.log(query)
+    const fetchImages = await fetch(`http://127.0.0.1:1337/api/albums?locale=${locale}&populate=*&${query}`)
     const imageData = await fetchImages.json()
 
     return imageData.data

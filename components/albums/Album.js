@@ -16,21 +16,31 @@ export default function Album({url,albumTitle,albumDate, link}){
         setDate('')
     }
 return (
+
     <Link href={`/albums/${link}`}>
-    <div className={style.infos} >
+    <div className={style.albumCover} >
 
     <Image
-        className={style.albumCover}
+
         onMouseEnter={mouseIn}
+        placeholder='color'
+        layout='responsive'
+        objectFit='cover'
+
         onMouseLeave={mouseOut}
         src={`http://127.0.0.1:1337${url}`}
-        width={200}
-        height={200}
+        width={250}
+        height={250}
 
     />
-        <div className={style.text} >{title}{date}</div>
 
-    </div>
+            <div className={style.capTitle}> {albumTitle}</div>
+            <div className={style.capDate}>{albumDate}</div>
+        </div>
+
+
     </Link>
+
+
 )
 }

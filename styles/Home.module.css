@@ -7,7 +7,6 @@
   /*padding: 4rem 0;*/
   /*flex: 1;*/
   /*display: flex;*/
-  background-color: darkgray;
   /*flex-direction: column;*/
   /*justify-content: center;*/
   /*align-items: center;*/
@@ -19,6 +18,8 @@
   display: flex;
   justify-content: space-evenly;
   margin-top: 100px;
+  flex-wrap: wrap;
+  gap:30px;
 }
 
 
@@ -29,7 +30,7 @@
   display: flex;
   flex: 1;
   padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
+  /*border-top: 1px solid #eaeaea;*/
   justify-content: center;
   align-items: center;
 }
@@ -70,7 +71,7 @@
 }
 
 .flag{
-  border-radius: 100px;
+  cursor: pointer;
 }
 
 .code {
