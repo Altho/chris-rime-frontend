@@ -15,15 +15,18 @@ export default function BlogContainer({blogs}) {
     return (
         <div className={blogStyles.mainContainer}>
             <div className={blogStyles.blogContainer}>
-                {blogs.map(({id, attributes: {title, description, publishedAt, content}}) => (
+                {blogs.map(({id, attributes: {image = {}, title, description, publishedAt, content} = {}}) => {
+                    const imageUrl = image.data.attributes.url;
+                    return(
+
                     <>
-                        <BlogList id={id} key={id} title={title} content={description} publishedAt={publishedAt}>
+                        <BlogList id={id} key={id} title={title} content={description} publishedAt={publishedAt} image={imageUrl}>
                             <Chip label='Lire la suite' icon={<DoubleArrowIcon />}
                                   onClick={() => setMainContent(content)}/>
                         </BlogList>
                     </>
 
-                ))}
+                )})}
                 <div>
                 </div>
 

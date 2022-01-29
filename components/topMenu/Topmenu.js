@@ -13,52 +13,35 @@ export default function TopMenu() {
     const [opened, setOpened] = useState(false);
 
 
-    const currentStyle = () => {
-        if (scrolled === true) {
-            return styles.scrolled
-        } else {
-            return ''
-        }
-    }
+    // const currentStyle = () => {
+    //     if (scrolled === true) {
+    //         return styles.scrolled
+    //     } else {
+    //         return ''
+    //     }
+    // }
 
+    //
+    // function handleScroll(e) {
+    //     if (window.scrollY > 100) {
+    //         setScrolled(true)
+    //     } else {
+    //         setScrolled(false)
+    //     }
+    // }
 
-    function handleScroll(e) {
-        if (window.scrollY > 100) {
-            setScrolled(true)
-        } else {
-            setScrolled(false)
-        }
-    }
-
-    useEffect(() => {
-        window.addEventListener('scroll', (e) => handleScroll(e));
-
-    })
+    // useEffect(() => {
+    //     window.addEventListener('scroll', (e) => handleScroll(e));
+    //
+    // })
     const matches = useMediaQuery('(min-width: 900px)');
-    function MenuBehavior() {
-        if (matches) {
-            return (
-                <div className={styles.logo}>Chris Rime</div>
-            )
-        } else {
-            if(scrolled){
-                return (
-                    <div className={styles.logo}>Chris Rime</div>
-                )
-            }
-            else{
-                return (
-                    ''
-                )
-            }
 
-        }
-    }
 
 
     return (
-        <nav className={`${styles.menu} ${currentStyle()}`}>
-            <MenuBehavior/>
+        <nav className={`${styles.menu}`}>
+            <div className={styles.logo}>Chris Rime</div>
+
 
             <Drawer
                 opened={opened}

@@ -37,9 +37,45 @@
     max-height: 100px;
 }
 
+.listenSeparator{
+    background-image: url("/images/bg/tilt.svg");
+    background-repeat: no-repeat;
+    background-position: top;
+    min-height: 100px;
+    max-height: 100px;
+}
+
 .media{
     background-color: #124559;
+    width:100%;
+    align-items: center;
     color: white;
+    display: flex;
+    justify-content: space-evenly;
+    gap:30px;
+    padding:30px;
+    flex-wrap: wrap;
+}
+.items{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px;
+}
+
+
+
+.items img{
+    cursor: pointer;
+}
+
+.listen{
+    background-color: #01161E;
+
+}
+
+.player{
+    width : 30%;
+    height:200px;
 }
 
 .infoTable{
@@ -49,6 +85,7 @@
     border-radius: 20px 0 20px 0;
     color:white;
     font-family: "Nanum Gothic", sans-serif;
+    margin-bottom: 10px;
 }
 
 .tableTitle{
@@ -60,6 +97,23 @@
 .description{
 
     font-family: "Montserrat Alternates", sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.buy{
+    width:60%;
+    height:80px;
+    margin:20px;
+    background-color: #AEC3B0;
+    color:black;
+    font-family: "Nanum Gothic", sans-serif;
+    font-size: 2em;
+}
+
+.buy:hover{
+    background-color: #648868;
 }
 
 .infoTable td{
@@ -92,12 +146,24 @@
 }
 
 
-@media only screen and (max-width: 1200px){
+@media  (max-width: 1200px){
     .infoContainer{
         flex-wrap: wrap;
     }
     .infoTable{
 
-        max-width : 100%;
+        max-width : 70%;
+    }
+    .player{
+        width : 100%;
+        height: 300px;
+    }
+}
+
+@media  (max-width: 720px) {
+
+    .infoTable {
+
+        max-width: 100%;
     }
 }

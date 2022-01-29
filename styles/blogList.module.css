@@ -1,14 +1,32 @@
 .blogContainer{
+    padding:30px;
     display: flex;
     justify-content: space-evenly;
-    /*
+    gap:20px;
     flex-wrap: wrap;
-    */
+
     width:100%;
+}
+
+.card{
+    background-color: #598392;
+    transition: 0.4s;
+
+}
+
+.card:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.4s;
 }
 
 .mainContainer{
 
+}
+
+.cardContainer{
+width: 340px;
+    margin: auto;
 }
 
 .blog{
@@ -34,6 +52,13 @@ padding:25px;
     border-right :4px dotted gray;
 }
 
+@media (max-width: 900px) {
+    .cardContainer {
+        width: 100%;
+
+    }
+
+}
 
 
 

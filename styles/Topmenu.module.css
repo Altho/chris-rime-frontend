@@ -8,7 +8,8 @@
     gap: 20px;
     justify-content: flex-end;
     transition: 0.4s;
-    /*background-color: black;*/
+    background-color: #01161E;
+    opacity:0.9;
 
 }
 
@@ -63,13 +64,17 @@
 
 .item{
     text-decoration: none;
-    margin: 0 20px 0 20px;
+    padding: 0 20px 0 20px;
     transition: 0.3s;
+    height: 75px;
+    display: flex;
+    align-items: center;
 }
 
 .item:hover{
     cursor: pointer;
-    transform: scale(1.2);
+    background-color: #124559;
+    /*transform: scale(1.2);*/
     transition: 0.5s;
 }
 

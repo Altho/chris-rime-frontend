@@ -3,7 +3,9 @@ import {getAlbumData} from "../../libs/fetchAlbums";
 import Description from "../../components/albums/Description";
 import AlbumInfos from "../../components/albums/AlbumInfos";
 import {MediaSeparator} from "../../components/albums/MediaSeparator";
+import ListenSeparator from "../../components/albums/ListenSeparator"
 import Media from '../../components/albums/Media'
+import Listen from '../../components/albums/Listen'
 import ErrorPage from 'next/error'
 import {Divider} from '@mantine/core';
 import styles from '../../styles/[slug].module.css'
@@ -47,12 +49,14 @@ export default function AlbumDetails({albumData}) {
                 <AlbumTitle name={album.name} image={albumImage}/>
                 <div className={styles.infoContainer}>
                 <div className={styles.description}>
-                    <Description description={album.description} auteur={album.descAuteur} />
+                    <Description description={album.description} auteur={album.descAuteur} buy={album.buy} />
                 </div>
                 <AlbumInfos release={album.date.toString()} label={album.label} artists={album.artistes} />
                 </div>
                 <MediaSeparator/>
-                <Media/>
+                <Media media={album.videos}/>
+                <ListenSeparator/>
+                <Listen spotify={album.spotify} apple={album.apple} deezer={album.deezer}/>
 
             </Layout>
         )
@@ -63,6 +67,7 @@ function AlbumTitle({name, image}) {
     const headerStyle = () => ({
 
             backgroundImage: `url(http://127.0.0.1:1337${image})`,
+            backgroundAttachment: 'fixed'
 
 
         })
