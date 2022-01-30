@@ -49,7 +49,7 @@ export default function AlbumDetails({albumData}) {
                 <AlbumTitle name={album.name} image={albumImage}/>
                 <div className={styles.infoContainer}>
                 <div className={styles.description}>
-                    <Description description={album.description} auteur={album.descAuteur} buy={album.buy} />
+                    <Description description={album.description} auteur={album.descAuteur} />
                 </div>
                 <AlbumInfos release={album.date.toString()} label={album.label} artists={album.artistes} />
                 </div>

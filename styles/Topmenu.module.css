@@ -24,6 +24,7 @@
 .logo{
     margin-right:auto ;
     font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
     color:white;
     font-size: 2.8em;
     align-items: center;

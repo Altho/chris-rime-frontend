@@ -12,6 +12,59 @@
   /*align-items: center;*/
 }
 
+.filter{
+  background-color: rgba(0,0,0, 0.7);
+
+}
+
+.fitting{
+  padding:80px;
+  width: 100%;
+}
+
+.presentationContainer{
+  background-color: #124559;
+  min-height: 200px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.paragraph{
+padding:35px;
+  font-family: "Nanum Gothic",sans-serif;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.icon{
+  display: flex;
+  justify-content: center;
+  padding:20px;
+
+}
+
+.bioSeparator{
+  background-image: url("/images/bg/tiltbio.svg");
+  background-repeat: no-repeat;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  background-position: top;
+  min-height: 100px;
+  max-height: 100px;
+
+  transform: rotate(180deg);
+}
+
+.shortBio{
+
+  background-image: url("/images/bg/bio.jpg");
+  background-position: top;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
 
 
 .albumGallery{
@@ -29,10 +82,39 @@
 .footer {
   display: flex;
   flex: 1;
+  background-color: #01161E;
   padding: 2rem 0;
   /*border-top: 1px solid #eaeaea;*/
   justify-content: center;
   align-items: center;
+  position: absolute;
+  /*bottom:0;*/
+  width: 100%;
+  border-top: 1px solid #598392
+}
+
+.mainVideo{
+  padding:30px;
+  height: 70vh;
+  width: 100%;
+}
+
+.copyright{
+  display: flex;
+  justify-content: space-between;
+}
+
+.copyright a {
+  margin: 0 5px 0 5px;
+  color : #598392;
+  transition: 0.3s;
+
+}
+
+.copyright a:hover {
+  margin: 0 5px 0 5px;
+  color : #124559;
+  transition: 0.3s;
 }
 
 .footer a {
@@ -101,6 +183,7 @@
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 300px;
+
 }
 
 .card:hover,
@@ -132,3 +215,23 @@
     flex-direction: column;
   }
 }
+
+@media (max-width: 900px) {
+  .presentationContainer{
+    flex-wrap: wrap;
+  }
+  .paragraph{
+    padding : 20px 50px 20px 50px;
+    flex-basis: auto;
+  }
+  .mainVideo{
+
+    height: 40vh;
+
+  }
+  .fitting{
+    padding:20px;
+
+  }
+}
+

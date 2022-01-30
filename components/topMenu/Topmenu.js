@@ -40,11 +40,16 @@ export default function TopMenu() {
 
     return (
         <nav className={`${styles.menu}`}>
+            <Link href={'/'}>
             <div className={styles.logo}>Chris Rime</div>
+            </Link>
+
+
 
 
             <Drawer
                 opened={opened}
+
                 onClose={() => setOpened(false)}
                 title="Chris Rime"
                 padding="xl"

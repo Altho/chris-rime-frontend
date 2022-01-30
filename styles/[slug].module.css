@@ -45,6 +45,13 @@
     max-height: 100px;
 }
 
+.blogImage{
+    width: 500px;
+    margin:auto;
+    -webkit-box-shadow: 5px 5px 21px 9px #000000;
+    box-shadow: 5px 5px 21px 9px #000000;
+}
+
 .media{
     background-color: #124559;
     width:100%;

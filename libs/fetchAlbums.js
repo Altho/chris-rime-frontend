@@ -2,7 +2,7 @@ import {useRouter} from "next/router";
 import qs from 'qs'
 
 export async function getAlbums({locale}) {
-    const qs = require('qs');
+    // const qs = require('qs');
     const query = qs.stringify({
         sort: ['date:desc'],
     }, {
@@ -44,13 +44,13 @@ export async function getAlbumData(slug,locale) {
     console.log(query)
     console.log('locale!!!')
     console.log(locale)
-    const album = await fetch(`http://127.0.0.1:1337/api/albums/?locale=all&${query}&locale=${locale}&populate=*`)
-    const albumData = await album.json()
-    console.log(album)
+    const post = await fetch(`http://127.0.0.1:1337/api/albums/?locale=all&${query}&locale=${locale}&populate=*`)
+    const postData = await post.json()
+    console.log(post)
 
 
     return {
 
-        ...albumData.data
+        ...postData.data
     }
 }

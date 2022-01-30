@@ -1,5 +1,6 @@
 import TopMenu from "./topMenu/Topmenu";
 import Head from "next/head";
+import Footer from '../components/Footer'
 
 
 export const siteTitle = 'Chris Rime official'
@@ -24,5 +25,8 @@ export default function Layout({ children, home }) {
 
     <TopMenu />
     {children}
-    </div>)
+            <Footer/>
+    </div>
+
+    )
 }
