@@ -1,6 +1,19 @@
 .jumbotron {
     width: 100vw;
     height: 100vh;
-    position:relative;
-    background-color: black;
+    background-image: url("/images/chriscover.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
+
+.pic{
+    position:relative;
+
+}
+
+/*@media (max-width: 900px) {*/
+/*    .jumbotron {*/
+/*        background-size: contain;*/
+/*    }*/
+/*}*/

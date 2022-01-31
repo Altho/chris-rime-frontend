@@ -5,16 +5,17 @@ import Image from 'next/image'
 export function Jumbotron(){
     return(
         <div className={styles.jumbotron}>
-            <Image
-                src="/images/chriscover.jpg" // Route of the image file
-                placeholder='blur'
-                priority={true}
-                blurDataURL='/images/crblur.jpg'
-                layout='fill'
-                objectPosition='top'
-                objectFit='cover'
-                alt="Your Name"
-            />
+            {/*<Image*/}
+            {/*    className={styles.pic}*/}
+            {/*    src="/images/chriscover.jpg" // Route of the image file*/}
+            {/*    placeholder='blur'*/}
+            {/*    priority={true}*/}
+            {/*    blurDataURL='/images/crblur.jpg'*/}
+            {/*    layout='fill'*/}
+            {/*    objectPosition='top'*/}
+            {/*    objectFit='cover'*/}
+            {/*    alt="Your Name"*/}
+            {/*/>*/}
         </div>
     )
 }
