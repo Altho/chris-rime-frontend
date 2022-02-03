@@ -70,7 +70,6 @@ export default function TopMenu() {
                 ) : (
                     <div className={styles.menuItems}>
                         <MenuItems/>
-                        <LanguageSwitcher/>
                     </div>
 
 
@@ -83,31 +82,91 @@ export default function TopMenu() {
     )
 }
 
-function MenuItems({item, id, link}) {
+export function MenuItems() {
     const router = useRouter();
 
-    const frMenu = [{item: 'Accueil', id: 1, link: '/'}, {item: 'Biographie', id: 2, link: '/'}, {
-        item: 'Média',
-        id: 3,
-        link: '/'
-    }, {item: 'Pédagogie', id: 4, link: '/'}];
-    const enMenu = [{item: 'Home', id: 5, link: '/'}, {item: 'Bio', id: 6, link: '/'}, {
-        item: 'Media',
-        id: 7,
-        link: '/'
-    }, {item: 'Pedagogy', id: 8, link: '/'}];
-    const chosenMenu = () => {
-        if (router.locale === 'fr') {
-            return frMenu;
-        } else {
-            return enMenu
-        }
-    }
-    return (
-        chosenMenu().map(({item, id, link}) => (
-            <Link key={id} href={link}>
-                <div className={styles.item}>{item}</div>
-            </Link>
 
-        )))
+    const enMenu = () => {
+
+        return (
+            <div>
+                <div className={styles.dropdown}>
+                    <div className={styles.dropbtn}>Bio <span>▼</span></div>
+                    <div className={styles.dropdownContent}>
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+            <div className={styles.dropdown}>
+                <div className={styles.dropbtn}>Media <span>▼</span></div>
+                <div className={styles.dropdownContent}>
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+
+            </div>
+                <div className={styles.dropdown}>
+                    <div className={styles.dropbtn}>Pedagogy <span>▼</span></div>
+                    <div className={styles.dropdownContent}>
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+
+                </div>
+                <LanguageSwitcher/>
+
+            </div>
+        )
+    }
+
+
+    const frMenu = () => {
+        return (
+            <div>
+                <div className={styles.dropdown}>
+                    <div className={styles.dropbtn}>Bio <span>▼</span></div>
+
+                    <div className={styles.dropdownContent}>
+                        <Link href="#">Biographie</Link>
+                        <Link href="/albums">Discographie</Link>
+                        <Link href="#">Télé/Films</Link>
+                        <Link href="#">Jeux vidéos</Link>
+
+
+                    </div>
+                </div>
+                <div className={styles.dropdown}>
+                    <div className={styles.dropbtn}>Média <span>▼</span></div>
+
+                    <div className={styles.dropdownContent}>
+                        <Link href="#">Vidéos</Link>
+                        <Link href="/media/gallery">Photos</Link>
+                        <Link href="#">Musique</Link>
+                    </div>
+
+                </div>
+                <div className={styles.dropdown}>
+                    <div className={styles.dropbtn}>Pédagogie <span>▼</span></div>
+
+                    <div className={styles.dropdownContent}>
+                        <Link href="#">Méthodes</Link>
+                        <Link href="#">Internet</Link>
+                        <Link href="#">Journaux</Link>
+                    </div>
+
+
+                </div>
+
+                <LanguageSwitcher/>
+
+
+            </div>
+           )
+       }
+console.log(enMenu())
+    console.log(frMenu())
+    return router.locale === 'en' ? enMenu() : frMenu();
 }

@@ -10,7 +10,7 @@ import ErrorPage from 'next/error'
 import {Divider} from '@mantine/core';
 import styles from '../../styles/[slug].module.css'
 import Image from 'next'
-
+import Reviews from "../../components/reviews";
 
 export async function getStaticProps({params, locale}) {
     const albumData = await getAlbumData(params.slug, locale)
@@ -54,6 +54,8 @@ export default function AlbumDetails({albumData}) {
                 <AlbumInfos release={album.date.toString()} label={album.label} artists={album.artistes} />
                 </div>
                 <MediaSeparator/>
+                <Reviews reviews={album.reviews} background={"124559"} />
+
                 <Media media={album.videos}/>
                 <ListenSeparator/>
                 <Listen spotify={album.spotify} apple={album.apple} deezer={album.deezer}/>

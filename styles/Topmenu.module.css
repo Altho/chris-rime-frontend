@@ -21,6 +21,104 @@
     transition: 0.4s;
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+    transition: 0.3s;
+
+}
+
+.dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #598392;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius:  0 0 10px 10px;
+    z-index: 1;
+
+
+}
+
+.dropdownContent  a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    display: block;
+
+}
+
+
+
+.dropbtn {
+    height: 100%;
+    color: white;
+    width:100%;
+
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 0 10px 0 10px;
+    font-size : 1.4em;
+    list-style-type: none;
+    font-family: 'Nanum Gothic', sans-serif;
+    display: flex;
+    justify-content: space-around;
+    /*align-items: center;*/
+
+}
+
+.dropbtn span {
+    font-size: 0.4em;
+    padding: 10px;
+}
+
+.dropdownContent  a:hover {background-color: #124559}
+
+.dropdown:hover .dropdownContent  {
+
+display: block;
+    animation: dropdownContent 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940) both
+}
+
+
+/*.menuwrapper:hover {*/
+/*visibility: visible;*/
+/*}*/
+
+
+
+@keyframes dropdownContent {
+    0% {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes dropBack {
+    0% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #124559;
+    transition: 0.3s;
+}
+
+
+
 .logo{
     margin-right:auto ;
     font-family: 'Orbitron', sans-serif;
@@ -49,7 +147,8 @@
 .menuItems {
     display: flex;
     color:white;
-    justify-content: center;
+    width: 100%;
+    justify-content: flex-end;
     align-items: center;
     font-size : 1.4em;
     list-style-type: none;
@@ -61,6 +160,9 @@
     padding-right: 25px;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    width: 60%;
+
 }
 
 .item{
