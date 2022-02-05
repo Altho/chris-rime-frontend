@@ -52,6 +52,14 @@
     box-shadow: 5px 5px 21px 9px #000000;
 }
 
+.titleSeparator{
+    background-image: url("/images/bg/paper.svg");
+    height:100px;
+    width: 100%;
+    background-position: top;
+    background-size: cover;
+}
+
 .media{
     background-color: #124559;
     width:100%;
@@ -130,13 +138,23 @@
 
 .titleContainer{
     width: 100%;
+    height:30vh;
     margin-top: 75px;
     background-size: cover;
     background-position: center;
-    height: 30vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.tear{
+
+}
+.titleBackground{
+
+    background-size: cover;
+    background-position: center;
+    /*height: 40vh;*/
 }
 .filter{
     background-color: rgba(0,0,0,0.35);

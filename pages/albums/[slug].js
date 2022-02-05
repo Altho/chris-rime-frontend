@@ -9,7 +9,7 @@ import Listen from '../../components/albums/Listen'
 import ErrorPage from 'next/error'
 import {Divider} from '@mantine/core';
 import styles from '../../styles/[slug].module.css'
-import Image from 'next'
+import {Image} from '@mantine/core'
 import Reviews from "../../components/reviews";
 
 export async function getStaticProps({params, locale}) {
@@ -53,11 +53,14 @@ export default function AlbumDetails({albumData}) {
                 </div>
                 <AlbumInfos release={album.date.toString()} label={album.label} artists={album.artistes} />
                 </div>
+
                 <MediaSeparator/>
                 <Reviews reviews={album.reviews} background={"124559"} />
 
                 <Media media={album.videos}/>
+
                 <ListenSeparator/>
+
                 <Listen spotify={album.spotify} apple={album.apple} deezer={album.deezer}/>
 
             </Layout>
@@ -67,26 +70,28 @@ export default function AlbumDetails({albumData}) {
 
 function AlbumTitle({name, image}) {
     const headerStyle = () => ({
-
             backgroundImage: `url(http://127.0.0.1:1337${image})`,
             backgroundAttachment: 'fixed'
-
 
         })
     ;
     console.log('albumTitle')
     console.log(name)
     return (
-        <div>
-        <div className={styles.titleContainer} style={headerStyle()}>
-            <div className={styles.filter}>
+        <div className={styles.titleBackground} style={headerStyle()}>
+        <div >
+
+            <div className={styles.titleContainer} >
             <h1 className={styles.albumName} >{name}</h1>
-            </div>
-        </div>
 
 
         </div>
+            <Image className={styles.tear} width={'100%'} src={'/images/bg/paper.svg'}/>
 
+
+        </div>
+
+</div>
 
     )
 }

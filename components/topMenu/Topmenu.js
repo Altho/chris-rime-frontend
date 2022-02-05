@@ -3,9 +3,32 @@ import {useRouter} from 'next/router'
 import Link from 'next/link'
 import LanguageSwitcher from './LanguageSwitcher'
 import {useEffect, useState} from "react";
-import {Drawer, Button, Group, Burger} from '@mantine/core';
+import {Drawer, Button, Group, Burger, Image} from '@mantine/core';
 import {useMediaQuery} from '@mantine/hooks';
 import MobileMenu from './MobileMenu'
+import ListenSeparator from "../albums/ListenSeparator";
+
+const drawerStyles = {
+
+    drawer: {
+        backgroundColor: '#01161E',
+
+    },
+    header: {
+        backgroundColor: '#124559',
+        margin: '0px'
+    },
+    closeButton: {
+        color: 'white',
+        width:'40px',
+        height:'40px'
+    },
+    body:{
+        color:'white'
+    }
+
+
+}
 
 
 export default function TopMenu() {
@@ -37,22 +60,26 @@ export default function TopMenu() {
     const matches = useMediaQuery('(min-width: 900px)');
 
 
-
     return (
         <nav className={`${styles.menu}`}>
             <Link href={'/'}>
-            <div className={styles.logo}>Chris Rime</div>
+                <div className={styles.logoContainer}>
+                    <div className={styles.logo}>Chris Rime<Image
+                        src={'/images/bg/waveform.svg'}
+                        width={100}
+
+                    /></div>
+                </div>
+
             </Link>
-
-
 
 
             <Drawer
                 opened={opened}
-
+                styles={drawerStyles}
                 onClose={() => setOpened(false)}
-                title="Chris Rime"
-                padding="xl"
+
+                padding='null'
                 size="xl"
             >
                 <MobileMenu/>
@@ -61,11 +88,8 @@ export default function TopMenu() {
 
             <div className={styles.menuContainer}>
                 {!matches ? (
-                    <Burger
-                        opened={opened}
-                        size="lg"
-                        onClick={() => setOpened((o) => !o)}
-                        color='white'
+                    <Image src={'/images/icons/musicburger.svg'} style={{cursor: 'pointer'}} width={30}
+                           onClick={() => setOpened((o) => !o)}
                     />
                 ) : (
                     <div className={styles.menuItems}>
@@ -98,15 +122,15 @@ export function MenuItems() {
                         <a href="#">Link 3</a>
                     </div>
                 </div>
-            <div className={styles.dropdown}>
-                <div className={styles.dropbtn}>Media <span>▼</span></div>
-                <div className={styles.dropdownContent}>
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                </div>
+                <div className={styles.dropdown}>
+                    <div className={styles.dropbtn}>Media <span>▼</span></div>
+                    <div className={styles.dropdownContent}>
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
 
-            </div>
+                </div>
                 <div className={styles.dropdown}>
                     <div className={styles.dropbtn}>Pedagogy <span>▼</span></div>
                     <div className={styles.dropdownContent}>
@@ -164,9 +188,9 @@ export function MenuItems() {
 
 
             </div>
-           )
-       }
-console.log(enMenu())
+        )
+    }
+    console.log(enMenu())
     console.log(frMenu())
     return router.locale === 'en' ? enMenu() : frMenu();
 }

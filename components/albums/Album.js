@@ -1,4 +1,4 @@
-import Image from "next/image";
+import {Image} from "@mantine/core";
 import style from "../../styles/albums.module.css"
 import {useState} from "react";
 import Link from 'next/link'
@@ -6,15 +6,7 @@ import Link from 'next/link'
 export default function Album({url,albumTitle,albumDate, link}){
     const [title, setTitle] = useState('');
     const [date, setDate] = useState('')
-    function mouseIn(){
-        console.log(albumTitle)
-        setTitle(albumTitle);
-        setDate(albumDate)
-    }
-    function mouseOut(){
-        setTitle('');
-        setDate('')
-    }
+
 return (
 
     <Link href={`/albums/${link}`}>
@@ -22,12 +14,9 @@ return (
 
     <Image
 
-        onMouseEnter={mouseIn}
-        placeholder='color'
-        layout='responsive'
-        objectFit='cover'
+        withPlaceholder
 
-        onMouseLeave={mouseOut}
+
         src={`http://127.0.0.1:1337${url}`}
         width={250}
         height={250}

@@ -120,17 +120,27 @@ display: block;
 
 
 .logo{
-    margin-right:auto ;
+    display: flex;
+    /*margin-right:auto ;*/
     font-family: 'Orbitron', sans-serif;
     cursor: pointer;
     color:white;
-    font-size: 2.8em;
+    gap:10px;
+    font-size: 3vw;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     margin-left: 15px;
-    margin-top:10px;
     transition: 0.5s;
 
+}
+
+.logo img{
+    margin-top: 5px;
+}
+
+.logoContainer{
+    margin-right:auto;
+    display: flex;
 }
 
 .mobileLang{
@@ -157,12 +167,20 @@ display: block;
 }
 
 .menuContainer {
-    padding-right: 25px;
+    padding-right: 15px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 60%;
 
+}
+
+.accItem{
+    font-family: Orbitron,sans-serif;
+    color:white;
+}
+
+.label:hover{
+    background-color: red;
 }
 
 .item{
@@ -180,5 +198,15 @@ display: block;
     /*transform: scale(1.2);*/
     transition: 0.5s;
 }
+@media (max-width: 900px) {
+    .logo{
+
+        font-size: 6vw;
+
+
+    }
+}
+
+
 
 
