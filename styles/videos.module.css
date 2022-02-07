@@ -28,26 +28,43 @@
 }
 
 .chipContainer {
-    margin-top: 100px;
+    margin-top:75px;
+    width:100%;
+    height:auto;
     display: flex;
+    position:sticky;
     justify-content: center;
 }
 
+.selectWrapper{
+    margin-left:auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap:wrap;
+
+}
+
+.select{
+    color:black;
+width:300px;
+    font-family: Orbitron,sans-serif;
+}
+
 .chipWrapper{
+    width: 100%;
     display: flex;
     padding: 5px 10px 5px 10px;
     background-color: rgba(255,255,255,0.3);
-    border-radius: 25px;
+    flex-wrap:wrap;
 }
 
-.albumChip{
-    background-color: red;
-}
+@media  (max-width: 900px) {
 
-.albumChipChecked{
-    background-color: red;
-}
 
-.albumChipIcon{
-    color:red;
+    .selectWrapper{
+        padding-top:20px;
+
+    }
+
 }

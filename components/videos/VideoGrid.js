@@ -4,18 +4,22 @@ import {SimpleGrid} from "@mantine/core";
 import {useState} from "react";
 import { Chips, Chip } from '@mantine/core';
 import {useRouter} from "next/router";
+import Select from 'react-select'
+import {getAlbums} from "../../libs/fetchAlbums";
 
 
 
 
-export default function VideoGrid({videos, pedaguo, album, jeu, guest}){
+export default function VideoGrid({videos, pedaguo, album, jeu, guest,albumList}){
     const locale = useRouter().locale;
     const [displayedVideos, setDisplayedVideos] = useState(videos)
-    const [videoCheck, setVideoCheck] = useState(true);
-    const [albumCheck, setAlbumCheck] = useState(false);
-    const [pedaguoCheck, setPedaguoCheck] = useState(false);
-    const [jeuCheck, setJeuCheck] = useState(false);
-    const [guestCheck, setGuestCheck] = useState(false);
+    const list = albumList.map(({attributes: {name}}) => name)
+    console.log('AAAALbums')
+    console.log(list)
+
+
+
+
 
 
     return(
@@ -24,12 +28,25 @@ export default function VideoGrid({videos, pedaguo, album, jeu, guest}){
                 <div className={style.chipWrapper}>
                 <Chips variant="filled" >
                     <Chip value="all" onClick={() => setDisplayedVideos(videos)}>{locale === 'en'? ('All videos') : ('Toutes les vidéos')}</Chip>
-                    <Chip onClick={() => setDisplayedVideos(album)}>Albums</Chip>
                     <Chip value="pedaguo" onClick={() => setDisplayedVideos(pedaguo)}>Pedaguo</Chip>
                     <Chip value="jeux" onClick={() => setDisplayedVideos(jeu)}>Jeux vidéos</Chip>
                     <Chip value="guest" onClick={() => setDisplayedVideos(guest)}>With guests</Chip>
 
                 </Chips>
+                    <div className={style.selectWrapper}>
+                        <span>{locale === 'en' ? ('Filter by album | ')  : ('Filtrer par album | ')}</span>
+                    <Select
+                        placeholder={locale === 'en' ? ('Chose an album')  : ('Choisir un album')}
+                        className={style.select}
+                        width={'300px'}
+                        getOptionLabel ={option => option.attributes.name}
+                        getOptionValue ={option => option.id}
+                        options={albumList}
+                        onChange={(value) => {setDisplayedVideos(value.attributes.video.data)}}
+                    />
+                    </div>
+
+
                 </div>
             </div>
 
@@ -46,7 +63,7 @@ export default function VideoGrid({videos, pedaguo, album, jeu, guest}){
         ]}
     >
 
-        {displayedVideos === undefined ? (<h1>No videos...</h1>): displayedVideos.map(({id, attributes : {lien, pedaguo, album, guest}}) => {
+        {displayedVideos === null ? (<h1>No videos...</h1>): displayedVideos.map(({id, attributes : {lien, pedaguo, album, guest}}) => {
            const glow = () => {
                if(pedaguo === true){
                    return style.pedaguo

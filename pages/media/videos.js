@@ -17,10 +17,13 @@ const queryClient = new QueryClient()
 export async function getServerSideProps(){
 
     const videosQ = qs.stringify({
-        sort: ['updatedAt:desc'],
-    }, {
-        encodeValuesOnly: true,
-    });
+            sort: ['updatedAt:desc'],
+
+            encodeValuesOnly: true,
+            populate: '*'
+
+        }
+    );
     const pedaguoQ = qs.stringify({
         sort: ['pedaguo:asc'],
         filters: {
@@ -75,6 +78,10 @@ export async function getServerSideProps(){
     const guestData = await fetchGuest.json()
     const guest = guestData.data
 
+    const fetchAlbums = await fetch('http://127.0.0.1:1337/api/albums?populate=*')
+    const albumsData = await fetchAlbums.json();
+    const albumList = albumsData.data
+
 
 
 
@@ -89,7 +96,8 @@ export async function getServerSideProps(){
             pedaguo,
             album,
             jeu,
-            guest
+            guest,
+            albumList
 
 
 
@@ -101,12 +109,12 @@ export async function getServerSideProps(){
 
 
 
-export default function Videos({videos, pedaguo, album,jeu, guest}){
+export default function Videos({videos, pedaguo, album,jeu, guest, albumList}){
 
     console.log(pedaguo)
     return(
         <Layout>
-            <VideoGrid videos={videos} pedaguo={pedaguo} album={album} jeu={jeu} guest={guest} />
+            <VideoGrid videos={videos} pedaguo={pedaguo} album={album} jeu={jeu} guest={guest} albumList={albumList} />
         </Layout>
     )
 }
