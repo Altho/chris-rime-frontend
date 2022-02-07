@@ -23,7 +23,8 @@ export async function getStaticProps(){
             photos
 
 
-        }
+        },
+        revalidate: 10,
     }
 }
 

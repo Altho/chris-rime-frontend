@@ -8,7 +8,7 @@ export default function Description({description,auteur,buy}){
     console.log(auteur)
     return(
     <>
-    <Blockquote cite={auteur} styles={{body: {color: 'white'}, cite: {color: 'white'}}}>{description}</Blockquote>
+    <Blockquote cite={auteur} className={style.quote} styles={{body: {color: 'white'}, cite: {color: 'white'}}}>{description}</Blockquote>
         <Button
             className={style.buy}
             component='a'

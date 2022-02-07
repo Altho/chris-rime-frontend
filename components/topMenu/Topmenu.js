@@ -166,7 +166,7 @@ export function MenuItems() {
                     <div className={styles.dropbtn}>Média <span>▼</span></div>
 
                     <div className={styles.dropdownContent}>
-                        <Link href="#">Vidéos</Link>
+                        <Link href="/media/videos">Vidéos</Link>
                         <Link href="/media/gallery">Photos</Link>
                         <Link href="#">Musique</Link>
                     </div>

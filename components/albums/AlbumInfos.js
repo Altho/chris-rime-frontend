@@ -22,7 +22,7 @@ export default function AlbumInfos({release,label,artists}){
             <tr >
 
                 <td className={style.tableTitle}>{locale === 'en' ? ('Artists :') : ('Artistes :')}</td>
-                    <div style={{overflow:'scroll', maxHeight:'100px'}}>
+                    <div >
                         <td >{artists}</td>
                 </div>
             </tr>
