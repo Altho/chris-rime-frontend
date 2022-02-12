@@ -4,8 +4,7 @@ import {useState} from "react";
 import Link from 'next/link'
 
 export default function Album({url,albumTitle,albumDate, link}){
-    const [title, setTitle] = useState('');
-    const [date, setDate] = useState('')
+
 
 return (
 
@@ -22,9 +21,10 @@ return (
         height={250}
 
     />
-
+            <div className={style.titleContainer}>
             <div className={style.capTitle}> {albumTitle}</div>
             <div className={style.capDate}>{albumDate}</div>
+            </div>
         </div>
 
 

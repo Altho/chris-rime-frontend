@@ -10,7 +10,6 @@ export default function Footer(){
               <Link href={'mailto:cr.guitar@gmail.com'}><a target={'_blank'}> Contact</a></Link>
                | Made by  <Link href={'https://github.com/Altho/'}><a target={'_blank'}> Altho</a></Link>
           </div>
-            <Image height={50} style={{marginLeft:'auto'}} src={'/images/framus_logo.png'}/>
         </footer>
     )
 }

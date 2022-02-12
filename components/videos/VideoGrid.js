@@ -64,22 +64,9 @@ export default function VideoGrid({videos, pedaguo, album, jeu, guest,albumList}
     >
 
         {displayedVideos === null ? (<h1>No videos...</h1>): displayedVideos.map(({id, attributes : {lien, pedaguo, album, guest}}) => {
-           const glow = () => {
-               if(pedaguo === true){
-                   return style.pedaguo
-               }
-               else if(album === true){
-                   return style.album
-               }
-               else if(guest === true){
-                   return style.guest
-               }
-               else{
-                   return style.jeu
-               }
-           }
+
             return(
-                <div key={id} className={glow()} >
+                <div key={id} className={style.album} >
                     <ReactPlayer url={lien} width='100%' height='100%' controls />
                 </div>
             )

@@ -6,9 +6,11 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 import { Divider } from '@mantine/core';
 
 
-export default function Reviews({reviews, background}) {
+export default function Reviews({reviews}) {
 
     if (reviews) {
+        {   console.log('------------------reviews.js----------------')
+            console.log(reviews)}
         const length = reviews.length;
         return (
 
@@ -25,16 +27,24 @@ export default function Reviews({reviews, background}) {
                 <Slider                 className={style.slide}
                 >
 
-                    {reviews.map(({review, auteur, lien}) => {
+
+                    {reviews.map((rev) => {
+                        console.log('-----------map-----------')
+                        console.log(rev)
+                        const id = rev.id;
+                        const reviewNode = rev.attributes
+                        const content = reviewNode.review;
+                        const auteur = reviewNode.auteur;
+                        const lien = reviewNode.lien;
                         return (
                             <Slide
-                                index={lien}>
+                                index={id}>
                                 <a href={lien} target={"_blank"}>
 
                                     <Blockquote className={style.quote} styles={{
                                         body: {color: 'white'},
                                     }} cite={`"- ${auteur}"`}>
-                                        {review}
+                                        {content}
 
                                     </Blockquote>
 

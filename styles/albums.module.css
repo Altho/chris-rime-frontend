@@ -21,7 +21,7 @@
 
 .albumCover{
     transition: 0.5s;
-    width: 300px;
+    /*width: 300px;*/
     position: relative;
     color: black;
     z-index: 1;
@@ -39,10 +39,33 @@
     font-family: "Montserrat Alternates", sans-serif;
     color:white;
 }
-.albumCover:hover{
+.albumCover img:hover{
 
     cursor: pointer;
     transform: scale(1.1);
+    -webkit-box-shadow: 5px 5px 15px 5px #000000;
+    box-shadow: 5px 5px 15px 5px #000000;
+    transition: 0.5s;
+
+
+}
+
+.albumCover:hover .titleContainer{
+
+    transform: translateY(20px);
+    transition: 0.5s;
+
+
+}
+
+.titleContainer{
+    transition: 0.5s;
+}
+
+.albumCover img{
+
+
+    transition: 0.5s;
 
 
 }

@@ -11,6 +11,7 @@ import {Divider} from '@mantine/core';
 import styles from '../../styles/[slug].module.css'
 import {Image} from '@mantine/core'
 import Reviews from "../../components/reviews";
+import Share from "../../components/social/share"
 
 export async function getStaticProps({params, locale}) {
     const albumData = await getAlbumData(params.slug, locale)
@@ -24,7 +25,7 @@ export async function getStaticProps({params, locale}) {
 }
 
 export async function getStaticPaths({locales}) {
-    const fetchAlbums = await fetch('http://127.0.0.1:1337/api/albums?populate=*&locale=all')
+    const fetchAlbums = await fetch(`${process.env.DB_HOST}/api/albums?populate=*&locale=all`)
     const albumsData = await fetchAlbums.json();
     const albums = albumsData.data
 
@@ -44,24 +45,27 @@ export default function AlbumDetails({albumData}) {
         const albumImage = album.image.data.attributes.url
 
 
-        return (
+
+
+    return (
             <Layout>
                 <AlbumTitle name={album.name} image={albumImage}/>
                 <div className={styles.infoContainer}>
                 <div className={styles.description}>
-                    <Description description={album.description} auteur={album.descAuteur} />
+                    <Description description={album.description} auteur={album.descAuteur} buy={album.buy} digital={album.digital} />
                 </div>
                 <AlbumInfos release={album.date.toString()} label={album.label} artists={album.artistes} />
                 </div>
 
                 <MediaSeparator/>
-                <Reviews reviews={album.reviews} background={"124559"} />
+                <Reviews reviews={album.reviews.data}  />
 
-                <Media media={album.videos}/>
+                <Media media={album.video.data}/>
 
                 <ListenSeparator/>
+                <Share />
 
-                <Listen spotify={album.spotify} apple={album.apple} deezer={album.deezer}/>
+                <Listen spotify={album.spotify ? album.spotify : null} apple={album.apple ? album.apple : null} deezer={album.deezer ? album.deezer : null}/>
 
             </Layout>
         )

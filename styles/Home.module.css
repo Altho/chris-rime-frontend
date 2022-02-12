@@ -69,10 +69,11 @@ padding:35px;
 
 .albumGallery{
   display: flex;
+  padding: 30px;
+  background-color: #124559;
   justify-content: space-evenly;
   margin-top: 100px;
   flex-wrap: wrap;
-  gap:30px;
 }
 
 
@@ -92,6 +93,8 @@ padding:35px;
   width: 100%;
   border-top: 1px solid #598392
 }
+
+
 
 .mainVideo{
   padding:30px;

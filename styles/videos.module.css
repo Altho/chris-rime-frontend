@@ -16,9 +16,8 @@
 }
 
 .album {
-    -webkit-box-shadow:0px 0px 11px 3px rgba(255,245,46,0.86);
-    -moz-box-shadow: 0px 0px 11px 3px rgba(255,245,46,0.86);
-    box-shadow: 0px 0px 11px 3px rgba(255,245,46,0.86);
+    -webkit-box-shadow: 8px 11px 13px -3px #598392;
+    box-shadow: 8px 11px 13px -3px #598392;
 }
 
 .pedaguo{
@@ -64,6 +63,17 @@ width:300px;
 
     .selectWrapper{
         padding-top:20px;
+
+    }
+
+}
+
+@media  (max-width: 1200px) {
+
+
+    .selectWrapper{
+        margin-top: 15px;
+        margin-left: 0;
 
     }
 

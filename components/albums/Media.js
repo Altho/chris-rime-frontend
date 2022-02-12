@@ -8,10 +8,10 @@ console.log('media video')
     return(
         <div className={style.media}>
             {media ? (media.map((video) =>{return(
-                <div key={video} className={style.player}>
-                    <ReactPlayer url={video} width='100%' height='100%' controls />
+                <div key={video.attributes.lien} className={style.player}>
+                    <ReactPlayer url={video.attributes.lien} width='100%' height='100%' controls />
                 </div>)
-            })) : ('') }
+            })) : null }
 
         </div>
     )

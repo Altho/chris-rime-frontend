@@ -12,8 +12,8 @@
 
 }
 
-/*@media (max-width: 900px) {*/
-/*    .jumbotron {*/
-/*        background-size: contain;*/
-/*    }*/
-/*}*/
+.framus{
+    position: absolute;
+    top:92vh;
+    left:20px;
+}

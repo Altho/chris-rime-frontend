@@ -7,7 +7,7 @@ export default function AlbumInfos({release,label,artists}){
     console.log('album info !!')
     console.log(release, label, artists)
     const locale = useRouter().locale
-    const releaseDate = format(new Date(release), 'ii MMM y')
+    const releaseDate = format(new Date(release), 'MMMM y')
     return(
         <Table className={style.infoTable} verticalSpacing="xs" striped={true}>
             <thead>

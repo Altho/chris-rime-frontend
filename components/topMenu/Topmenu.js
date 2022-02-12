@@ -154,7 +154,7 @@ export function MenuItems() {
                     <div className={styles.dropbtn}>Bio <span>▼</span></div>
 
                     <div className={styles.dropdownContent}>
-                        <Link href="#">Biographie</Link>
+                        <Link href="/biography">Biographie</Link>
                         <Link href="/albums">Discographie</Link>
                         <Link href="#">Télé/Films</Link>
                         <Link href="#">Jeux vidéos</Link>
