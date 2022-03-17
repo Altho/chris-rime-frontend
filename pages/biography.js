@@ -26,7 +26,7 @@ export default function Biography(){
             <VerticalTimeline>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
-                    contentStyle={{ background: 'rgb(89, 131, 146)', color: '#fff', boxShadow:'none' }}
+                    // contentStyle={{ background: 'rgb(89, 131, 146)', color: '#fff', boxShadow:'none' }}
                     contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
                     date="2011 - present"
                     iconStyle={{ background: 'rgb(33, 150, 243)', color: 'red' }}
@@ -39,7 +39,7 @@ export default function Biography(){
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
-                    contentStyle={{ background: 'rgb(89, 131, 146)', color: '#fff', boxShadow:'none' }}
+                    // contentStyle={{ background: 'rgb(89, 131, 146)', color: '#fff', boxShadow:'none' }}
 
                     date="2010 - 2011"
                     iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}

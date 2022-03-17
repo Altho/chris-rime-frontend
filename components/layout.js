@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 export const siteTitle = 'Chris Rime official'
 
 export default function Layout({ children, home }) {
-    return(<div>
+    return(<div className={'mainDiv'}>
         <Head>
             <link rel="icon" href="/favicon.ico" />
             <meta

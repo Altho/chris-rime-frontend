@@ -51,7 +51,7 @@ export default function  blogList({title, publishedAt, content,children,image,sl
             </Card.Section>
 
             <Group position="apart" style={{ marginBottom: 5, marginTop: 10 }}>
-                <Text weight={500} style={{color:'white', fontFamily:'Orbitron'}}>{title}</Text>
+                <Text weight={500} style={{color:'black', fontFamily:'Orbitron'}}>{title}</Text>
 
             </Group>
 

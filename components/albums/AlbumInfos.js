@@ -2,17 +2,28 @@ import { Table } from '@mantine/core';
 import style from '../../styles/[slug].module.css'
 import {useRouter} from 'next/router'
 import {format} from 'date-fns'
+import { fr, en } from 'date-fns/locale'
+
 
 export default function AlbumInfos({release,label,artists}){
     console.log('album info !!')
     console.log(release, label, artists)
-    const locale = useRouter().locale
-    const releaseDate = format(new Date(release), 'MMMM y')
+    const currentLocale = useRouter().locale
+    const localisation = () => {
+    if(currentLocale === 'fr'){
+        return {locale: fr}
+    }
+    else{
+        return {locale: en}
+    }
+    }
+
+    const releaseDate = format(new Date(release), 'MMMM y', localisation())
     return(
-        <Table className={style.infoTable} verticalSpacing="xs" striped={true}>
+        <Table className={style.infoTable} verticalSpacing="xs" striped>
             <thead>
             <tr>
-            <td className={style.tableTitle}>{locale === 'en' ? ('Release Date :') : ('Date de sortie :')}</td>
+            <td className={style.tableTitle}>{currentLocale === 'en' ? ('Release Date :') : ('Date de sortie :')}</td>
             <td>{releaseDate}</td>
             </tr>
             <tr>
@@ -21,10 +32,10 @@ export default function AlbumInfos({release,label,artists}){
             </tr>
             <tr >
 
-                <td className={style.tableTitle}>{locale === 'en' ? ('Artists :') : ('Artistes :')}</td>
-                    <div >
+                <td className={style.tableTitle}>{currentLocale === 'en' ? ('Artists :') : ('Artistes :')}</td>
+
                         <td >{artists}</td>
-                </div>
+
             </tr>
             </thead>
         </Table>

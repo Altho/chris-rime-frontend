@@ -4,14 +4,18 @@ import Description from "../../components/albums/Description";
 import AlbumInfos from "../../components/albums/AlbumInfos";
 import {MediaSeparator} from "../../components/albums/MediaSeparator";
 import ListenSeparator from "../../components/albums/ListenSeparator"
+import { Divider } from '@mantine/core';
+import { createStyles } from '@mantine/core';
+
 import Media from '../../components/albums/Media'
 import Listen from '../../components/albums/Listen'
-import ErrorPage from 'next/error'
-import {Divider} from '@mantine/core';
 import styles from '../../styles/[slug].module.css'
 import {Image} from '@mantine/core'
 import Reviews from "../../components/reviews";
 import Share from "../../components/social/share"
+import {Menu, MenuButton, MenuItem} from "@szhsin/react-menu";
+import style from "../../styles/[slug].module.css";
+import {useRouter} from "next/router";
 
 export async function getStaticProps({params, locale}) {
     const albumData = await getAlbumData(params.slug, locale)
@@ -23,6 +27,15 @@ export async function getStaticProps({params, locale}) {
         }
     }
 }
+
+const useStyles = createStyles((theme) => ({
+    image: {
+
+        '@media (max-width: 900px)': {
+            width: '100vw',
+        },
+    },
+}));
 
 export async function getStaticPaths({locales}) {
     const fetchAlbums = await fetch(`${process.env.DB_HOST}/api/albums?populate=*&locale=all`)
@@ -41,38 +54,38 @@ export async function getStaticPaths({locales}) {
 export default function AlbumDetails({albumData}) {
 
 
-        const album = albumData['0'].attributes;
-        const albumImage = album.image.data.attributes.url
+    const album = albumData['0'].attributes;
+    const albumImage = album.image.data.attributes.url
 
 
 
 
     return (
-            <Layout>
-                <AlbumTitle name={album.name} image={albumImage}/>
-                <div className={styles.infoContainer}>
+        <Layout>
+            <AlbumTitle name={album.name} image={albumImage} buy={album.buy} digital={album.digital} album={album}/>
+            <div className={styles.infoContainer}>
                 <div className={styles.description}>
-                    <Description description={album.description} auteur={album.descAuteur} buy={album.buy} digital={album.digital} />
+                    <Reviews reviews={album.reviews.data}  />
+
                 </div>
-                <AlbumInfos release={album.date.toString()} label={album.label} artists={album.artistes} />
-                </div>
+            </div>
 
-                <MediaSeparator/>
-                <Reviews reviews={album.reviews.data}  />
+            <MediaSeparator/>
 
-                <Media media={album.video.data}/>
+            <Media media={album.video.data}/>
 
-                <ListenSeparator/>
-                <Share />
 
-                <Listen spotify={album.spotify ? album.spotify : null} apple={album.apple ? album.apple : null} deezer={album.deezer ? album.deezer : null}/>
 
-            </Layout>
-        )
+
+        </Layout>
+    )
 
 }
 
-function AlbumTitle({name, image}) {
+function AlbumTitle({name, image, album, buy, digital}) {
+    const { classes } = useStyles();
+
+    const locale = useRouter().locale;
     const headerStyle = () => ({
             backgroundImage: `url(http://127.0.0.1:1337${image})`,
             backgroundAttachment: 'fixed'
@@ -82,20 +95,46 @@ function AlbumTitle({name, image}) {
     console.log('albumTitle')
     console.log(name)
     return (
-        <div className={styles.titleBackground} style={headerStyle()}>
+        // <div className={styles.titleBackground} style={headerStyle()}>
         <div >
 
             <div className={styles.titleContainer} >
-            <h1 className={styles.albumName} >{name}</h1>
+                <div className={styles.albumHeader}>
+                    <div>
+                        <div className={styles.albumCover}>
+                            <Image className={classes.image}
+                                   src={`${process.env.DB_HOST}${image}`}
+                                   // width={400}
+                                   // height={400}
 
+                            />
+                        </div>
+                        <Listen spotify={album.spotify ? album.spotify : null} apple={album.apple ? album.apple : null} deezer={album.deezer ? album.deezer : null}/>
+
+                    </div>
+                    <div className={styles.albumRightContainer}>
+                        <h1 className={styles.albumName} >{name}</h1>
+
+                        <AlbumInfos release={album.date.toString()} label={album.label} artists={album.artistes} />
+                        <p className={styles.albumDescription}>{album.description}</p>
+                        <div className={styles.buttonContainer}>
+                    <Menu menuButton={<MenuButton className={style.buy}>{locale === 'en' ? ('BUY') : ('ACHETER')}</MenuButton>}>
+                        <MenuItem className={styles.menuItem}>Guitar4Fan (CD)</MenuItem>
+                        <MenuItem className={styles.menuItem}>BandCamp (Digital)</MenuItem>
+                    </Menu>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                {/*</div>*/}
+
+
+            </div>
 
         </div>
-            <Image className={styles.tear} width={'100%'} src={'/images/bg/paper.svg'}/>
-
-
-        </div>
-
-</div>
 
     )
 }

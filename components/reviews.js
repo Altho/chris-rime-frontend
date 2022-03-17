@@ -21,7 +21,11 @@ export default function Reviews({reviews}) {
                 totalSlides={length}
                 infinite
                 isPlaying={true}
-                style={{backgroundColor:'#124559'}}
+                style={{
+                    backgroundColor:'#fff',
+                    width:'100vw'
+
+            }}
             >
 
                 <Slider                 className={style.slide}
@@ -42,7 +46,11 @@ export default function Reviews({reviews}) {
                                 <a href={lien} target={"_blank"}>
 
                                     <Blockquote className={style.quote} styles={{
-                                        body: {color: 'white'},
+                                        body: {
+                                            color: 'white',
+
+
+                                        },
                                     }} cite={`"- ${auteur}"`}>
                                         {content}
 

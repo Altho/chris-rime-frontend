@@ -16,7 +16,7 @@ export default function Presentation(){
             <div className={style.paragraph}>
                 <div className={style.icon}>
                     <Image
-                        src={'/images/icons/lightning.svg'}
+                        src={'/images/icons/acc.svg'}
                         width={50}
                         height={50}
                     />

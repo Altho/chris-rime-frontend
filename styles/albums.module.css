@@ -23,7 +23,7 @@
     transition: 0.5s;
     /*width: 300px;*/
     position: relative;
-    color: black;
+    color: var(--secondary);
     z-index: 1;
 
 }
@@ -32,14 +32,14 @@
     font-family: Orbitron, sans-serif;
     margin: 10px 0 10px 0;
     font-size: 1.2em;
-    color: white;
+    color: var(--secondary);
 
 }
 .capDate{
     font-family: "Montserrat Alternates", sans-serif;
-    color:white;
+    color:var(--secondary);
 }
-.albumCover img:hover{
+.albumCover:hover img{
 
     cursor: pointer;
     transform: scale(1.1);

@@ -8,22 +8,41 @@
     align-items: center;
 }
 
-.albumName{
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-    font-family: "Nanum Gothic", sans-serif;
+.methodinfos{
+    display: flex;
+    /*flex-wrap: wrap;*/
+    background-color: #124559;
 
-    color: white;
+}
+
+.rightcolumn{
+    padding: 50px;
+}
+
+.albumHeader{
+    display: flex;
+    justify-content: space-evenly;
+    -webkit-box-shadow: inset 0px 9px 13px -2px rgba(0,0,0,0.36);
+    box-shadow: inset 0px 9px 13px -2px rgba(0,0,0,0.36);
+    padding-top:50px;
+}
+
+.albumName{
+
+    font-family: "Orbitron", sans-serif;
+    font-size: 2em;
+
+    color: var(--secondary);
     font-weight: bold;
-    border: 3px solid #f1f1f1;
     z-index: 2;
-    width: 80%;
-    padding: 20px;
-    text-align: center;
+    /*width: 80%;*/
+    /*padding: 10px 0 0 20px;*/
+    /*text-align: center;*/
 }
 
 .infoContainer{
     padding:30px 30px 0 30px;
+    color:var(--secondary);
     align-items: flex-start;
     justify-content: space-around;
     gap:20px;
@@ -44,10 +63,21 @@
 
 .listenSeparator{
     background-image: url("/images/bg/tilt.svg");
+    transform: rotate(180deg);
     background-repeat: no-repeat;
     background-position: top;
     min-height: 100px;
     max-height: 100px;
+}
+
+.albumCover {
+    margin-left: 30px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    width:400px;
+}
+
+.albumImage{
+
 }
 
 .blogImage{
@@ -66,15 +96,15 @@
 }
 
 .media{
-    background-color: #124559;
-    width:100%;
-    align-items: center;
-    color: white;
-    display: flex;
-    justify-content: space-evenly;
-    gap:30px;
+    background-color: var(--secondary);
+    /*width:100%;*/
+    /*align-items: center;*/
+    /*color: white;*/
+    /*display: flex;*/
+    /*justify-content: space-evenly;*/
+    /*gap:30px;*/
     padding:30px;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
 }
 .items{
     display: flex;
@@ -89,7 +119,7 @@
 }
 
 .listen{
-    background-color: #01161E;
+    /*background-color: var(--primary);*/
 
 }
 
@@ -98,13 +128,24 @@
     height:200px;
 }
 
+.albumRightContainer{
+    padding:0 50px;
+}
+
+.albumDescription{
+    color:var(--secondary);
+    padding-top: 20px;
+    font-family: "Montserrat Alternates", sans-serif;
+    line-height: 1.5;
+}
+
 .infoTable{
     margin-top : 16px;
-    max-width : 30%;
+    max-width : 100%;
+    max-height:200px;
     flex-shrink: 0;
     background-color: rgba(255,255,255, 0.3);
-    border-radius: 20px 0 20px 0;
-    color:white;
+    color: var(--secondary);
     font-family: "Nanum Gothic", sans-serif;
     margin-bottom: 10px;
 }
@@ -112,6 +153,7 @@
 .tableTitle{
     font-family: Orbitron, sans-serif;
     font-size: 1.1em;
+    color: var(--accent2)
 
 }
 
@@ -130,10 +172,15 @@
 }
 
 .buy{
-    width:60%;
-    height:80px;
+    width:30%;
+    min-width: 250px;
+    height:60px;
     margin:20px;
-    background-color: #AEC3B0;
+    background-color: var(--accent);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     color:black;
     font-size: 2.5vw;
     font-family: Orbitron, sans-serif;
@@ -155,23 +202,27 @@
 }
 
 .buy:hover{
-    background-color: #648868;
+cursor: pointer;
+}
+
+.menuItem{
+    height:50px;
+    color:black;
+    width: 350px;
+    font-size: 2em;
 }
 
 .infoTable td{
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid var(--accent2);
     padding: 10px;
 }
 
-.titleContainer{
+.titleContainer {
     width: 100%;
-    height:30vh;
     margin-top: 75px;
     background-size: cover;
     background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
 }
 
 .tear{
@@ -204,7 +255,7 @@
     }
     .infoTable{
 
-        max-width : 70%;
+        /*max-width : 70%;*/
     }
     .player{
         width : 100%;
@@ -214,28 +265,61 @@
 
 @media  (max-width: 900px) {
 
+
+    .albumDescription{
+
+        padding: 20px 10px;
+
+    }
+
+    .albumName{
+        padding: 0 10px;
+    }
+    .albumCover{
+        padding: 0;
+        width:100vw;
+        margin-left: 0;
+    }
+
+    .albumHeader{
+        flex-wrap: wrap;
+        padding-top: 0;
+    }
+
+
+
+    .methodinfos{
+
+        flex-wrap: wrap;
+
+    }
+
     .infoContainer{
         padding:0;
     }
 
     .infoTable {
         border-radius: 0;
-        background-color: #01161E;
         max-width: 100%;
+        padding: 0 30px;
     }
 
-    .infoTable tr{
-        border-bottom:0;
-        border-top: 1px solid grey;
-    }
+    /*.infoTable tr{*/
+    /*    border-bottom:0;*/
+    /*    border-top: 1px solid grey;*/
+    /*}*/
     .buttonContainer{
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
     }
 
+    .albumRightContainer{
+        padding: 0;
+    }
+
     .tableTitle {
-        min-width: 30vw;
+        /*min-width: 30vw;*/
     }
 
     .items{

@@ -12,17 +12,19 @@ width:20%;
 }
 
 .quote{
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.7);
     margin: 30px;
     border-radius: 25px;
     transition: 0.2s;
+    max-height: 350px;
+    overflow: scroll;
 
 }
 
 .quote:hover{
 
-    background-color: rgba(0,0,0,0.2);
-
+    background-color: rgba(0,0,0,0.8);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     transition: 0.2s;
 }
 
@@ -47,7 +49,7 @@ width:20%;
 }
 
 .slide{
-    background-color: #124559;
+    background-color: var(--secondary);
     background: url("/images/bg/waves.svg");
     background-position: center;
     background-size: contain;
@@ -88,6 +90,7 @@ width:20%;
 .carroussel{
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .transitionExitActive {
@@ -99,11 +102,11 @@ width:20%;
   .dotsContainer{
       display: none;
   }
-    .quote{
-        background-color: rgba(0,0,0,0.3);
-        margin: 0;
-        border-radius: 0;
-        transition: 0.2s;
+    /*.quote{*/
+    /*    background-color: rgba(0,0,0,0.3);*/
+    /*    margin: 0;*/
+    /*    border-radius: 0;*/
+    /*    transition: 0.2s;*/
 
-    }
+    /*}*/
 }

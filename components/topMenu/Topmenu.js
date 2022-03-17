@@ -11,11 +11,11 @@ import ListenSeparator from "../albums/ListenSeparator";
 const drawerStyles = {
 
     drawer: {
-        backgroundColor: '#01161E',
+        backgroundColor: 'fff',
 
     },
     header: {
-        backgroundColor: '#124559',
+        backgroundColor: 'black',
         margin: '0px'
     },
     closeButton: {
@@ -24,7 +24,7 @@ const drawerStyles = {
         height:'40px'
     },
     body:{
-        color:'white'
+        color:'black'
     }
 
 
@@ -32,7 +32,6 @@ const drawerStyles = {
 
 
 export default function TopMenu() {
-    const [scrolled, setScrolled] = useState(false);
     const [opened, setOpened] = useState(false);
 
 

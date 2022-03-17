@@ -9,10 +9,10 @@ const label = {
     label: {
         fontFamily: 'Orbitron, sans serif',
         fontSize: '2em',
-        color:'white'
+        color:'black'
     },
     content: {
-        color:'white'
+        color:'black'
     },
 
 
@@ -22,25 +22,36 @@ export default function MobileMenu() {
     const locale = useRouter().locale;
     return (
         <div>
-        <ListenSeparator />
             {locale === 'en' ? (
                 <Accordion >
                     <Accordion.Item  classNames={{
 
                         itemTitle: styles.label
 
-                    }} styles={label} label="Biography">
-                        Colors, fonts, shadows and many other parts are customizable to fit your design needs
+                    }} styles={label} label="Work">
+                        <div className={styles.mobileMenuContainer}>
+                            <div className={styles.mobileMenuItem}><a href={'/biography'}>Biography</a></div>
+                            <div className={styles.mobileMenuItem}><a href={'/albums'}>Albums</a></div>
+                            <div className={styles.mobileMenuItem}><a href={'/biography'}>Cinema/TV</a></div>
+                            <div className={styles.mobileMenuItem}><a href={'/biography'}>Video Games</a></div>
+                        </div>
+
                     </Accordion.Item>
 
                     <Accordion.Item styles={label} label="Media">
-                        Configure components appearance and behavior with vast amount of settings or overwrite any part
-                        of component styles
+                        <div className={styles.mobileMenuContainer}>
+                            <div className={styles.mobileMenuItem}><a href={'/media/videos'}>Videos</a></div>
+                            <div className={styles.mobileMenuItem}><a href={'/media/gallery'}>photos</a></div>
+                            <div className={styles.mobileMenuItem}><a href={'/media/music'}>Music</a></div>
+                        </div>
                     </Accordion.Item>
 
                     <Accordion.Item styles={label} label="Pedagogy">
-                        With new :focus-visible pseudo-class focus ring appears only when user navigates with keyboard
-                    </Accordion.Item>
+                        <div className={styles.mobileMenuContainer}>
+                            <div className={styles.mobileMenuItem}><a href={'/methods'}>Methods</a></div>
+                            <div className={styles.mobileMenuItem}><a href={'/internet'}>Internet</a></div>
+                            <div className={styles.mobileMenuItem}><a href={'/publications'}>Publications</a></div>
+                        </div>                    </Accordion.Item>
                 </Accordion>
             ) : (
                 <Accordion>
