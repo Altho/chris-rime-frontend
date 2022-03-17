@@ -35,7 +35,8 @@ export default function DisplayPdf({url}){
                 file={`${process.env.DB_HOST}${url}`}
                 onLoadSuccess={onDocumentLoadSuccess}
             >
-                <Page pageNumber={pageNumber} className={styles.page} />
+                <Page                 width={400}
+                                      pageNumber={pageNumber} className={styles.page} />
                 <div className={styles.navbar}>
 
                     <button

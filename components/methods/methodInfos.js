@@ -32,9 +32,8 @@ export default function MethodInfos({release,publisher,pages}){
             <tr >
 
                 <td className={style.tableTitle}>Pages :</td>
-                <div >
+
                     <td >{pages}</td>
-                </div>
             </tr>
             </thead>
         </Table>

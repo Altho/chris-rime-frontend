@@ -19,7 +19,7 @@
 }
 
 .fitting{
-  padding:80px;
+  padding:50px;
   width: 100%;
 }
 
@@ -58,9 +58,14 @@ padding:35px;
   transform: rotate(180deg);
 }
 
+.shortBio a{
+  color:white;
+}
+
 .shortBio{
 
   background-image: url("/images/bg/bio.jpg");
+  color:white;
   background-position: top;
   background-size: cover;
   background-attachment: fixed;
@@ -72,6 +77,7 @@ padding:35px;
 .albumGallery{
   display: flex;
   padding: 30px;
+  min-height: 100vh;
   background-color: var(--primary);
   justify-content: space-evenly;
   margin-top: 75px;
@@ -79,7 +85,35 @@ padding:35px;
 }
 
 
+.buttonContainer{
+  display: flex;
+  margin-top:20px;
+  justify-content: flex-end;
+  padding: 0 20px;
+}
 
+.bioButton{
+  /*height:30px;*/
+  background-color: transparent;
+  font-family: Orbitron,sans-serif;
+  border: 2px solid white;
+  padding: 5px;
+  color : var(--primary);
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: 0.3s;
+
+}
+
+.bioButton:hover{
+  background-color: white;
+  /*color:black;*/
+  transition: 0.3s;
+}
+
+.bioButton:hover a{
+  color:black
+}
 
 
 .footer {
@@ -90,8 +124,9 @@ padding:35px;
   /*border-top: 1px solid #eaeaea;*/
   justify-content: center;
   align-items: center;
-  position: absolute;
-  /*bottom:0;*/
+  /*position: absolute;*/
+  height: 50px;
+  bottom:0;
   width: 100%;
   border-top: 1px solid var(--accent)
 }

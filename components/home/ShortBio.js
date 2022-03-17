@@ -1,8 +1,11 @@
 import style from '../../styles/Home.module.css'
 import {Blockquote} from "@mantine/core";
 import BioSeparator from "./BioSeparator";
+import {useRouter} from "next/router";
+import Link from 'next/link'
 
 export default function ShortBio() {
+    const locale = useRouter().locale;
     return (
         <div>
         <div  className={style.shortBio}>
@@ -15,7 +18,9 @@ export default function ShortBio() {
                 se produit de manière régulière dans les clubs de jazz parisiens. La majorité à peine acquise, il
                 traverse l'atlantique pour s'inscrire au mythique Berklee College of Music.
             </Blockquote>
-
+                    <div className={style.buttonContainer}>
+                        <div className={style.bioButton}> <Link className={style.link} href={'/biography'}>{locale === 'en' ?('Read more') : ('En savoir plus')}</Link></div>
+                    </div>
             </div>
                 <BioSeparator/>
             </div>

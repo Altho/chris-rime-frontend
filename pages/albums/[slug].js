@@ -86,14 +86,6 @@ function AlbumTitle({name, image, album, buy, digital}) {
     const { classes } = useStyles();
 
     const locale = useRouter().locale;
-    const headerStyle = () => ({
-            backgroundImage: `url(http://127.0.0.1:1337${image})`,
-            backgroundAttachment: 'fixed'
-
-        })
-    ;
-    console.log('albumTitle')
-    console.log(name)
     return (
         // <div className={styles.titleBackground} style={headerStyle()}>
         <div >

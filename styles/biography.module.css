@@ -1,7 +1,22 @@
 .bioHeader{
     margin-top: 75px;
-    height:40vh;
+    padding: 50px;
+    display: flex;
 
+
+}
+
+.bioHeader h1{
+    font-size: 2em;
+    margin-top:-10px;
+    font-family: Orbitron,sans-serif;
+    padding-bottom: 20px;
+}
+
+
+
+.mainImage{
+    width:300px;
 }
 
 .biobg{
@@ -23,24 +38,29 @@
     background-position: bottom;
 }
 
-.biotext{
-    font-family: "Montserrat Alternates",sans-serif;
-
-    background-color: rgba(0,0,0,0.4);
-    position: absolute;
-    padding: 20px 50px 20px 50px;
-    overflow: scroll;
-    max-height: 40vh;
-    top: 75px;
-    /*left: 50%;*/
-    z-index: 1;
+.bioText{
+    font-family: "Nanum Gothic",sans-serif;
+    flex-shrink: 10;
+    line-height: 1.5;
+    padding: 0 50px 20px 50px;
+    color : var(--secondary)
 }
+
+.bioText p {
+    padding: 0 0 20px 0;
+}
+
+
 
 @media  (max-width: 900px) {
 
     .bioHeader {
 
-        background-position: center;
-        /*background-size: cover;*/
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .bioText{
+        padding: 30px 10px 10px 10px;
     }
 }

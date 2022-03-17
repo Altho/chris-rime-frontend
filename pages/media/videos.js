@@ -114,7 +114,11 @@ export default function Videos({videos, pedaguo, album,jeu, guest, albumList}){
     console.log(pedaguo)
     return(
         <Layout>
-            <div style={{backgroundColor:'#fff'}}>
+            <div style={{
+
+                backgroundColor:'#fff',
+                minHeight:'100vh'
+            }}>
             <VideoGrid videos={videos} pedaguo={pedaguo} album={album} jeu={jeu} guest={guest} albumList={albumList} />
             </div>
         </Layout>

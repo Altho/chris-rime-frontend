@@ -175,7 +175,7 @@ export function MenuItems() {
                     <div className={styles.dropbtn}>Pédagogie <span>▼</span></div>
 
                     <div className={styles.dropdownContent}>
-                        <Link href="#">Méthodes</Link>
+                        <Link href="/methods">Méthodes</Link>
                         <Link href="#">Internet</Link>
                         <Link href="#">Journaux</Link>
                     </div>

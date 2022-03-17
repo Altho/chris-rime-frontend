@@ -76,6 +76,7 @@ width: 340px;
 .blogPost{
     padding:50px 20% 50px 20%;
     background-color: var(--primary);
+    color:var(--secondary);
     line-height: 2;
     font-family: "Nanum Gothic",sans-serif;
     border-top:2px black solid;
@@ -93,6 +94,7 @@ width: 340px;
 
 .blogTitle{
     font-family: Orbitron, sans-serif;
+    color:var(--accent);
     padding: 30px 30px 20px 30px;
     display: flex;
     justify-content: center;
@@ -144,6 +146,13 @@ width: 340px;
     }
     .blogPost {
         padding:20px;
+    }
+
+    .blogPost::first-letter{
+        display: block;
+
+        font-size: 300%;
+        color: red;
     }
 
 }
