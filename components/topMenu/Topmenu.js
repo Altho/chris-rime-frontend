@@ -60,7 +60,7 @@ export default function TopMenu() {
 
 
     return (
-        <nav className={`${styles.menu}`}>
+        <nav className={styles.menu}>
             <Link href={'/'}>
                 <div className={styles.logoContainer}>
                     <div className={styles.logo}>Chris Rime<Image
@@ -150,19 +150,19 @@ export function MenuItems() {
         return (
             <div>
                 <div className={styles.dropdown}>
-                    <div className={styles.dropbtn}>Bio <span>▼</span></div>
+                    <div className={styles.dropbtn}>Bio</div>
 
                     <div className={styles.dropdownContent}>
                         <Link href="/biography">Biographie</Link>
                         <Link href="/albums">Discographie</Link>
                         <Link href="#">Télé/Films</Link>
-                        <Link href="#">Jeux vidéos</Link>
+                        <Link href="/games">Jeux vidéos</Link>
 
 
                     </div>
                 </div>
                 <div className={styles.dropdown}>
-                    <div className={styles.dropbtn}>Média <span>▼</span></div>
+                    <div className={styles.dropbtn}>Média</div>
 
                     <div className={styles.dropdownContent}>
                         <Link href="/media/videos">Vidéos</Link>
@@ -172,7 +172,7 @@ export function MenuItems() {
 
                 </div>
                 <div className={styles.dropdown}>
-                    <div className={styles.dropbtn}>Pédagogie <span>▼</span></div>
+                    <div className={styles.dropbtn}>Pédagogie</div>
 
                     <div className={styles.dropdownContent}>
                         <Link href="/methods">Méthodes</Link>
@@ -189,7 +189,5 @@ export function MenuItems() {
             </div>
         )
     }
-    console.log(enMenu())
-    console.log(frMenu())
     return router.locale === 'en' ? enMenu() : frMenu();
 }

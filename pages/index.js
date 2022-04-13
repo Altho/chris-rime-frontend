@@ -15,43 +15,132 @@ import TopMenu from "../components/topMenu/Topmenu";
 import BlogContainer from '../components/blog/blogContainer'
 import {format} from 'date-fns'
 import {getDomainLocale} from "next/dist/shared/lib/router/router";
+import { parseCookies, setCookie }  from 'nookies'
+
+import qs from "qs";
 
 
-export async function getStaticProps({locale}) {
-const blogs = await getBlogPosts({locale});
-
-  return {
-
-    props: {
-      blogs
 
 
-    }
-  }
+export default function Home({blogs}) {
+
+    return (
+
+        <Layout>
+            <Head>
+                <title>{siteTitle}</title>
+
+            </Head>
+
+            <Jumbotron/>
+            <main className={styles.main}>
+                <BlogContainer blogs={blogs}/>
+                <ShortBio/>
+                <Presentation/>
+                <ListenSeparator/>
+                <div className={styles.mainVideo}>
+                    <ReactPlayer url={'https://www.youtube.com/watch?v=dmMRsHp725s'} width={'100%'} height={'100%'} controls/>
+                </div>
+            </main>
+
+
+        </Layout>
+    )
 }
 
-export default function Home({blogs}, locale) {
-console.log(`Current locale is : ${{locale}}`)
-  return (
+export async function getServerSideProps({locale}, ctx) {
 
-    <Layout>
-      <Head>
-        <title>{siteTitle}</title>
+    const jwt = parseCookies(ctx).jwt
+    if (jwt) {
 
-      </Head>
+        // get posts from strapi REST API
 
-      <Jumbotron/>
-      <main className={styles.main}>
-          <BlogContainer blogs={blogs}/>
-          <ShortBio/>
-          <Presentation/>
-          <ListenSeparator/>
-          <div className={styles.mainVideo}>
-            <ReactPlayer url={'https://www.youtube.com/watch?v=dmMRsHp725s'} width={'100%'} height={'100%'} controls/>
-          </div>
-      </main>
+        const query = qs.stringify({
+            sort: ['publishedAt:desc'],
+        }, {
+            encodeValuesOnly: true,
+        });
+
+        const fetchBlog = await fetch(`${process.env.DB_HOST}/api/blogs?locale=${locale}&${query}&populate=*`,{
+            headers: {
+
+                Authorization: `Bearer ${jwt}`
+            }
+        })
+        const blogPost = await fetchBlog.json()
+        console.log(blogPost)
+        const blogs = blogPost.data.slice(0,3)
+
+        return {
+
+            props: {
+                blogs,
 
 
-    </Layout>
-  )
+
+            }
+        }
+    }
+
+
+    const loginData = {
+
+        identifier: process.env.DB_EMAIL,
+
+        password: process.env.DB_PASSWORD,
+
+    };
+
+    const login = await fetch(`${process.env.DB_HOST}/api/auth/local`, {
+
+        method: 'POST',
+
+        headers: {
+
+            Accept: 'application/json',
+
+            'Content-Type': 'application/json',
+
+        },
+
+        body: JSON.stringify(loginData),
+
+    });
+
+    const loginResponseData = await login.json();
+
+    setCookie(ctx, 'jwt', loginResponseData.jwt, {
+
+        maxAge: 30 * 24 * 60 * 60,
+
+        path: '/',
+
+    })
+
+    const query = qs.stringify({
+        sort: ['publishedAt:desc'],
+    }, {
+        encodeValuesOnly: true,
+    });
+
+    const fetchBlog = await fetch(`${process.env.DB_HOST}/api/blogs?locale=${locale}&${query}&populate=*`,{
+        headers: {
+
+            Authorization: `Bearer ${loginResponseData.jwt}`
+        }
+    })
+    const blogPost = await fetchBlog.json()
+    console.log(blogPost)
+    const blogs = blogPost.data.slice(0,3)
+
+    return {
+
+        props: {
+            blogs,
+
+
+        }
+
+    }
+
 }

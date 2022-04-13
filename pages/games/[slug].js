@@ -1,7 +1,7 @@
 import Layout from "../../components/layout";
-import {getMethodData} from "../../libs/fetchMethods";
+import {getGamesData} from "../../libs/fetchGames";
 import Description from "../../components/albums/Description";
-import MethodInfos from "../../components/methods/methodInfos";
+import GameInfos from "../../components/games/gameInfos";
 import {MediaSeparator} from "../../components/albums/MediaSeparator";
 import ListenSeparator from "../../components/albums/ListenSeparator"
 import { createStyles } from '@mantine/core';
@@ -15,8 +15,8 @@ import {useRouter} from "next/router";
 import AlbumInfos from "../../components/albums/AlbumInfos";
 import {Menu, MenuButton, MenuItem} from "@szhsin/react-menu";
 import style from "../../styles/[slug].module.css";
+import Media from "../../components/albums/Media";
 import {parseCookies, setCookie} from "nookies";
-
 
 const useStyles = createStyles((theme) => ({
     image: {
@@ -30,18 +30,20 @@ const useStyles = createStyles((theme) => ({
 
 export async function getServerSideProps({query, locale}, ctx) {
     const jwt = parseCookies(ctx).jwt
-   if(jwt){
-       const methodData = await getMethodData(query.slug, locale)
-
-       return {
-           props: {
-               methodData
-           }
 
 
-       }
+    if (ctx) {
+        const gameData = await getGamesData(params.slug, locale, jwt)
 
-   }
+        return {
+            props: {
+                gameData
+            },
+
+
+        }
+
+    }
 
     const loginData = {
 
@@ -77,14 +79,12 @@ export async function getServerSideProps({query, locale}, ctx) {
 
     })
 
-
-    const methodData = await getMethodData(query.slug, locale, loginResponseData.jwt)
+    const gameData = await getGamesData(query.slug, locale, loginResponseData.jwt)
 
     return {
         props: {
-            methodData
-        }
-
+            gameData
+        },
 
     }
 
@@ -93,28 +93,27 @@ export async function getServerSideProps({query, locale}, ctx) {
 
 
 
-export default function methodDetails({methodData}) {
+export default function gameDetails({gameData}) {
 
 
-    const method = methodData['0'].attributes;
-    const methodImage = method.cover.data['0'].attributes.url
-    const preview = method.preview.data.attributes.url
-    console.log(method.reviews)
+    const game = gameData['0'].attributes;
+    const gameImage = game.image.data.attributes.url
 
 
 
 
     return (
         <Layout>
-            <MethodTitle name={method.name} image={methodImage} method={method} preview={preview}/>
-            <Reviews reviews={method.reviews.data}  />
+            <GameTitle name={game.name} image={gameImage} game={game} />
 
             <div className={styles.infoContainer}>
                 <div className={styles.description}>
                 </div>
             </div>
 
+            <MediaSeparator/>
 
+            <Media media={game.videos.data}/>
             <Share />
 
 
@@ -123,8 +122,10 @@ export default function methodDetails({methodData}) {
 
 }
 
-function MethodTitle({name, image, method, preview}) {
+function GameTitle({name, image, game}) {
     const { classes } = useStyles();
+    console.log('---GAME---')
+    console.log(game)
 
     const locale = useRouter().locale;
     return (
@@ -135,7 +136,12 @@ function MethodTitle({name, image, method, preview}) {
                 <div className={styles.albumHeader}>
                     <div>
                         <div className={styles.albumCover}>
-                            <DisplayPdf url={preview} />
+                            <Image className={classes.image}
+                                   src={`${process.env.DB_HOST}${image}`}
+                                // width={400}
+                                // height={400}
+
+                            />
 
                         </div>
 
@@ -143,13 +149,8 @@ function MethodTitle({name, image, method, preview}) {
                     <div className={styles.albumRightContainer}>
                         <h1 className={styles.albumName} >{name}</h1>
 
-                        <MethodInfos release={method.date.toString()} publisher={method.publisher} pages={method.pages} />                        <p className={styles.albumDescription}>{method.description}</p>
-                        <div className={styles.buttonContainer}>
-                            <Menu menuButton={<MenuButton className={style.buy}>{locale === 'en' ? ('BUY') : ('ACHETER')}</MenuButton>}>
-                                <MenuItem className={styles.menuItem}>Guitar4Fan (CD)</MenuItem>
-                                <MenuItem className={styles.menuItem}>BandCamp (Digital)</MenuItem>
-                            </Menu>
-                        </div>
+                        <GameInfos release={game.release.toString()} publisher={game.publisher} developper={game.developper} genre={game.genre} platforms={game.plateformes} />                        <p className={styles.albumDescription}>{game.description}</p>
+
                     </div>
 
                 </div>

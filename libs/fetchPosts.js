@@ -9,13 +9,13 @@ export async function getBlogPosts({locale}){
     });
 
     console.log(locale)
-    const fetchBlog = await fetch(`http://127.0.0.1:1337/api/blogs?locale=${locale}&${query}&populate=*`)
+    const fetchBlog = await fetch(`${process.env.DB_HOST}/api/blogs?locale=${locale}&${query}&populate=*`)
     const blogPost = await fetchBlog.json()
     console.log(blogPost.data)
     return blogPost.data.slice(0,3)
 }
 
-export async function getPostData(slug,locale) {
+export async function getPostData(slug,locale,jwt) {
     const query = qs.stringify({
         filters: {
             slug: {
@@ -29,7 +29,13 @@ export async function getPostData(slug,locale) {
     console.log(query)
     console.log('locale!!!')
     console.log(locale)
-    const post = await fetch(`http://127.0.0.1:1337/api/blogs/?locale=${locale}&${query}&populate=*`)
+    const post = await fetch(`${process.env.DB_HOST}/api/blogs?locale=${locale}&${query}&populate=*`,
+        {
+            headers: {
+
+                Authorization: `Bearer ${jwt}`
+            }
+        }  )
     const postData = await post.json()
     console.log('post query !')
     console.log(postData.data)
@@ -40,4 +46,3 @@ export async function getPostData(slug,locale) {
         ...postData.data
     }
 }
-

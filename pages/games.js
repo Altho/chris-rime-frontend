@@ -1,13 +1,29 @@
 import styles from '../styles/Home.module.css'
-import  {getAlbums} from '../libs/fetchAlbums';
+import  {getGames} from '../libs/fetchGames';
 import Layout, {siteTitle} from "../components/layout";
-import ShowAlbums from "../components/albums/showAlbums";
-import Album from '../components/albums/Album'
+import ShowGames from "../components/games/ShowGames";
 import {SimpleGrid} from "@mantine/core";
+import { parseCookies, setCookie }  from 'nookies'
 
 
 
-export async function getStaticProps({locale}, ctx) {
+
+export async function getServerSideProps({locale}, ctx) {
+    const jwt = parseCookies(ctx).jwt
+
+    if (jwt) {
+
+        const games = await getGames({locale}, jwt)
+        return {
+
+            props: {
+                games
+
+
+            },
+        }
+    }
+
     const loginData = {
 
         identifier: process.env.DB_EMAIL,
@@ -33,18 +49,28 @@ export async function getStaticProps({locale}, ctx) {
     });
 
     const loginResponseData = await login.json();
-    const albums = await getAlbums({locale}, loginResponseData.jwt)
+
+    setCookie(ctx, 'jwt', loginResponseData.jwt, {
+
+        maxAge: 30 * 24 * 60 * 60,
+
+        path: '/',
+
+    })
+
+    const games = await getGames({locale}, loginResponseData.jwt)
     return {
 
         props: {
-            albums
+            games
 
 
-        }
+        },
     }
+
 }
 
-export default function Albums({albums}){
+export default function Games({games}){
     return(
         <Layout>
 
@@ -56,7 +82,7 @@ export default function Albums({albums}){
                                 { maxWidth: 755, cols: 2, spacing: 'sm' },
                                 { maxWidth: 600, cols: 1, spacing: 'sm' },
                             ]}>
-                    <ShowAlbums albums={albums}/>
+                    <ShowGames games={games}/>
                 </SimpleGrid>
             </div>
 

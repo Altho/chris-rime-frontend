@@ -13,34 +13,75 @@ import ErrorPage from 'next/error'
 import {Divider} from '@mantine/core';
 import styles from '../../styles/[slug].module.css'
 import {Image} from '@mantine/core'
+import { parseCookies, setCookie }  from 'nookies'
+import qs from "qs";
 
 
-export async function getStaticProps({params, locale}) {
-    const postData = await getPostData(params.slug, locale)
-    console.log('albumDATA')
-    console.log(postData)
+
+export async function getServerSideProps({query, locale}, ctx) {
+    const jwt = parseCookies(ctx).jwt
+
+    if (jwt) {
+        const postData = await getPostData(query.slug, locale, jwt)
+        console.log('albumDATA')
+        console.log(postData)
+        return {
+            props: {
+                postData
+            }
+        }
+
+
+    }
+
+
+    const loginData = {
+
+        identifier: process.env.DB_EMAIL,
+
+        password: process.env.DB_PASSWORD,
+
+    };
+
+    const login = await fetch(`${process.env.DB_HOST}/api/auth/local`, {
+
+        method: 'POST',
+
+        headers: {
+
+            Accept: 'application/json',
+
+            'Content-Type': 'application/json',
+
+        },
+
+        body: JSON.stringify(loginData),
+
+    });
+
+    const loginResponseData = await login.json();
+
+    setCookie(ctx, 'jwt', loginResponseData.jwt, {
+
+        maxAge: 30 * 24 * 60 * 60,
+
+        path: '/',
+
+    })
+
+
+
+    const postData = await getPostData(query.slug, locale, loginResponseData.jwt)
     return {
         props: {
             postData
         }
     }
+
+
 }
 
-export async function getStaticPaths({locales}) {
-    const fetchPosts = await fetch('http://127.0.0.1:1337/api/blogs?populate=*&locale=all')
-    const postsData = await fetchPosts.json();
-    const posts = postsData.data
-    console.log('!!Posts')
-    console.log(posts)
 
-    const paths = posts.map((post) => locales.map((locale) => ({
-        params: {slug: post.attributes.slug},
-        locale
-    })))
-        .flat()
-
-    return {paths, fallback: false}
-}
 
 export default function postsDetails({postData}) {
 

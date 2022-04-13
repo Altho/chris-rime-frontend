@@ -48,17 +48,17 @@ export default function Albums({albums}){
     return(
         <Layout>
 
-            <div className={styles.albumGallery}>
-                <SimpleGrid cols={4}
-                            spacing="lg"
-                            breakpoints={[
-                                { maxWidth: 980, cols: 3, spacing: 'md' },
-                                { maxWidth: 755, cols: 2, spacing: 'sm' },
-                                { maxWidth: 600, cols: 1, spacing: 'sm' },
-                            ]}>
+                <div className={styles.albumGallery}>
+                    <SimpleGrid cols={4}
+                                spacing="lg"
+                                breakpoints={[
+                                    { maxWidth: 980, cols: 3, spacing: 'md' },
+                                    { maxWidth: 755, cols: 2, spacing: 'sm' },
+                                    { maxWidth: 600, cols: 1, spacing: 'sm' },
+                                ]}>
                     <ShowAlbums albums={albums}/>
-                </SimpleGrid>
-            </div>
+                    </SimpleGrid>
+                </div>
 
 
             <footer className={styles.footer}>

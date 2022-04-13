@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "buildfetch.js",
     "start": "next start",
     "lint": "next lint"
   },
@@ -20,9 +20,11 @@
     "date-fns": "^2.28.0",
     "dompurify": "^2.3.4",
     "isomorphic-dompurify": "^0.17.0",
+    "isomorphic-fetch": "^3.0.0",
     "marked": "^4.0.9",
     "material-design-icons": "^3.0.1",
     "next": "^12.1.0",
+    "nookies": "^2.5.2",
     "pdf-viewer-reactjs": "^2.2.3",
     "pure-react-carousel": "^1.28.0",
     "qs": "^6.10.3",

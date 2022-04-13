@@ -4,15 +4,84 @@ import style from '../../styles/gallery.module.css'
 import Layout from '/components/layout'
 import {useState} from "react";
 import qs from 'qs'
+import { parseCookies, setCookie }  from 'nookies'
 
 
-export async function getStaticProps(){
+
+export async function getServerSideProps(ctx){
+    const jwt = parseCookies(ctx).jwt
+
+    if(jwt) {
+        const query = qs.stringify({
+            sort: ['publishedAt:desc'],
+        }, {
+            encodeValuesOnly: true,
+        });
+        const fetchPhotos = await fetch(`${process.env.DB_HOST}/api/photos?${query}&populate=*`, {
+            headers: {
+
+                Authorization: `Bearer ${jwt}`
+            }
+        })
+        const photoData = await fetchPhotos.json()
+        const photos = photoData.data['0'].attributes.image.data
+
+
+        return {
+
+            props: {
+                photos
+
+
+            }
+        }
+    }
+
+    const loginData = {
+
+        identifier: process.env.DB_EMAIL,
+
+        password: process.env.DB_PASSWORD,
+
+    };
+
+    const login = await fetch(`${process.env.DB_HOST}/api/auth/local`, {
+
+        method: 'POST',
+
+        headers: {
+
+            Accept: 'application/json',
+
+            'Content-Type': 'application/json',
+
+        },
+
+        body: JSON.stringify(loginData),
+
+    });
+
+    const loginResponseData = await login.json();
+
+    setCookie(ctx, 'jwt', loginResponseData.jwt, {
+
+        maxAge: 30 * 24 * 60 * 60,
+
+        path: '/',
+
+    })
+
     const query = qs.stringify({
         sort: ['publishedAt:desc'],
     }, {
         encodeValuesOnly: true,
     });
-    const fetchPhotos = await fetch(`http://127.0.0.1:1337/api/photos?${query}&populate=*`)
+    const fetchPhotos = await fetch(`${process.env.DB_HOST}/api/photos?${query}&populate=*`, {
+        headers: {
+
+            Authorization: `Bearer ${loginResponseData.jwt}`
+        }
+    })
     const photoData = await fetchPhotos.json()
     const photos = photoData.data['0'].attributes.image.data
 
@@ -23,8 +92,7 @@ export async function getStaticProps(){
             photos
 
 
-        },
-        revalidate: 10,
+        }
     }
 }
 
@@ -67,7 +135,7 @@ export default function Gallery({photos}){
                 columnClassName={style.grid_column}>
                 {photos.map(({attributes : image})=>{
                     return(
-                        <Image onClick={() => handleClick(`http://localhost:1337${image.url}`)} src={`http://localhost:1337${image.url}`}/>
+                        <Image onClick={() => handleClick(`${process.env.DB_HOST}${image.url}`)} src={`${process.env.DB_HOST}${image.url}`}/>
                     )
                 })}
             </Masonry>

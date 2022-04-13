@@ -117,18 +117,41 @@ padding:35px;
 
 
 .footer {
+  flex-wrap: wrap;
   display: flex;
   flex: 1;
   background-color: var(--secondary);
-  padding: 10px 2% 10px 2% ;
+  padding: 10px 30px 10px 30px ;
   /*border-top: 1px solid #eaeaea;*/
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  /*position: absolute;*/
-  height: 50px;
+  position: absolute;
+  min-height: 50px;
   bottom:0;
   width: 100%;
   border-top: 1px solid var(--accent)
+}
+
+.socialIcon{
+  transition: 0.3s;
+}
+
+.footerItem{
+  display: flex;
+  align-items: flex-start;
+
+}
+
+.socialIcon:hover{
+  transform: rotate(360deg);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.social{
+  margin-left:auto;
+  display: flex;
+  gap:10px;
 }
 
 
@@ -143,6 +166,7 @@ padding:35px;
 .copyright{
   display: flex;
   justify-content: space-between;
+  gap:10px;
 }
 
 .copyright a {
@@ -261,6 +285,33 @@ padding:35px;
 @media (max-width: 900px) {
   .presentationContainer{
     flex-wrap: wrap;
+  }
+
+  .footer{
+    /*justify-content: center;*/
+    bottom:-70px;
+  }
+
+  .footer a{
+    justify-content: start;
+  }
+  .copyright{
+    display: block;
+  }
+  .footerItem{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px;
+    width:100%;
+
+  }
+
+
+
+  .social{
+    padding-top: 20px;
+width: 100%;
+    justify-content: center;
   }
   .paragraph{
     padding : 20px 50px 20px 50px;

@@ -24,7 +24,9 @@ export default function Layout({ children, home }) {
         </Head>
 
     <TopMenu />
+            <div className={'container'}>
     {children}
+            </div>
             <Footer/>
     </div>
 

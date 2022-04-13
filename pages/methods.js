@@ -3,19 +3,68 @@ import  {getMethods} from '../libs/fetchMethods';
 import Layout, {siteTitle} from "../components/layout";
 import ShowMethods from "../components/methods/ShowMethods";
 import {SimpleGrid} from "@mantine/core";
+import {parseCookies, setCookie} from "nookies";
 
 
 
-export async function getStaticProps({locale}) {
-    const methods = await getMethods({locale})
+export async function getServerSideProps({locale}, ctx) {
+    const jwt = parseCookies(ctx).jwt
+
+    if (jwt) {
+        const methods = await getMethods({locale}, jwt)
+        return {
+
+            props: {
+                methods
+
+
+            },
+        }
+    }
+
+    const loginData = {
+
+        identifier: process.env.DB_EMAIL,
+
+        password: process.env.DB_PASSWORD,
+
+    };
+
+    const login = await fetch(`${process.env.DB_HOST}/api/auth/local`, {
+
+        method: 'POST',
+
+        headers: {
+
+            Accept: 'application/json',
+
+            'Content-Type': 'application/json',
+
+        },
+
+        body: JSON.stringify(loginData),
+
+    });
+
+    const loginResponseData = await login.json();
+
+    setCookie(ctx, 'jwt', loginResponseData.jwt, {
+
+        maxAge: 30 * 24 * 60 * 60,
+
+        path: '/',
+
+    })
+
+    const methods = await getMethods({locale}, loginResponseData.jwt)
     return {
 
         props: {
             methods
 
 
-        },
-        revalidate: 10,
+        }
+
     }
 }
 
