@@ -42,7 +42,7 @@ export default function  blogList({title, publishedAt, content,children,image,sl
         <Card onClick={() => {router.push(`/news/${slug}`)}} shadow="sm" padding="lg" radius='0px' className={styles.card}>
             <Card.Section>
                 <Image
-                src={`http://127.0.0.1:1337${image}`}
+                src={`${image}`}
 
                 height='150px'
 

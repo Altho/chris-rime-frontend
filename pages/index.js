@@ -16,6 +16,8 @@ import BlogContainer from '../components/blog/blogContainer'
 import {format} from 'date-fns'
 import {getDomainLocale} from "next/dist/shared/lib/router/router";
 import { parseCookies, setCookie }  from 'nookies'
+import { useSession, signIn, signOut } from "next-auth/react"
+
 
 import qs from "qs";
 
@@ -23,29 +25,37 @@ import qs from "qs";
 
 
 export default function Home({blogs}) {
+    const { data: session } = useSession()
+    if(session) {
+        return (
 
-    return (
+            <Layout>
+                <Head>
+                    <title>{siteTitle}</title>
 
-        <Layout>
-            <Head>
-                <title>{siteTitle}</title>
+                </Head>
 
-            </Head>
-
-            <Jumbotron/>
-            <main className={styles.main}>
-                <BlogContainer blogs={blogs}/>
-                <ShortBio/>
-                <Presentation/>
-                <ListenSeparator/>
-                <div className={styles.mainVideo}>
-                    <ReactPlayer url={'https://www.youtube.com/watch?v=dmMRsHp725s'} width={'100%'} height={'100%'} controls/>
-                </div>
-            </main>
+                <Jumbotron/>
+                <main className={styles.main}>
+                    <BlogContainer blogs={blogs}/>
+                    <ShortBio/>
+                    <Presentation/>
+                    <ListenSeparator/>
+                    <div className={styles.mainVideo}>
+                        <ReactPlayer url={'https://www.youtube.com/watch?v=dmMRsHp725s'} width={'100%'} height={'100%'}
+                                     controls/>
+                    </div>
+                </main>
 
 
-        </Layout>
-    )
+            </Layout>
+        )
+
+    }
+    return <>
+        Not signed in <br/>
+        <button onClick={() => signIn()}>Sign in</button>
+    </>
 }
 
 export async function getServerSideProps({locale}, ctx) {
@@ -129,8 +139,11 @@ export async function getServerSideProps({locale}, ctx) {
             Authorization: `Bearer ${loginResponseData.jwt}`
         }
     })
+    console.log(fetchBlog)
     const blogPost = await fetchBlog.json()
     console.log(blogPost)
+    console.log(loginResponseData)
+
     const blogs = blogPost.data.slice(0,3)
 
     return {

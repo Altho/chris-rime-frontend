@@ -16,7 +16,7 @@ return (
         withPlaceholder
 
 
-        src={`http://127.0.0.1:1337${url}`}
+        src={`${url}`}
         width={250}
         height={250}
 

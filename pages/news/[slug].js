@@ -89,7 +89,6 @@ export default function postsDetails({postData}) {
     console.log(postData)
     const post = postData['0'].attributes;
     const postImage = post.image.data.attributes.url
-    console.log(`localhost:1337${postImage}`)
 
 
     return (

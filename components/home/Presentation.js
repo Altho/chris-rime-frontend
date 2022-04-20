@@ -12,7 +12,16 @@ export default function Presentation(){
                         height={50}
                     />
                 </div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur elementum eget turpis nec feugiat. Aenean at ante mauris. Nam dictum eu nibh in cursus. Donec sollicitudin diam id turpis mollis, in rhoncus dui efficitur. Mauris non odio dolor. Donec at mi porta, blandit velit non, feugiat diam. Aliquam id arcu facilisis, accumsan massa vitae, sollicitudin dui.            </div>
+                Chris Rime est plus connu pour les disques sortis sous son nom ou ses
+                ouvrages pédagogiques, néanmoins, il a, tout au long de sa carrière,
+                travaillé en tant que sideman ou arrangeur/producteur avec des
+                musiciens et musiciennes de renom dans des styles aussi différents que
+                le Jazz, la World Music, la Fusion, le Gospel ou la Pop. En voici une
+                liste non exhaustive : Raul Paz, Clementine, Paco Sery, Linley Marthe,
+                Laurent De Wilde, Etienne M’Bappé, Stéphane Belmondo, Roger Biwandu,
+                Marcus Miller, Mario Canonge, Georges Seba, Djeli Moussa Diawara,
+                Audren, Nguyen Lê, Le Choeur Gospel de Paris, Maggie Blanchard, Nicole
+                Croisille, Tairo, Axel Tony, Bijou ...          </div>
             <div className={style.paragraph}>
                 <div className={style.icon}>
                     <Image
@@ -21,7 +30,21 @@ export default function Presentation(){
                         height={50}
                     />
                 </div>
-                Suspendisse venenatis tellus nec sem finibus cursus. Fusce vulputate erat in placerat luctus. Fusce non turpis nulla. Donec in ex sit amet libero tincidunt feugiat. Etiam aliquam mollis metus ac bibendum. Proin lacinia fermentum feugiat. Cras ac sem et diam molestie molestie. Fusce non tortor ac purus egestas elementum. Vivamus imperdiet maximus ligula at sodales. Duis id turpis non orci porta viverra. Nullam sollicitudin enim eget ex sagittis, ac egestas ligula eleifend. Morbi consequat malesuada placerat. Donec viverra ex quis sem posuere, non malesuada leo rutrum.            </div>
+                Chris Rime a écrit plusieurs méthodes autour de la guitare ou de la
+                MAO, mais avant cela il avait enseigné de nombreuses années dans des
+                conservatoires ou des écoles de musiques actuelles. Ses méthodes sont
+                maintenant devenues des références dans le milieu de la guitare en
+                France et à l’étranger où elles ont été traduites. Il a également été
+                directeur du Centre des Musiques Actuelles à Valenciennes de 2003 à
+                2007 où il a pu mettre en pratique certaines de ses idées novatrices
+                en matière de pédagogie. Il a croisé sur sa route plus de 3000 élèves
+                (cours particuliers ou Master classes) dont une grande partie
+                travaille maintenant dans les métiers de la musique. Depuis 2007,
+                Chris Rime parcoure la France pour animer stages et Master Classes.
+
+
+
+                 </div>
             <div className={style.paragraph}>
                 <div className={style.icon}>
                     <Image
@@ -30,7 +53,20 @@ export default function Presentation(){
                         height={50}
                     />
                 </div>
-                Pellentesque porta ex nec tortor sagittis, quis elementum felis dignissim. In hac habitasse platea dictumst. Nam libero nibh, aliquet quis lectus vel, tincidunt suscipit dolor. Morbi varius sollicitudin dolor, nec mollis lectus finibus eget. Aliquam vitae dapibus lacus. Phasellus in nisl quis nibh ultricies bibendum eleifend non diam. Sed dictum interdum odio ut sollicitudin. Proin a neque ullamcorper, gravida nunc sit amet, semper lacus. Nulla tincidunt augue sit amet quam hendrerit consectetur. Proin nisi orci, lobortis at quam porttitor, efficitur convallis nunc. Duis hendrerit molestie velit in molestie.            </div>
+                Chris Rime a multiplié les projets personnels depuis ses plus jeunes
+                années. Sa volonté artistique prendra forme avec son premier disque «
+                Rime », qui sortira en 1995. Ce disque, véritable succès, lui vaudra
+                le titre de nouveau virtuose de la guitare et lui permettra
+                d'enchainer 5 autres albums toujours accompagné de rythmiques
+                prestigieuses (Michel Alibo/Mokthar Samba ; Linley Marthe/Paco Sery ;
+                Etienne MBappé/Roger Biwandu ; Marcus Miller/Roger Biwandu ; Hadrien
+                Feraud/Tilo Bertholo). Sa musique se vend dans les quatre coins du
+                monde, elle est axée autour de la guitare et balance entre le Jazz, le
+                Jazz-Fusion et Blues. Il a joué dans de nombreux clubs de Jazz et
+                festivals et continue encore de le faire avec son nouveau projet « At
+                the Bar With Mr Punk ».
+                Depuis 1997, Chris a composé et produit de nombreuses musiques pour la
+                Télé, les jeux vidéo et le cinema.       </div>
 
         </div>
     )

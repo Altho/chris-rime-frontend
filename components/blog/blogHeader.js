@@ -15,7 +15,7 @@ export default function BlogHeader({img, title,date}){
     return(
         <div className={style.blogHeader}>
             <div className={style.blogImage}>
-                <Image src={`http://localhost:1337${img}`} />
+                <Image src={`${img}`} />
             </div>
             <div className={style.blogTitle}>
                 {title}

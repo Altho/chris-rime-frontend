@@ -103,7 +103,7 @@ function AlbumTitle({name, image, album, buy, digital}) {
                     <div>
                         <div className={styles.albumCover}>
                             <Image className={classes.image}
-                                   src={`${process.env.DB_HOST}${image}`}
+                                   src={`${image}`}
                                 // width={400}
                                 // height={400}
 

@@ -153,10 +153,10 @@ export function MenuItems() {
                     <div className={styles.dropbtn}>Bio</div>
 
                     <div className={styles.dropdownContent}>
-                        <Link href="/biography">Biographie</Link>
-                        <Link href="/albums">Discographie</Link>
-                        <Link href="#">Télé/Films</Link>
-                        <Link href="/games">Jeux vidéos</Link>
+                        <Link className={styles.subMenuItem} href="/biography">Biographie</Link>
+                        <Link className={styles.subMenuItem} href="/albums">Discographie</Link>
+                        <Link className={styles.subMenuItem} href="#">Télé/Films</Link>
+                        <Link className={styles.subMenuItem} href="/games">Jeux vidéos</Link>
 
 
                     </div>
@@ -165,9 +165,9 @@ export function MenuItems() {
                     <div className={styles.dropbtn}>Média</div>
 
                     <div className={styles.dropdownContent}>
-                        <Link href="/media/videos">Vidéos</Link>
-                        <Link href="/media/gallery">Photos</Link>
-                        <Link href="#">Musique</Link>
+                        <Link className={styles.subMenuItem} href="/media/videos">Vidéos</Link>
+                        <Link className={styles.subMenuItem} href="/media/gallery">Photos</Link>
+                        <Link className={styles.subMenuItem} href="#">Musique</Link>
                     </div>
 
                 </div>
@@ -175,9 +175,9 @@ export function MenuItems() {
                     <div className={styles.dropbtn}>Pédagogie</div>
 
                     <div className={styles.dropdownContent}>
-                        <Link href="/methods">Méthodes</Link>
-                        <Link href="#">Internet</Link>
-                        <Link href="#">Journaux</Link>
+                        <Link className={styles.subMenuItem} href="/methods">Méthodes</Link>
+                        <Link className={styles.subMenuItem} href="#">Internet</Link>
+                        <Link className={styles.subMenuItem} href="#">Journaux</Link>
                     </div>
 
 
