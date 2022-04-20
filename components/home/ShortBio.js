@@ -1,4 +1,4 @@
-import style from '../../styles/Home.module.css'
+import style from '../../styles/home.module.css'
 import {Blockquote} from "@mantine/core";
 import BioSeparator from "./BioSeparator";
 import {useRouter} from "next/router";

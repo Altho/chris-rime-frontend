@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css'
+import styles from '../styles/home.module.css'
 import  {getGames} from '../libs/fetchGames';
 import Layout, {siteTitle} from "../components/layout";
 import ShowGames from "../components/games/ShowGames";

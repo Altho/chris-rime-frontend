@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css'
+import styles from '../styles/home.module.css'
 import  {getAlbums} from '../libs/fetchAlbums';
 import Layout, {siteTitle} from "../components/layout";
 import ShowAlbums from "../components/albums/showAlbums";

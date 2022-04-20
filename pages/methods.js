@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css'
+import styles from '../styles/home.module.css'
 import  {getMethods} from '../libs/fetchMethods';
 import Layout, {siteTitle} from "../components/layout";
 import ShowMethods from "../components/methods/ShowMethods";

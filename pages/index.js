@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/home.module.css'
 import ListenSeparator from "../components/albums/ListenSeparator";
 import BioSeparator from "../components/home/BioSeparator";
 import Layout, {siteTitle} from "../components/layout";

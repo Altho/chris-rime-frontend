@@ -1,4 +1,4 @@
-import style from '../styles/Home.module.css'
+import style from '../styles/home.module.css'
 import Link from 'next/link'
 import {Image} from '@mantine/core'
 

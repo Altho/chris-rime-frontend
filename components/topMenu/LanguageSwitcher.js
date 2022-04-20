@@ -1,6 +1,6 @@
 import {useRouter} from "next/router";
 import Image from "next/image";
-import style from "../../styles/Home.module.css"
+import style from "../../styles/home.module.css"
 
 export default function CountrySwitcher() {
     const router = useRouter();
