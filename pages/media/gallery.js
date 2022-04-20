@@ -135,7 +135,7 @@ export default function Gallery({photos}){
                 columnClassName={style.grid_column}>
                 {photos.map(({attributes : image})=>{
                     return(
-                        <Image onClick={() => handleClick(`${process.env.DB_HOST}${image.url}`)} src={`${process.env.DB_HOST}${image.url}`}/>
+                        <Image key={image.url} onClick={() => handleClick(`${process.env.DB_HOST}${image.url}`)} src={`${process.env.DB_HOST}${image.url}`}/>
                     )
                 })}
             </Masonry>

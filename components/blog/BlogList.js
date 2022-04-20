@@ -2,7 +2,7 @@ import {useState} from 'react'
 import {remark} from 'remark'
 import styles from '../../styles/blogList.module.css'
 import { Card, Group, Text,Image, Button } from '@mantine/core';
-import {useRouter} from 'next/router'
+import Link from 'next/link'
 import {format} from 'date-fns'
 import {  fr } from 'date-fns/locale'
 import Chip from "@mui/material/Chip";
@@ -31,15 +31,14 @@ import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 // }
 
 
-export default function  blogList({title, publishedAt, content,children,image,slug}){
-    const router = useRouter()
-    const locale = router.locale;
+export default function  blogList({title, publishedAt, content,locale, children,image,slug}){
     console.log(image)
 
 
     return(
         <div className={styles.cardContainer}>
-        <Card onClick={() => {router.push(`/news/${slug}`)}} shadow="sm" padding="lg" radius='0px' className={styles.card}>
+            <Link href={`/news/${slug}`}>
+        <Card shadow="sm" padding="lg" radius='0px' className={styles.card}>
             <Card.Section>
                 <Image
                 src={`${image}`}
@@ -62,5 +61,6 @@ export default function  blogList({title, publishedAt, content,children,image,sl
 
 
         </Card>
+            </Link>
         </div>
             )}

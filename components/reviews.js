@@ -42,8 +42,10 @@ export default function Reviews({reviews}) {
                         const lien = reviewNode.lien;
                         return (
                             <Slide
+                                key={id}
+
                                 index={id}>
-                                <a href={lien} target={"_blank"}>
+                                <a href={lien} target={"_blank"} rel="noreferrer">
 
                                     <Blockquote className={style.quote} styles={{
                                         body: {

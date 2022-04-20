@@ -57,7 +57,7 @@ export default function Presentation(){
                 années. Sa volonté artistique prendra forme avec son premier disque «
                 Rime », qui sortira en 1995. Ce disque, véritable succès, lui vaudra
                 le titre de nouveau virtuose de la guitare et lui permettra
-                d'enchainer 5 autres albums toujours accompagné de rythmiques
+                d&aposenchainer 5 autres albums toujours accompagné de rythmiques
                 prestigieuses (Michel Alibo/Mokthar Samba ; Linley Marthe/Paco Sery ;
                 Etienne MBappé/Roger Biwandu ; Marcus Miller/Roger Biwandu ; Hadrien
                 Feraud/Tilo Bertholo). Sa musique se vend dans les quatre coins du
