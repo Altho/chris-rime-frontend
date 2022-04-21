@@ -22,7 +22,7 @@ export default function Reviews({reviews}) {
                 infinite
                 isPlaying={true}
                 style={{
-                    backgroundColor:'#fff',
+                    backgroundColor:'#ebebeb',
                     width:'100vw'
 
             }}

@@ -4,7 +4,7 @@
     width: auto;
     padding: 30px;
     margin-top: 60px;
-    background-color: #124559;
+    background-color: var(--primary);
 }
 .grid_column {
     padding-left: 30px; /* gutter size */
@@ -14,12 +14,15 @@
 .grid img {
     margin-top: 30px;
     transition: 0.3s;
+    border-radius: 25px;
 
 }
 
 .grid img:hover {
     cursor : pointer;
     transform: scale(1.1);
+    border-radius: 0;
+    border: none;
     transition: 0.3s;
     -webkit-box-shadow: 5px 5px 15px 5px #000000;
     box-shadow: 5px 5px 15px 5px #000000;
