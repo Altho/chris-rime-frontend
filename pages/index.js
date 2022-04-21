@@ -25,8 +25,8 @@ import qs from "qs";
 
 
 export default function Home({blogs}) {
-    const { data: session } = useSession()
-    if(session) {
+
+
         return (
 
             <Layout>
@@ -52,11 +52,8 @@ export default function Home({blogs}) {
         )
 
     }
-    return <>
-        Not signed in <br/>
-        <button onClick={() => signIn()}>Sign in</button>
-    </>
-}
+
+
 
 export async function getServerSideProps({locale}, ctx) {
 
