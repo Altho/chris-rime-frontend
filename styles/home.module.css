@@ -48,12 +48,13 @@ padding:35px;
 .bioSeparator{
   background-image: url("/images/bg/tiltbio.svg");
   background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  height: 140px;
   width: 100%;
   overflow: hidden;
   line-height: 0;
-  background-position: top;
-  min-height: 100px;
-  max-height: 100px;
+
 
   transform: rotate(180deg);
 }

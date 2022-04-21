@@ -57,8 +57,9 @@
     background-image: url("/images/bg/astriangle.svg");
     background-repeat: no-repeat;
     background-position: top;
-    min-height: 100px;
-    max-height: 100px;
+    background-size: cover;
+    height: 140px;
+
 }
 
 .listenSeparator{
@@ -66,8 +67,9 @@
     transform: rotate(180deg);
     background-repeat: no-repeat;
     background-position: top;
-    min-height: 100px;
-    max-height: 100px;
+    background-size: cover;
+    height: 140px;
+
 }
 
 .albumCover {
@@ -89,7 +91,7 @@
 
 .titleSeparator{
     background-image: url("/images/bg/paper.svg");
-    height:100px;
+    height:140px;
     width: 100%;
     background-position: top;
     background-size: cover;
