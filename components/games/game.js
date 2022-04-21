@@ -15,7 +15,7 @@ export default function Game({url,gameName,gameDate, link}){
                     withPlaceholder
 
 
-                    src={`${process.env.DB_HOST}${url}`}
+                    src={`${url}`}
                     width={232}
                     height={287}
 
