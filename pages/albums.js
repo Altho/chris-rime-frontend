@@ -40,7 +40,7 @@ export async function getStaticProps({locale}, ctx) {
             albums
 
 
-        }
+        },revalidate: 10
     }
 }
 

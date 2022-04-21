@@ -8,7 +8,7 @@ import { parseCookies, setCookie }  from 'nookies'
 
 
 
-export async function getServerSideProps(ctx){
+export async function getStaticProps(ctx){
     const jwt = parseCookies(ctx).jwt
 
     if(jwt) {
@@ -33,7 +33,7 @@ export async function getServerSideProps(ctx){
                 photos
 
 
-            }
+            },revalidate: 10,
         }
     }
 
@@ -92,7 +92,7 @@ export async function getServerSideProps(ctx){
             photos
 
 
-        }
+        },revalidate: 10,
     }
 }
 
@@ -135,7 +135,7 @@ export default function Gallery({photos}){
                 columnClassName={style.grid_column}>
                 {photos.map(({attributes : image})=>{
                     return(
-                        <Image key={image.url} onClick={() => handleClick(`${process.env.DB_HOST}${image.url}`)} src={`${process.env.DB_HOST}${image.url}`}/>
+                        <Image key={image.url} onClick={() => handleClick(`${image.url}`)} src={`${image.url}`}/>
                     )
                 })}
             </Masonry>

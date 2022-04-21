@@ -8,7 +8,7 @@ import { parseCookies, setCookie }  from 'nookies'
 
 
 
-export async function getServerSideProps({locale}, ctx) {
+export async function getStaticProps({locale}, ctx) {
     const jwt = parseCookies(ctx).jwt
 
     if (jwt) {
@@ -20,7 +20,7 @@ export async function getServerSideProps({locale}, ctx) {
                 games
 
 
-            },
+            },revalidate: 10
         }
     }
 
