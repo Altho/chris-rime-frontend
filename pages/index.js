@@ -55,7 +55,7 @@ export default function Home({blogs}) {
 
 
 
-export async function getServerSideProps({locale}, ctx) {
+export async function getStaticProps({locale}, ctx) {
 
     const jwt = parseCookies(ctx).jwt
     if (jwt) {
@@ -85,7 +85,7 @@ export async function getServerSideProps({locale}, ctx) {
 
 
 
-            }
+            }, revalidate: 10
         }
     }
 
@@ -149,7 +149,7 @@ export async function getServerSideProps({locale}, ctx) {
             blogs,
 
 
-        }
+        }, revalidate: 10
 
     }
 
