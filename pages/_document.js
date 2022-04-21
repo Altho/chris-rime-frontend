@@ -5,9 +5,7 @@ class AppDocument extends Document {
         return (
             <Html>
                 <Head>
-                            <link
-                                href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,500&family=Nanum+Gothic&family=Orbitron&display=swap"
-                                rel="stylesheet" />
+                          
                 </Head>
                 <body>
                 <Main />
