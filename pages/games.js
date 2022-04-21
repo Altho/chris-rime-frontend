@@ -65,7 +65,7 @@ export async function getStaticProps({locale}, ctx) {
             games
 
 
-        },
+        },revalidate: 10
     }
 
 }
