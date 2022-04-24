@@ -15,6 +15,7 @@ import {Blockquote} from "@mantine/core";
 export default function BlogContainer({blogs}) {
     const [mainContent, setMainContent] = useState('')
     const locale = useRouter().locale;
+    let slideId = -1;
 
     const {height, width} = useWindowDimensions()
 
@@ -34,8 +35,7 @@ export default function BlogContainer({blogs}) {
 
 
     return (
-        <div className={blogStyles.mainContainer}>
-            <div className={blogStyles.blogContainer}>
+        <div className={blogStyles.blogContainer}>
 
 
 
@@ -45,26 +45,32 @@ export default function BlogContainer({blogs}) {
                     naturalSlideWidth={100}
                     naturalSlideHeight={20}
                     isIntrinsicHeight
-                    step={slidesToShow()}
-                    dragStep={slidesToShow()}
-                    visibleSlides={slidesToShow()}
-                    hasMasterSpinner={true}
                     totalSlides={blogs.length}
+                    touchEnabled={true}
+                    visibleSlides={slidesToShow()}
                     infinite
-                    isPlaying={false}
+                    isPlaying={true}
+                    style={{
+                        backgroundColor:'#ebebeb',
+                        width:'100%'
+
+                    }}
 
                 >
 
 
-                    <Slider
+                    <Slider className={style.slide}
                     >
 
 
                         {blogs.map(({id, attributes: {image = {}, title, description, publishedAt, content,slug} = {}}) => {
                             const imageUrl = image.data.attributes.url;
-                            return(
 
-                                <Slide key={id} index={id}>
+                            slideId++;
+
+                                return(
+
+                                <Slide key={id} index={slideId}>
                                     <BlogList id={id} key={id} locale={locale} title={title} content={description} slug={slug} publishedAt={publishedAt} image={imageUrl}>
                                         <Chip label='Lire la suite' icon={<DoubleArrowIcon />}
                                               onClick={() => setMainContent(content)}/>
@@ -90,7 +96,7 @@ export default function BlogContainer({blogs}) {
                 <div>
                 </div>
 
-            </div>
+
 
         </div>
 
