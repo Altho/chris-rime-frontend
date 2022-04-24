@@ -36,13 +36,14 @@ export default function BlogContainer({blogs}) {
     return (
         <div className={blogStyles.blogContainer}>
 
-
+            <h1>{slidesToShow()}</h1>
 
             <Flicking
                 align="prev"
                 circular={true}
                 bound={true}
-                panelsPerView={slidesToShow()}
+                panelsPerView={1}
+
                 onMoveEnd={e => {
                     console.log(e);
                 }}>
