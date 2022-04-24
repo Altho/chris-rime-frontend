@@ -10,25 +10,7 @@ import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 
 
 
-//
-//  function ReadMore({label, showFunction}){
-//
-//
-//     return(
-//         <>
-//             <Chip  label={label} icon={<DoubleArrowIcon />} onClick={showFunction}  />
-//         </>
-//     )
-//
-// }
 
-// function DisplayBlog({mainBlog}){
-//
-//     return(
-//        <>
-//     <p>{mainBlog}</p>
-//     </>)
-// }
 
 
 export default function  blogList({title, publishedAt, content,locale, children,image,slug}){
