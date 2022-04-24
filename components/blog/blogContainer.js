@@ -8,15 +8,14 @@ import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import BlogPost from "./blogPost";
 import {format} from "date-fns";
 import {fr} from "date-fns/locale";
-import {CarouselProvider, DotGroup, Slide, Slider} from "pure-react-carousel";
-import style from "../../styles/reviews.module.css";
+import Flicking from "@egjs/react-flicking";
+import "@egjs/react-flicking/dist/flicking.css";import style from "../../styles/reviews.module.css";
 import {Blockquote} from "@mantine/core";
 
 export default function BlogContainer({blogs}) {
     const [mainContent, setMainContent] = useState('')
     const locale = useRouter().locale;
-    let slideId = -1;
-
+    let slideIndex = -1;
     const {height, width} = useWindowDimensions()
 
     const slidesToShow = () => {
@@ -39,53 +38,42 @@ export default function BlogContainer({blogs}) {
 
 
 
+            <Flicking
+                align="prev"
+                circular={true}
+                bound={true}
+                panelsPerView={slidesToShow()}
+                onMoveEnd={e => {
+                    console.log(e);
+                }}>
+                {blogs.map(({id, attributes: {image = {}, title, description, publishedAt, content,slug} = {}}) => {
+                    const imageUrl = image.data.attributes.url;
+                    slideIndex++;
 
 
-                <CarouselProvider
-                    naturalSlideWidth={100}
-                    naturalSlideHeight={20}
-                    isIntrinsicHeight
-                    totalSlides={blogs.length}
-                    infinite
-                    isPlaying={true}
-                    style={{
-                        backgroundColor:'#ebebeb',
-                        width:'100vw'
 
-                    }}
+                    return(
 
-                >
+                        <div key={slideIndex}>
+                        <BlogList id={id} key={id} locale={locale} title={title} content={description} slug={slug} publishedAt={publishedAt} image={imageUrl}>
+                            <Chip label='Lire la suite' icon={<DoubleArrowIcon />}
+                                  onClick={() => setMainContent(content)}/>
+                        </BlogList>
+                        </div>
 
 
-                    <Slider
-                    >
+                    )})}
+            </Flicking>
 
 
-                        {blogs.map(({id, attributes: {image = {}, title, description, publishedAt, content,slug} = {}}) => {
-                            const imageUrl = image.data.attributes.url;
-
-                            slideId++;
-
-                                return(
-
-                                <Slide key={id} index={slideId}>
-                                    <BlogList id={id} key={id} locale={locale} title={title} content={description} slug={slug} publishedAt={publishedAt} image={imageUrl}>
-                                        <Chip label='Lire la suite' icon={<DoubleArrowIcon />}
-                                              onClick={() => setMainContent(content)}/>
-                                    </BlogList>
-                                </Slide>
-
-                            )})}
-
-                    </Slider>
-
-                    <div className={style.dotsContainer}>
-
-                        <DotGroup className={style.dots}/>
-                    </div>
 
 
-                </CarouselProvider>
+
+
+
+
+
+
 
 
 
