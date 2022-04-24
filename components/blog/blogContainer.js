@@ -42,7 +42,7 @@ export default function BlogContainer({blogs}) {
                 align="prev"
                 circular={true}
                 bound={true}
-                panelsPerView={1}
+                panelsPerView={slidesToShow()}
 
                 onMoveEnd={e => {
                     console.log(e);
