@@ -34,9 +34,9 @@ export default function BlogContainer({blogs}) {
 
 
     return (
+        <div className={blogStyles.mainContainer}>
         <div className={blogStyles.blogContainer}>
 
-            <h1>{slidesToShow()}</h1>
 
             <Flicking
                 align="prev"
@@ -55,7 +55,7 @@ export default function BlogContainer({blogs}) {
 
                     return(
 
-                        <div key={slideIndex}>
+                        <div key={slideIndex} style={{padding: '40px'}}>
                         <BlogList id={id} key={id} locale={locale} title={title} content={description} slug={slug} publishedAt={publishedAt} image={imageUrl}>
                             <Chip label='Lire la suite' icon={<DoubleArrowIcon />}
                                   onClick={() => setMainContent(content)}/>
@@ -85,6 +85,7 @@ export default function BlogContainer({blogs}) {
 
 
 
+        </div>
         </div>
 
 
