@@ -127,10 +127,10 @@ width: 340px;
 }
 
 @media (max-width: 900px) {
-    .cardContainer {
-        width: 100%;
+    /*.cardContainer {*/
+    /*    width: 100%;*/
 
-    }
+    /*}*/
     .blogImage{
         width: 80%;
 

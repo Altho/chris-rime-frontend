@@ -46,20 +46,18 @@ export default function BlogContainer({blogs}) {
                     naturalSlideHeight={20}
                     isIntrinsicHeight
                     totalSlides={blogs.length}
-                    touchEnabled={true}
-                    visibleSlides={slidesToShow()}
                     infinite
                     isPlaying={true}
                     style={{
                         backgroundColor:'#ebebeb',
-                        width:'100%'
+                        width:'100vw'
 
                     }}
 
                 >
 
 
-                    <Slider className={style.slide}
+                    <Slider
                     >
 
 
