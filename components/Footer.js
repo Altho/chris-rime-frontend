@@ -7,7 +7,7 @@ export default function Footer(){
     return(
         <footer className={style.footer}>
           <div className={style.copyright}>
-             <div className={style.footerItem}>©{year} Chris Rime - <a href={'mailto:cr.guitar@gmail.com'} target={'_blank'} rel={'noreferrer'}> Contact </a></div>
+             <div className={style.footerItem}>©{year} Chris Rime - <Link href={'/contact'}>Contact </Link> </div>
                <div className={style.footerItem}>Made by  <a href={'https://github.com/Altho/'} target={'_blank'} rel={'noreferrer'}> Altho </a></div>
           </div>
             <div className={style.social}>

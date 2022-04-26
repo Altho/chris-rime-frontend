@@ -84,7 +84,7 @@ export default function Contact() {
 
                 />
                 <Button className={styles.btn} onClick={handleSubmit} loading={isBeingSent}
-                >{locale === 'en' ? ('Your message') : ('Votre message ')}</Button>
+                >{locale === 'en' ? ('Send') : ('Envoyer ')}</Button>
 
             </form>
         </Layout>
