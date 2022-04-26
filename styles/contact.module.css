@@ -1,10 +1,35 @@
 .input{
 }
 
+.title {
+    font-family: Orbitron, sans-serif;
+    font-size: 2.5em;
+    color: var(--secondary);
+    margin-bottom: 20px;
+}
+
+.btn{
+    margin-top: 30px;
+    position: absolute;
+    left:50%;
+    transform: translate(-50%);
+    background-color: var(--accent);
+}
+
 .container{
     width:60%;
     position: absolute;
     left:50%;
     top:50%;
     transform: translate(-50%, -50%);
+}
+
+@media (max-width: 900px) {
+    .container{
+        width:80%;
+        top:15vh;
+        transform: translateX(-50%);
+
+
+    }
 }
