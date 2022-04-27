@@ -27,7 +27,7 @@ const btnTxt = () => {
             return 'Minimiser'
         }
         else if(locale=== 'fr' && isOpened === false){
-            return 'Lire plus'
+            return 'Lire la suite'
         }
 }
     const handleClick = () => {

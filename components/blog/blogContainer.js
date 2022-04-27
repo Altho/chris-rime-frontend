@@ -46,10 +46,13 @@ export default function BlogContainer({blogs}) {
 
 
     console.log(blogs.length)
-
+   const pluginsList = () => [new AutoPlay({ duration: 4000, direction: "NEXT", stopOnHover: false }),new Pagination({ type: 'bullet' })]
 
     return (
         <div className={blogStyles.mainContainer}>
+            <div className={blogStyles.titleContainer}>
+           <div className={blogStyles.titre}> - NEWS -</div>
+            </div>
         <div className={blogStyles.blogContainer}>
 
 
@@ -58,7 +61,7 @@ export default function BlogContainer({blogs}) {
                 circular={true}
                 bound={true}
                 panelsPerView={slidesToShow()}
-                plugins={slidesToShow()>1 ?[new Pagination({ type: 'bullet' })] :  [new AutoPlay({ duration: 4000, direction: "NEXT", stopOnHover: true })] }
+                plugins={pluginsList()}
 
                 >
                 {blogs.map(({id, attributes: {image = {}, title, description, publishedAt, content,slug} = {}}) => {

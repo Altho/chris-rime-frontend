@@ -17,15 +17,14 @@ import {format} from 'date-fns'
 import {getDomainLocale} from "next/dist/shared/lib/router/router";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import { parseCookies, setCookie }  from 'nookies'
-import { useSession, signIn, signOut } from "next-auth/react"
-
+import LatestRelease from "../components/home/latest";
 
 import qs from "qs";
 
 
 
 
-export default function Home({blogs}) {
+export default function Home({blogs, album}) {
 
 
     return (
@@ -38,9 +37,11 @@ export default function Home({blogs}) {
 
             <Jumbotron/>
             <main className={styles.main}>
-                <BlogContainer blogs={blogs}/>
+                <LatestRelease album={album} />
                 <ShortBio/>
                 <Presentation/>
+                <BlogContainer blogs={blogs}/>
+
                 <ListenSeparator/>
                 <div className={styles.mainVideo}>
                     <ReactPlayer url={'https://www.youtube.com/watch?v=dmMRsHp725s'} width={'100%'} height={'100%'}
@@ -75,6 +76,18 @@ export async function getStaticProps({locale}, ctx) {
                 Authorization: `Bearer ${jwt}`
             }
         })
+
+        const fetchAlbums = await fetch(`${process.env.DB_HOST}/api/albums?locale=${locale}&${query}&populate=*`,{
+            headers: {
+
+                Authorization: `Bearer ${jwt}`
+            }
+        })
+        const albums = await fetchAlbums.json()
+        console.log(albums)
+
+        const album = albums.data.slice(0,1)
+        console.log(album)
         const blogPost = await fetchBlog.json()
         console.log(blogPost)
         const blogs = blogPost.data.slice(0,8)
@@ -83,6 +96,7 @@ export async function getStaticProps({locale}, ctx) {
 
             props: {
                 blogs,
+                album
 
 
 
@@ -137,6 +151,16 @@ export async function getStaticProps({locale}, ctx) {
             Authorization: `Bearer ${loginResponseData.jwt}`
         }
     })
+    const fetchAlbums = await fetch(`${process.env.DB_HOST}/api/albums?locale=${locale}&${query}&populate=*`,{
+        headers: {
+
+            Authorization: `Bearer ${loginResponseData.jwt}`
+        }
+    })
+    const albums = await fetchAlbums.json()
+    console.log(albums)
+    const album = albums.data.slice(0,1)
+    console.log(album)
     console.log(fetchBlog)
     const blogPost = await fetchBlog.json()
     console.log(blogPost)
@@ -148,6 +172,7 @@ export async function getStaticProps({locale}, ctx) {
 
         props: {
             blogs,
+            album
 
 
         }, revalidate: 10

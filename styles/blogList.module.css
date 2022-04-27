@@ -6,6 +6,12 @@
 
 }
 
+.titre {
+    font-size: 2em;
+    color : black ;
+    font-family: Orbitron, sans-serif;
+}
+
 .card{
     background-color: var(--primary);
     color:var(--secondary);
@@ -57,9 +63,10 @@
     transform: scale(1.1);
     transition: 0.4s;
 }
-
-.mainContainer{
-
+.titleContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
 }
 
 .cardContainer{
