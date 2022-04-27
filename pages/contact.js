@@ -47,7 +47,7 @@ export default function Contact() {
 
     return (
         <Layout>
-
+        <div style={{height:'100vh'}}>
             <form onSubmit={handleSubmit}
                   className={styles.container}
             >
@@ -87,6 +87,7 @@ export default function Contact() {
                 >{locale === 'en' ? ('Send') : ('Envoyer ')}</Button>
 
             </form>
+        </div>
         </Layout>
     )
 

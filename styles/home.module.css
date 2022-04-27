@@ -33,6 +33,8 @@
 .paragraph{
 padding:35px;
   color: black;
+  line-height: 1.8;
+  overflow: hidden;
   font-family: "Montserrat Alternates",sans-serif;
   flex-grow: 1;
   flex-basis: 0;
@@ -91,6 +93,11 @@ padding:35px;
   margin-top:20px;
   justify-content: flex-end;
   padding: 0 20px;
+}
+
+.readBtnContainer{
+  display: flex;
+  justify-content: center;
 }
 
 .bioButton{
@@ -221,6 +228,17 @@ padding:35px;
 
 .flag{
   cursor: pointer;
+}
+
+.btnRead{
+    background-color: var(--accent);
+
+    margin-top: 20px;
+}
+
+.btnRead:hover {
+  background-color: var(--accent);
+  opacity: 0.8;
 }
 
 .code {
