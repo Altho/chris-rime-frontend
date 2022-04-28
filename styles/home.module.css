@@ -333,8 +333,9 @@ width: 100%;
     justify-content: center;
   }
   .paragraph{
-    padding : 20px 50px 20px 50px;
+    padding : 20px;
     flex-basis: auto;
+    text-align: justify;
   }
   .mainVideo{
 
@@ -342,7 +343,8 @@ width: 100%;
 
   }
   .fitting{
-    padding:20px;
+    padding:10px 0 0 0;
+    text-align: justify;
 
   }
 }

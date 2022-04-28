@@ -11,7 +11,7 @@ export default function ShortBio() {
         <div  className={style.shortBio}>
             <div className={style.filter}>
                 <div className={style.fitting}>
-            <Blockquote styles={{body:{color:'white'}, icon:{color:'white'} }}>
+            <Blockquote styles={{body:{color:'white'}}} icon={null}>
                 Chris Rime, entouré par une famille de musiciens, commence la musique à 10 ans. Au collège, il joue de
                 la batterie et surtout de la guitare et anime déja de nombreuses soirées privées. A 16 ans, il reçoit sa
                 première commande pour illustrer un court métrage puis rencontre Nguyen Lê avec qui il forme un duo qui
