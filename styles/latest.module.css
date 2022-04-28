@@ -2,7 +2,7 @@
     /*height:500px;*/
     position: relative;
     color:black;
-    background-image: url("/images/bg/latest.svg");
+    background-image: url("/images/bg/latest2.svg");
     background-size: cover;
     background-position: center;
 }
@@ -80,10 +80,10 @@
         font-size: 1.5em;
     }
 
-    .container {
-        /*height:500px;*/
+    /*.container {*/
+    /*    !*height:500px;*!*/
 
-        background-image: none;
-        background: var(--primary);
-    }
+    /*    background-image: none;*/
+    /*    background: var(--primary);*/
+    /*}*/
 }
