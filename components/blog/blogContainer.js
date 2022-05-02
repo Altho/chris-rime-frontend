@@ -1,10 +1,9 @@
 import BlogList from "./BlogList";
 import blogStyles from "../../styles/blogList.module.css";
 import {useState} from "react";
-import Chip from "@mui/material/Chip";
 import {useRouter} from 'next/router'
+import {Button} from '@mantine/core'
 import useWindowDimensions from "../../hooks/useWindowDimensions";
-import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 import BlogPost from "./blogPost";
 import {format} from "date-fns";
 import {fr} from "date-fns/locale";
@@ -74,8 +73,8 @@ export default function BlogContainer({blogs}) {
 
                         <div key={slideIndex} style={{padding: '40px 0 40px 0'}}>
                         <BlogList id={id} key={id} locale={locale} title={title} content={description} slug={slug} publishedAt={publishedAt} image={imageUrl}>
-                            <Chip label='Lire la suite' icon={<DoubleArrowIcon />}
-                                  onClick={() => setMainContent(content)}/>
+                            <Button>{locale === 'en' ? 'Read more' : 'Lire la suite'}</Button>
+
                         </BlogList>
 
                         </div>

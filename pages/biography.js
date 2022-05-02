@@ -1,8 +1,6 @@
 import Layout from "../components/layout";
-import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
 import {Image} from '@mantine/core'
 import {useRouter} from "next/router";
-import 'react-vertical-timeline-component/style.min.css';
 import style from '../styles/biography.module.css'
 import { FaGraduationCap } from 'react-icons/fa';
 

@@ -1,12 +1,9 @@
 import {useState} from 'react'
-import {remark} from 'remark'
 import styles from '../../styles/blogList.module.css'
 import { Card, Group, Text,Image, Button } from '@mantine/core';
 import Link from 'next/link'
 import {format} from 'date-fns'
 import {  fr } from 'date-fns/locale'
-import Chip from "@mui/material/Chip";
-import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 
 
 

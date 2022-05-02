@@ -12,8 +12,8 @@ export default async (req, res) => {
   `;
 
     const data = {
-        to: 'chrisrime.gt@gmail.com',
-        from: 'chrisrime.gt@gmail.com',
+        to: 'alan.at.thomas&gmail.com',
+        from: 'alan.at.thomas@gmail.com',
         subject: `Nouveau message de ${body.name}`,
         text: message,
         html: message.replace(/\r\n/g, '<br />'),

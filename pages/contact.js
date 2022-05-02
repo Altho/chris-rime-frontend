@@ -2,8 +2,9 @@ import {useState} from "react";
 import styles from '../styles/contact.module.css'
 import {TextInput} from '@mantine/core';
 import {Button, LoadingOverlay} from '@mantine/core';
-// import { NotificationsProvider } from '@mantine/notifications';
 import {Router, useRouter} from 'next/router';
+import { showNotification } from '@mantine/notifications';
+import { Check} from 'tabler-icons-react';
 import Layout from "../components/layout";
 import { Textarea } from '@mantine/core';
 
@@ -22,6 +23,28 @@ export default function Contact() {
         return 'Nom :'
     }
 
+    const checkMark = () => {
+        return (
+            <>
+                <Check size={18} />
+            </>
+        )
+    }
+
+    const notifTitle = () => {
+        if (locale === 'en') {
+            return 'Message sent !'
+        }
+        return 'Message envoyé !'
+    }
+
+    const notifMessage= () => {
+        if (locale === 'en') {
+            return 'Your message was successfully sent.'
+        }
+        return 'Votre message a été envoyé avec succès'
+    }
+
     const handleSubmit = async e => {
         e.preventDefault();
         setIsBeingSent(true)
@@ -38,6 +61,11 @@ export default function Contact() {
         setMessage('')
         setName('')
         setEmail('')
+        showNotification({
+            icon: checkMark(),
+            title: `${notifTitle()}`,
+            message: `${notifMessage()}`,
+        })
 
 
 
