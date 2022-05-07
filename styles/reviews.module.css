@@ -11,13 +11,20 @@ width:20%;
     left:50%;
 }
 
+.vp {
+    width:100vw;
+}
+
 .quote{
     background-color: rgba(0,0,0,0.7);
+    max-width: 100%;
+    /*width:200px;*/
     margin: 30px;
     border-radius: 25px;
     transition: 0.2s;
     max-height: 350px;
     overflow: scroll;
+    color: white;
 
 }
 
@@ -102,11 +109,14 @@ width:20%;
   .dotsContainer{
       display: none;
   }
-    /*.quote{*/
-    /*    background-color: rgba(0,0,0,0.3);*/
-    /*    margin: 0;*/
-    /*    border-radius: 0;*/
-    /*    transition: 0.2s;*/
+    .quote{
+        background-color: transparent;
+        margin: 0;
+        border-radius: 0;
+        color: black;
 
-    /*}*/
+
+    }
+
+
 }

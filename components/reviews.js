@@ -1,12 +1,17 @@
 import style from '../styles/reviews.module.css'
 import {useState, useEffect, useRef} from "react";
-import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup} from 'pure-react-carousel';
 import {Blockquote} from "@mantine/core";
-import 'pure-react-carousel/dist/react-carousel.es.css';
 import { Divider } from '@mantine/core';
+import Flicking, { ViewportSlot } from "@egjs/react-flicking";
+import { Pagination } from "@egjs/flicking-plugins";
+import "@egjs/flicking-plugins/dist/pagination.css";
+
+import "@egjs/react-flicking/dist/flicking.css";
+import { AutoPlay } from "@egjs/flicking-plugins";
 
 
 export default function Reviews({reviews}) {
+    const pluginsList = () => [new AutoPlay({ duration: 4000, direction: "NEXT", stopOnHover: false }),new Pagination({ type: 'bullet' })]
 
     if (reviews) {
         {   console.log('------------------reviews.js----------------')
@@ -14,22 +19,19 @@ export default function Reviews({reviews}) {
         const length = reviews.length;
         return (
 
-            <CarouselProvider
-                naturalSlideWidth={100}
-                naturalSlideHeight={20}
-                isIntrinsicHeight
-                totalSlides={length}
-                infinite
-                isPlaying={true}
-                style={{
-                    backgroundColor:'#ebebeb',
-                    width:'100vw'
+            <Flicking
+                className={style.vp}
+                align="prev"
+                circular={true}
+                bound={true}
+                plugins={pluginsList()}
+                panelsPerView={1}
 
-            }}
+
+
             >
 
-                <Slider                 className={style.slide}
-                >
+
 
 
                     {reviews.map((rev) => {
@@ -41,37 +43,27 @@ export default function Reviews({reviews}) {
                         const auteur = reviewNode.auteur;
                         const lien = reviewNode.lien;
                         return (
-                            <Slide
-                                key={id}
-
-                                index={id}>
+                            <div
+                                key={id}>
                                 <a href={lien} target={"_blank"} rel="noreferrer">
 
-                                    <Blockquote className={style.quote} styles={{
-                                        body: {
-                                            color: 'white',
-
-
-                                        },
-                                    }} cite={`"- ${auteur}"`}>
+                                    <Blockquote className={style.quote} cite={`"- ${auteur}"`}>
                                         {content}
 
                                     </Blockquote>
 
                                 </a>
-                            </Slide>
+                            </div>
                         )
                     })}
 
-                </Slider>
-
-                <div className={style.dotsContainer}>
-
-                    <DotGroup className={style.dots}/>
-                </div>
+                <ViewportSlot>
+                    <div className="flicking-pagination"></div>
+                </ViewportSlot>
 
 
-            </CarouselProvider>
+
+            </Flicking>
 
 
         )
