@@ -20,7 +20,7 @@ export default async (req, res) => {
     };
 
     try{await mail.send(data);}
-    catch(err){console.log(err)}
+    catch(err){res.status(403).json({ status: 'Forbidden' });}
 
     res.status(200).json({ status: 'OK' });
 };

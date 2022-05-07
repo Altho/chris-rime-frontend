@@ -53,19 +53,26 @@ export default function Contact() {
             email,
             message
         }
-        await fetch('/api/contactserver', {
-            method: 'post',
-            body: JSON.stringify(data),
-        })
-        setIsBeingSent(false)
-        setMessage('')
-        setName('')
-        setEmail('')
-        showNotification({
-            icon: checkMark(),
-            title: `${notifTitle()}`,
-            message: `${notifMessage()}`,
-        })
+        try{
+            await fetch('/api/contactserver', {
+                method: 'post',
+                body: JSON.stringify(data),
+            })
+
+            setIsBeingSent(false)
+            setMessage('')
+            setName('')
+            setEmail('')
+            showNotification({
+                icon: checkMark(),
+                title: `${notifTitle()}`,
+                message: `${notifMessage()}`,
+            })
+
+        }
+        catch(err){
+            console.log(err)
+        }
 
 
 
