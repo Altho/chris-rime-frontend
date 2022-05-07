@@ -114,32 +114,41 @@ export function MenuItems() {
         return (
             <div>
                 <div className={styles.dropdown}>
-                    <div className={styles.dropbtn}>Bio <span>▼</span></div>
+                    <div className={styles.dropbtn}>Bio</div>
+
                     <div className={styles.dropdownContent}>
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        <Link className={styles.subMenuItem} href="/biography">Biograpy</Link>
+                        <Link className={styles.subMenuItem} href="/albums">Discography</Link>
+                        <Link className={styles.subMenuItem} href="#">TV/Cinema</Link>
+                        <Link className={styles.subMenuItem} href="/games">Video games</Link>
+
+
                     </div>
                 </div>
                 <div className={styles.dropdown}>
-                    <div className={styles.dropbtn}>Media <span>▼</span></div>
+                    <div className={styles.dropbtn}>Média</div>
+
                     <div className={styles.dropdownContent}>
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        <Link className={styles.subMenuItem} href="/media/videos">Videos</Link>
+                        <Link className={styles.subMenuItem} href="/media/gallery">Photos</Link>
+                        <Link className={styles.subMenuItem} href="#">Music</Link>
                     </div>
 
                 </div>
                 <div className={styles.dropdown}>
-                    <div className={styles.dropbtn}>Pedagogy <span>▼</span></div>
+                    <div className={styles.dropbtn}>Pédagogie</div>
+
                     <div className={styles.dropdownContent}>
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        <Link className={styles.subMenuItem} href="/methods">Methods</Link>
+                        <Link className={styles.subMenuItem} href="#">Internet</Link>
+                        <Link className={styles.subMenuItem} href="#">Publications</Link>
                     </div>
 
+
                 </div>
+
                 <LanguageSwitcher/>
+
 
             </div>
         )

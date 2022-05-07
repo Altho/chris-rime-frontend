@@ -228,7 +228,11 @@ padding:35px;
 
 .flag{
   cursor: pointer;
+  display: inline-block;
+
 }
+
+
 
 .btnRead{
     background-color: var(--accent);
