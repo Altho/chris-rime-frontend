@@ -6,6 +6,7 @@ import { Chips, Chip } from '@mantine/core';
 import {useRouter} from "next/router";
 import Select from 'react-select'
 import {getAlbums} from "../../libs/fetchAlbums";
+import { SegmentedControl } from '@mantine/core';
 
 
 
@@ -25,6 +26,9 @@ export default function VideoGrid({videos, pedaguo, album, jeu, guest,albumList}
 
     return(
         <>
+
+
+
             <div className={style.chipContainer}>
                 <div className={style.chipWrapper}>
                 <Chips variant="filled" >

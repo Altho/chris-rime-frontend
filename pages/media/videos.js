@@ -15,90 +15,7 @@ export async function getServerSideProps(ctx){
 
     const jwt = parseCookies(ctx).jwt
 
-    if (jwt) {
-        const videosQ = qs.stringify({
-                sort: ['updatedAt:desc'],
 
-                encodeValuesOnly: true,
-                populate: '*'
-
-            }
-        );
-        const pedaguoQ = qs.stringify({
-            sort: ['pedaguo:asc'],
-            filters: {
-                pedaguo: {
-                    $eq: true,
-                },
-            },
-            encodeValuesOnly: true, // prettify url
-        });
-        const albumQ = qs.stringify({
-            sort: ['album:asc'],
-            filters: {
-                album: {
-                    $eq: true,
-                },
-            },
-        });
-        const jeuQ = qs.stringify({
-            sort: ['jeu:asc'],
-            filters: {
-                jeu: {
-                    $eq: true,
-                },
-            },
-        });
-        const guestQ = qs.stringify({
-            sort: ['guest:asc'],
-            filters: {
-                guest: {
-                    $eq: true,
-                },
-            },
-        });
-
-
-
-        const [
-            videos,
-            pedaguo,
-            album,
-            jeu,
-            guest,
-            albumList
-        ] = await Promise.all([
-            fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${videosQ}`,jwt),
-            fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${pedaguoQ}`,jwt),
-            fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${albumQ}`,jwt),
-            fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${jeuQ}`,jwt),
-            fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${guestQ}`,jwt),
-            fetchDataFromURL(`${process.env.DB_HOST}/api/albums?populate=*`,jwt),
-        ]);
-
-        console.log(videos)
-
-
-
-
-        return {
-
-            props: {
-                videos,
-                pedaguo,
-                album,
-                jeu,
-                guest,
-                albumList
-
-
-
-            },
-
-
-        }
-
-    }
 
     const loginData = {
 
@@ -126,8 +43,6 @@ export async function getServerSideProps(ctx){
 
     const loginResponseData = await login.json();
 
-    console.log('---LOGINRESPONSE---')
-    console.log(loginResponseData)
 
     setCookie(ctx, 'jwt', loginResponseData.jwt, {
 
