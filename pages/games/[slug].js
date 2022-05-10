@@ -32,7 +32,7 @@ export async function getServerSideProps({query, locale}, ctx) {
     const jwt = parseCookies(ctx).jwt
 
 
-    if (ctx) {
+    if (jwt) {
         const gameData = await getGamesData(params.slug, locale, jwt)
 
         return {

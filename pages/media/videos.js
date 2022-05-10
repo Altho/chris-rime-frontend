@@ -2,19 +2,142 @@ import style from '../../styles/videos.module.css'
 import Layout from '/components/layout'
 import { SimpleGrid } from '@mantine/core';
 import qs from 'qs'
-import ReactPlayer from 'react-player'
 import VideoGrid from "../../components/videos/VideoGrid";
 import {useState} from "react";
-import {useQuery, useQueryClient} from "react-query";
-import {QueryClientProvider, QueryClient} from "react-query";
-
-const queryClient = new QueryClient()
+import {parseCookies, setCookie} from "nookies";
+import fetchDataFromURL from '../../libs/fetchVideos'
 
 
 
 
 
-export async function getServerSideProps(){
+export async function getServerSideProps(ctx){
+
+    const jwt = parseCookies(ctx).jwt
+
+    if (jwt) {
+        const videosQ = qs.stringify({
+                sort: ['updatedAt:desc'],
+
+                encodeValuesOnly: true,
+                populate: '*'
+
+            }
+        );
+        const pedaguoQ = qs.stringify({
+            sort: ['pedaguo:asc'],
+            filters: {
+                pedaguo: {
+                    $eq: true,
+                },
+            },
+            encodeValuesOnly: true, // prettify url
+        });
+        const albumQ = qs.stringify({
+            sort: ['album:asc'],
+            filters: {
+                album: {
+                    $eq: true,
+                },
+            },
+        });
+        const jeuQ = qs.stringify({
+            sort: ['jeu:asc'],
+            filters: {
+                jeu: {
+                    $eq: true,
+                },
+            },
+        });
+        const guestQ = qs.stringify({
+            sort: ['guest:asc'],
+            filters: {
+                guest: {
+                    $eq: true,
+                },
+            },
+        });
+
+
+
+        const [
+            videos,
+            pedaguo,
+            album,
+            jeu,
+            guest,
+            albumList
+        ] = await Promise.all([
+            fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${videosQ}`,jwt),
+            fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${pedaguoQ}`,jwt),
+            fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${albumQ}`,jwt),
+            fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${jeuQ}`,jwt),
+            fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${guestQ}`,jwt),
+            fetchDataFromURL(`${process.env.DB_HOST}/api/albums?populate=*`,jwt),
+        ]);
+
+        console.log(videos)
+
+
+
+
+        return {
+
+            props: {
+                videos,
+                pedaguo,
+                album,
+                jeu,
+                guest,
+                albumList
+
+
+
+            },
+
+
+        }
+
+    }
+
+    const loginData = {
+
+        identifier: process.env.DB_EMAIL,
+
+        password: process.env.DB_PASSWORD,
+
+    };
+
+    const login = await fetch(`${process.env.DB_HOST}/api/auth/local`, {
+
+        method: 'POST',
+
+        headers: {
+
+            Accept: 'application/json',
+
+            'Content-Type': 'application/json',
+
+        },
+
+        body: JSON.stringify(loginData),
+
+    });
+
+    const loginResponseData = await login.json();
+
+    console.log('---LOGINRESPONSE---')
+    console.log(loginResponseData)
+
+    setCookie(ctx, 'jwt', loginResponseData.jwt, {
+
+        maxAge: 30 * 24 * 60 * 60,
+
+        path: '/',
+
+    })
+
+
 
     const videosQ = qs.stringify({
             sort: ['updatedAt:desc'],
@@ -58,33 +181,23 @@ export async function getServerSideProps(){
         },
     });
 
-    const fetchVideos = await fetch(`http://127.0.0.1:1337/api/videos?${videosQ}`)
-    const videoData = await fetchVideos.json()
-    const videos = videoData.data
-
-    const fetchPedaguo = await fetch(`http://127.0.0.1:1337/api/videos?${pedaguoQ}`)
-    const pedaguoData = await fetchPedaguo.json()
-    const pedaguo = pedaguoData.data
-
-    const fetchAlbum = await fetch(`http://127.0.0.1:1337/api/videos?${albumQ}`)
-    const albumData = await fetchAlbum.json()
-    const album = albumData.data
-
-    const fetchJeu = await fetch(`http://127.0.0.1:1337/api/videos?${jeuQ}`)
-    const jeuData = await fetchJeu.json()
-    const jeu = jeuData.data
-
-    const fetchGuest = await fetch(`http://127.0.0.1:1337/api/videos?${guestQ}`)
-    const guestData = await fetchGuest.json()
-    const guest = guestData.data
-
-    const fetchAlbums = await fetch('http://127.0.0.1:1337/api/albums?populate=*')
-    const albumsData = await fetchAlbums.json();
-    const albumList = albumsData.data
 
 
-
-
+    const [
+        videos,
+        pedaguo,
+        album,
+        jeu,
+        guest,
+        albumList
+    ] = await Promise.all([
+        fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${videosQ}`,loginResponseData.jwt),
+        fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${pedaguoQ}`,loginResponseData.jwt),
+        fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${albumQ}`,loginResponseData.jwt),
+        fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${jeuQ}`,loginResponseData.jwt),
+        fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${guestQ}`,loginResponseData.jwt),
+        fetchDataFromURL(`${process.env.DB_HOST}/api/albums?populate=*`,loginResponseData.jwt),
+    ]);
 
 
 
