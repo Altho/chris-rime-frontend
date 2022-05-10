@@ -9,7 +9,6 @@ import Listen from '../../components/albums/Listen'
 import styles from '../../styles/[slug].module.css'
 import {Image} from '@mantine/core'
 import Reviews from "../../components/reviews";
-import Share from "../../components/social/share"
 import DisplayPdf from "../../components/methods/DisplayPdf";
 import {useRouter} from "next/router";
 import AlbumInfos from "../../components/albums/AlbumInfos";
@@ -115,7 +114,7 @@ export default function methodDetails({methodData}) {
             </div>
 
 
-            <Share />
+            
 
 
         </Layout>
