@@ -3,24 +3,72 @@ import {Blockquote} from "@mantine/core";
 import BioSeparator from "./BioSeparator";
 import {useRouter} from "next/router";
 import Link from 'next/link'
+import useWindowDimensions from "../../hooks/useWindowDimensions";
+import Flicking, { ViewportSlot } from "@egjs/react-flicking";
+import { Pagination } from "@egjs/flicking-plugins";
+import "@egjs/flicking-plugins/dist/pagination.css";
+import "@egjs/react-flicking/dist/flicking.css";
+import { AutoPlay } from "@egjs/flicking-plugins";
+import {Quote} from 'tabler-icons-react'
 
-export default function ShortBio() {
+
+export default function ShortBio({testimonials}) {
+    const {height, width} = useWindowDimensions()
+    console.log(testimonials.data)
     const locale = useRouter().locale;
+    const pluginsList = () => [new AutoPlay({ duration: 4000, direction: "NEXT", stopOnHover: true }),new Pagination({ type: 'bullet' })]
+
     return (
         <div>
         <div  className={style.shortBio}>
             <div className={style.filter}>
                 <div className={style.fitting}>
-            <Blockquote styles={{body:{color:'white'}}} icon={null}>
-                Chris Rime, entouré par une famille de musiciens, commence la musique à 10 ans. Au collège, il joue de
-                la batterie et surtout de la guitare et anime déja de nombreuses soirées privées. A 16 ans, il reçoit sa
-                première commande pour illustrer un court métrage puis rencontre Nguyen Lê avec qui il forme un duo qui
-                se produit de manière régulière dans les clubs de jazz parisiens. La majorité à peine acquise, il
-                traverse l&aposatlantique pour s&aposinscrire au mythique Berklee College of Music.
-            </Blockquote>
-                    <div className={style.buttonContainer}>
-                        <div className={style.bioButton}> <Link className={style.link} href={'/biography'}>{locale === 'en' ?('Read more') : ('En savoir plus')}</Link></div>
-                    </div>
+
+                    <Flicking
+                        className={style.vp}
+                        align="prev"
+                        circular={true}
+                        bound={true}
+                        plugins={pluginsList()}
+                        panelsPerView={1}
+
+
+
+                    >
+
+
+
+
+                        {testimonials.map((testimonial) => {
+                            console.log('-----------map-----------')
+                            const id = testimonial.id;
+                            const testiNode = testimonial.attributes
+                            const content = testiNode.quote;
+                            const auteur = testiNode.author;
+                            return (
+                                <div
+                                    key={id}>
+
+
+                                        <Blockquote className={style.quote} cite={`"- ${auteur}"`} icon={width > 900 ? < Quote /> : null}>
+                                            {content}
+
+                                        </Blockquote>
+
+
+                                </div>
+                            )
+                        })}
+
+                        <ViewportSlot>
+                            <div className="flicking-pagination"></div>
+                        </ViewportSlot>
+
+
+
+                    </Flicking>
+
+
             </div>
                 <BioSeparator/>
             </div>

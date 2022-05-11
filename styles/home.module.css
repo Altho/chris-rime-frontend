@@ -232,7 +232,9 @@ padding:35px;
 
 }
 
-
+.quote {
+  color:white;
+}
 
 .btnRead{
     background-color: var(--accent);

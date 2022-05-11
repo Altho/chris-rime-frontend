@@ -24,7 +24,7 @@ import qs from "qs";
 
 
 
-export default function Home({blogs, album}) {
+export default function Home({blogs, album, testimonials}) {
 
 
     return (
@@ -39,7 +39,7 @@ export default function Home({blogs, album}) {
             <Jumbotron/>
             <main className={styles.main}>
                 <LatestRelease album={album} />
-                <ShortBio/>
+                <ShortBio testimonials={testimonials.data}/>
                 <Presentation/>
                 <BlogContainer blogs={blogs}/>
 
@@ -84,8 +84,17 @@ export async function getStaticProps({locale}, ctx) {
                 Authorization: `Bearer ${jwt}`
             }
         })
+
+        const fetchTestimonials = await fetch(`${process.env.DB_HOST}/api/testimonials?locale=${locale}&${query}&populate=*`,{
+            headers: {
+
+                Authorization: `Bearer ${jwt}`
+            }
+        })
         const albums = await fetchAlbums.json()
         console.log(albums)
+
+        const testimonials = await fetchTestimonials.json()
 
         const album = albums.data.slice(0,1)
         console.log(album)
@@ -97,7 +106,8 @@ export async function getStaticProps({locale}, ctx) {
 
             props: {
                 blogs,
-                album
+                album,
+                testimonials
 
 
 
@@ -158,12 +168,19 @@ export async function getStaticProps({locale}, ctx) {
             Authorization: `Bearer ${loginResponseData.jwt}`
         }
     })
+    const fetchTestimonials = await fetch(`${process.env.DB_HOST}/api/testimonials?locale=${locale}&${query}&populate=*`,{
+        headers: {
+
+            Authorization: `Bearer ${loginResponseData.jwt}`
+        }
+    })
     const albums = await fetchAlbums.json()
     console.log(albums)
     const album = albums.data.slice(0,1)
     console.log(album)
     console.log(fetchBlog)
     const blogPost = await fetchBlog.json()
+    const testimonials = await fetchTestimonials.json()
     console.log(blogPost)
     console.log(loginResponseData)
 
@@ -173,7 +190,8 @@ export async function getStaticProps({locale}, ctx) {
 
         props: {
             blogs,
-            album
+            album,
+            testimonials
 
 
         }, revalidate: 10
