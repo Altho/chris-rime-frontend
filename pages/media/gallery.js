@@ -118,7 +118,7 @@ export default function Gallery({photos}){
             <Modal
                 opened={opened}
                 onClose={() => setOpened(false)}
-                hideCloseButton
+                withCloseButton={false}
                 centered
                 size="80vh"
                 overlayOpacity={0.80}

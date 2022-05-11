@@ -142,7 +142,7 @@ function AlbumTitle({name, image, album, buy, digital}) {
 
                             >{locale === 'en' ? ('BUY') : ('ACHETER')}
 
-                            </Button>}>
+                            </Button>
 
                         </div>
                     </div>
