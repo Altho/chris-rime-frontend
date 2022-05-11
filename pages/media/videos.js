@@ -129,7 +129,7 @@ export async function getServerSideProps(ctx){
 
 
 
-        },
+        },revalidate: 10,
 
 
     }

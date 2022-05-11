@@ -27,7 +27,7 @@ const useStyles = createStyles((theme) => ({
 }));
 
 
-export async function getServerSideProps({query, locale}, ctx) {
+export async function getStaticProps({query, locale}, ctx) {
     const jwt = parseCookies(ctx).jwt
    if(jwt){
        const methodData = await getMethodData(query.slug, locale)
@@ -114,7 +114,7 @@ export default function methodDetails({methodData}) {
             </div>
 
 
-            
+
 
 
         </Layout>
