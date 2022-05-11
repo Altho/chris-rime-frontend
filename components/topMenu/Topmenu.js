@@ -11,6 +11,7 @@ import ListenSeparator from "../albums/ListenSeparator";
 const drawerStyles = {
 
     drawer: {
+        zIndex:2,
         backgroundColor: 'fff',
 
     },

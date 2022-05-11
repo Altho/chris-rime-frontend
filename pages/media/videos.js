@@ -11,7 +11,7 @@ import fetchDataFromURL from '../../libs/fetchVideos'
 
 
 
-export async function getServerSideProps(ctx){
+export async function getStaticProps(ctx){
 
     const jwt = parseCookies(ctx).jwt
 
@@ -129,7 +129,7 @@ export async function getServerSideProps(ctx){
 
 
 
-        },revalidate: 10,
+        },revalidate: 10
 
 
     }

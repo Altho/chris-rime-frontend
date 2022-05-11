@@ -32,6 +32,7 @@ export default function Home({blogs, album}) {
         <Layout>
             <Head>
                 <title>{siteTitle}</title>
+                <meta name="theme-color" content="#000" />
 
             </Head>
 

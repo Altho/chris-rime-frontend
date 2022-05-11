@@ -45,9 +45,7 @@
 
 }
 
-.subMenuItem{
-    border: 1px solid red;
-}
+
 
 .mobileMenuContainer{
     display: block;
@@ -210,9 +208,7 @@ display: flex;
 
 
 
-.label:hover{
-    background-color: red;
-}
+
 
 .item{
     text-decoration: none;

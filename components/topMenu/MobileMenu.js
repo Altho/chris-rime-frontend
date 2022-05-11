@@ -22,49 +22,34 @@ export default function MobileMenu() {
     const locale = useRouter().locale;
     return (
         <div>
-            {locale === 'en' ? (
                 <Accordion >
-                    <Accordion.Item  classNames={{
-
-                        itemTitle: styles.label
-
-                    }} styles={label} label="Work">
+                    <Accordion.Item styles={label} label="Work">
                         <div className={styles.mobileMenuContainer}>
-                            <div className={styles.mobileMenuItem}><a href={'/biography'}>Biography</a></div>
-                            <div className={styles.mobileMenuItem}><a href={'/albums'}>Albums</a></div>
-                            <div className={styles.mobileMenuItem}><a href={'/biography'}>Cinema/TV</a></div>
-                            <div className={styles.mobileMenuItem}><a href={'/biography'}>Video Games</a></div>
+                          <Link href={'/biography'}><div className={styles.mobileMenuItem}>{locale === 'en' ? 'Biography' : 'Biographie'}</div></Link>
+                            <Link href={'/albums'}><div className={styles.mobileMenuItem}>Albums</div></Link>
+                            <Link href={'/movies'}><div className={styles.mobileMenuItem}>Cinema/TV</div></Link>
+                            <Link href={'/games'}><div className={styles.mobileMenuItem}>{locale === 'en' ? 'Video Games' : 'Jeux Vidéos'}</div></Link>
                         </div>
 
                     </Accordion.Item>
 
                     <Accordion.Item styles={label} label="Media">
                         <div className={styles.mobileMenuContainer}>
-                            <div className={styles.mobileMenuItem}><a href={'/media/videos'}>Videos</a></div>
-                            <div className={styles.mobileMenuItem}><a href={'/media/gallery'}>photos</a></div>
-                            <div className={styles.mobileMenuItem}><a href={'/media/music'}>Music</a></div>
+                            <Link href={'/media/videos'}><div className={styles.mobileMenuItem}>{locale === 'en' ? 'Videos' : 'Vidéos'}</div></Link>
+                            <Link href={'/media/gallery'}><div className={styles.mobileMenuItem}>Photos</div></Link>
+                            <Link href={'/media/music'}><div className={styles.mobileMenuItem}>{locale === 'en' ? 'Music' : 'Musique'}</div></Link>
                         </div>
                     </Accordion.Item>
 
                     <Accordion.Item styles={label} label="Pedagogy">
                         <div className={styles.mobileMenuContainer}>
-                            <div className={styles.mobileMenuItem}><a href={'/methods'}>Methods</a></div>
-                            <div className={styles.mobileMenuItem}><a href={'/internet'}>Internet</a></div>
-                            <div className={styles.mobileMenuItem}><a href={'/publications'}>Publications</a></div>
+                            <Link href={'/methods'}><div className={styles.mobileMenuItem}>{locale === 'en' ? 'Methods' : 'Méthodes'}</div></Link>
+                            <Link href={'/internet'}><div className={styles.mobileMenuItem}>Internet</div></Link>
+                            <Link href={'/publications'}><div className={styles.mobileMenuItem}>Publications</div></Link>
                         </div>                    </Accordion.Item>
                 </Accordion>
-            ) : (
-                <Accordion>
-                    <Accordion.Item styles={label} label="Biographie">
-                        A venir </Accordion.Item>
 
-                    <Accordion.Item styles={label} label="Média">
-                        A venir </Accordion.Item>
-
-                    <Accordion.Item styles={label} label="Pédagogie">
-                        A venir </Accordion.Item>
-                </Accordion>
-            )}
+         
             <div className={styles.mobileLang}>{locale.toUpperCase()}<LanguageSwitcher/></div>
         </div>
     )
