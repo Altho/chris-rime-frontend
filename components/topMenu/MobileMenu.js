@@ -49,7 +49,7 @@ export default function MobileMenu() {
                         </div>                    </Accordion.Item>
                 </Accordion>
 
-         
+
             <div className={styles.mobileLang}>{locale.toUpperCase()}<LanguageSwitcher/></div>
         </div>
     )
