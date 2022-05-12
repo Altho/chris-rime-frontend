@@ -14,7 +14,6 @@ export default function LatestRelease(album){
 
     const data = album.album[0].attributes
     const path = useRouter().pathname
-    console.log(data)
     return(
         <div className={style.container}>
             <div className={style.badgeContainer}>

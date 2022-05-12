@@ -14,7 +14,6 @@ import {Quote} from 'tabler-icons-react'
 
 export default function ShortBio({testimonials}) {
     const {height, width} = useWindowDimensions()
-    console.log(testimonials.data)
     const locale = useRouter().locale;
     const pluginsList = () => [new AutoPlay({ duration: 4000, direction: "NEXT", stopOnHover: true }),new Pagination({ type: 'bullet' })]
 
@@ -40,7 +39,6 @@ export default function ShortBio({testimonials}) {
 
 
                         {testimonials.map((testimonial) => {
-                            console.log('-----------map-----------')
                             const id = testimonial.id;
                             const testiNode = testimonial.attributes
                             const content = testiNode.quote;

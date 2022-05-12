@@ -44,7 +44,6 @@ export default function BlogContainer({blogs}) {
     let slideIndex = -1;
 
 
-    console.log(blogs.length)
    const pluginsList = () => [new AutoPlay({ duration: 4000, direction: "NEXT", stopOnHover: false }),new Pagination({ type: 'bullet' })]
 
     return (

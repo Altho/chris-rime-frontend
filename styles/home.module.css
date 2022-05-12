@@ -27,17 +27,55 @@
   background-color: var(--primary);
   min-height: 200px;
   display: flex;
+
   justify-content: space-evenly;
+
 }
 
 .paragraph{
 padding:35px;
   color: black;
+  margin-bottom: 20px;
   line-height: 1.8;
   overflow: hidden;
   font-family: "Montserrat Alternates",sans-serif;
   flex-grow: 1;
   flex-basis: 0;
+  transition: all 0.3s ease-in-out;
+
+
+}
+
+.paragraphContainer {
+  flex-grow: 1;
+  flex-basis: 0;
+
+
+}
+
+.opened {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  -webkit-line-clamp: 40;
+  max-height: 50em;
+
+
+}
+
+.closed {
+  display: -webkit-box;
+
+  -webkit-line-clamp:3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  max-height: 13em;
+
+
 }
 
 .icon{
@@ -312,6 +350,12 @@ padding:35px;
     flex-wrap: wrap;
   }
 
+  .paragraphContainer {
+    flex-grow: unset;
+    flex-basis: unset;
+
+  }
+
   .footer{
     justify-content: center;
     /*bottom:-70px;*/
@@ -339,10 +383,18 @@ padding:35px;
 width: 100%;
     justify-content: center;
   }
+
+  .closed {
+
+    max-height: 12em;
+
+
+  }
   .paragraph{
     padding : 20px;
     flex-basis: auto;
     text-align: justify;
+    margin-bottom: 20px;
   }
   .mainVideo{
     margin-bottom: 50px;
