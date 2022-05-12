@@ -27,7 +27,6 @@
 
 .button{
 
-    background-color: var(--secondary);
     font-family: "Nanum Gothic", sans-serif;
     position: absolute;
     bottom:15px;

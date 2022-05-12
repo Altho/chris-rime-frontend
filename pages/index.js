@@ -34,6 +34,7 @@ export default function Home({blogs, album, testimonials}) {
                 <title>{siteTitle}</title>
                 <meta name="theme-color" content="#000" />
 
+
             </Head>
 
             <Jumbotron/>

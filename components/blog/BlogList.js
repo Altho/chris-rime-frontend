@@ -36,7 +36,7 @@ export default function  blogList({title, publishedAt, content,locale, children,
             <Text size="sm" style={{  lineHeight: 1.5, overflow:'hidden' }}>
                 {content}
             </Text>
-            <Button fullWidth className={styles.button}>{locale === 'en' ? ('Read More') : ('Lire la suite')}</Button>
+            <Button fullWidth color={"orange"} className={styles.button}>{locale === 'en' ? ('Read More') : ('Lire la suite')}</Button>
 
 
         </Card>

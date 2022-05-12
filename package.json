@@ -28,6 +28,7 @@
     "mobile-detect": "^1.4.5",
     "next": "^12.1.6",
     "next-auth": "^4.3.3",
+    "next-pwa": "^5.5.2",
     "nookies": "^2.5.2",
     "nprogress": "^0.2.0",
     "pdf-viewer-reactjs": "^2.2.3",
@@ -44,7 +45,8 @@
     "react-transition-group": "^4.4.2",
     "react-youtube": "^7.14.0",
     "remark": "^14.0.2",
-    "tabler-icons-react": "^1.46.0"
+    "tabler-icons-react": "^1.46.0",
+    "workbox-core": "^6.5.3"
   },
   "devDependencies": {
     "eslint": "7.32.0",
