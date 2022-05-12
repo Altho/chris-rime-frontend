@@ -313,21 +313,22 @@ padding:35px;
   }
 
   .footer{
-    /*justify-content: center;*/
-    bottom:-70px;
+    justify-content: center;
+    /*bottom:-70px;*/
+    padding: 5px;
   }
 
   .footer a{
-    justify-content: start;
+    /*justify-content: start;*/
   }
   .copyright{
-    display: block;
+    /*display: block;*/
   }
   .footerItem{
     display: flex;
     justify-content: space-evenly;
     padding: 5px;
-    width:100%;
+    /*width:100%;*/
 
   }
 
@@ -344,7 +345,7 @@ width: 100%;
     text-align: justify;
   }
   .mainVideo{
-
+    margin-bottom: 50px;
     height: 40vh;
 
   }
