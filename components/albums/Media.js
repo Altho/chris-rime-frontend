@@ -5,8 +5,6 @@ import { SimpleGrid } from '@mantine/core';
 
 
 export default function Media({media}){
-console.log('media video')
-    console.log(media)
     return(
         <SimpleGrid
             cols={4}

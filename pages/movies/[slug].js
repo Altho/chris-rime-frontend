@@ -1,31 +1,45 @@
 import Layout from "../../components/layout";
-import {getMethodData} from "../../libs/fetchMethods";
-import MethodInfos from "../../components/methods/methodInfos";
+import {getMovieData} from "../../libs/fetchMovies";
+import MovieInfos from "../../components/movies/movieInfos";
 import styles from '../../styles/[slug].module.css'
 import Reviews from "../../components/reviews";
 import DisplayPdf from "../../components/methods/DisplayPdf";
+import { createStyles } from '@mantine/core';
+
 import {useRouter} from "next/router";
 import {Menu, MenuButton, MenuItem} from "@szhsin/react-menu";
 import style from "../../styles/[slug].module.css";
 import {parseCookies, setCookie} from "nookies";
+import {Image} from "@mantine/core";
+import Media from "../../components/albums/Media";
+import {MediaSeparator} from "../../components/albums/MediaSeparator";
 
+const useStyles = createStyles((theme) => ({
+    image: {
 
+        '@media (max-width: 900px)': {
+            width: '100vw',
+        },
+    },
+}));
 
 
 export async function getServerSideProps({query, locale}, ctx) {
     const jwt = parseCookies(ctx).jwt
-   if(jwt){
-       const methodData = await getMethodData(query.slug, locale)
+    console.dir('---QUERY---')
+    console.dir(query.slug)
+    if(jwt){
+        const movieData = await getMovieData(query.slug, locale,jwt)
 
-       return {
-           props: {
-               methodData
-           }
+        return {
+            props: {
+                movieData
+            }
 
 
-       }
+        }
 
-   }
+    }
 
     const loginData = {
 
@@ -62,11 +76,10 @@ export async function getServerSideProps({query, locale}, ctx) {
     })
 
 
-    const methodData = await getMethodData(query.slug, locale, loginResponseData.jwt)
-
+    const movieData = await getMovieData(query.slug, locale, loginResponseData.jwt)
     return {
         props: {
-            methodData
+            movieData
         }
 
 
@@ -77,27 +90,26 @@ export async function getServerSideProps({query, locale}, ctx) {
 
 
 
-export default function methodDetails({methodData}) {
+export default function movieDetails({movieData}) {
 
 
-    const method = methodData['0'].attributes;
-    const methodImage = method.cover.data['0'].attributes.url
-    const preview = method.preview.data.attributes.url
-    console.log(method.reviews)
+    const movie = movieData['0'].attributes;
+    const movieImage = movie.image.data.attributes.url
 
 
 
 
     return (
         <Layout>
-            <MethodTitle name={method.name} image={methodImage} method={method} preview={preview}/>
-            <Reviews reviews={method.reviews.data}  />
+            <MovieTitle name={movie.name} image={movieImage} movie={movie}/>
 
             <div className={styles.infoContainer}>
                 <div className={styles.description}>
                 </div>
             </div>
+            <MediaSeparator/>
 
+            <Media media={movie.video}/>
 
 
 
@@ -107,7 +119,8 @@ export default function methodDetails({methodData}) {
 
 }
 
-function MethodTitle({name, image, method, preview}) {
+function MovieTitle({name, image, movie}) {
+    const { classes } = useStyles();
 
     const locale = useRouter().locale;
     return (
@@ -118,21 +131,25 @@ function MethodTitle({name, image, method, preview}) {
                 <div className={styles.albumHeader}>
                     <div>
                         <div className={styles.albumCover}>
-                            <DisplayPdf url={preview} />
+                            <Image className={classes.image}
+                                   src={`${image}`}
+                                // width={400}
+                                // height={400}
 
+                            />
                         </div>
 
                     </div>
                     <div className={styles.albumRightContainer}>
                         <h1 className={styles.albumName} >{name}</h1>
 
-                        <MethodInfos release={method.date.toString()} publisher={method.publisher} pages={method.pages} />                        <p className={styles.albumDescription}>{method.description}</p>
-                        <div className={styles.buttonContainer}>
-                            <Menu menuButton={<MenuButton className={style.buy}>{locale === 'en' ? ('BUY') : ('ACHETER')}</MenuButton>}>
-                                <MenuItem className={styles.menuItem}>Guitar4Fan (CD)</MenuItem>
-                                <MenuItem className={styles.menuItem}>BandCamp (Digital)</MenuItem>
-                            </Menu>
-                        </div>
+                        <MovieInfos
+                            date={movie.date.toString()}
+                            realisation={movie.realisation}
+                            acteurs={movie.acteurs}
+                            duree={movie.duree}
+                        />                        <p className={styles.albumDescription}>{movie.description}</p>
+
                     </div>
 
                 </div>
