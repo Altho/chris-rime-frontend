@@ -25,6 +25,13 @@
 
 }
 
+.clamp{
+    -webkit-line-clamp:1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 .button{
 
     font-family: "Nanum Gothic", sans-serif;
