@@ -5,7 +5,7 @@ import styles from '../../styles/[slug].module.css'
 import Reviews from "../../components/reviews";
 import DisplayPdf from "../../components/methods/DisplayPdf";
 import { createStyles } from '@mantine/core';
-
+import Preview from "../../components/movies/preview";
 import {useRouter} from "next/router";
 import {Menu, MenuButton, MenuItem} from "@szhsin/react-menu";
 import style from "../../styles/[slug].module.css";
@@ -107,8 +107,8 @@ export default function movieDetails({movieData}) {
                 <div className={styles.description}>
                 </div>
             </div>
-            <MediaSeparator/>
 
+            <MediaSeparator/>
             <Media media={movie.video}/>
 
 
@@ -148,7 +148,10 @@ function MovieTitle({name, image, movie}) {
                             realisation={movie.realisation}
                             acteurs={movie.acteurs}
                             duree={movie.duree}
-                        />                        <p className={styles.albumDescription}>{movie.description}</p>
+                        />
+                        <p className={styles.albumDescription}>{movie.description}</p>
+                        <Preview preview={movie.preview} />
+
 
                     </div>
 

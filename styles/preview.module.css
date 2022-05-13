@@ -1,0 +1,22 @@
+.videoContainer {
+    background-color: black;
+    border-radius: 10px;
+    margin-top: 20px;
+    height: 400px;
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+
+.videoPlayer {
+padding: 10px;
+}
+
+@media (max-width: 900px) {
+    .videoContainer {
+        border-radius: 0;
+        height: 400px;
+        box-shadow: none;
+    }
+    .videoPlayer {
+        padding: 0;
+    }
+}
