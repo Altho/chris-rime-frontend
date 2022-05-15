@@ -96,6 +96,10 @@ export default function movieDetails({movieData}) {
     const movie = movieData['0'].attributes;
     const movieImage = movie.image.data.attributes.url
 
+    console.dir(movie)
+
+
+
 
 
 
@@ -109,7 +113,7 @@ export default function movieDetails({movieData}) {
             </div>
 
             <MediaSeparator/>
-            <Media media={movie.video}/>
+            <Media media={movie.videos.data}/>
 
 
 

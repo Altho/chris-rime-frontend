@@ -16,7 +16,12 @@ export default function Media({media}){
                 { maxWidth: 600, cols: 1, spacing: 'sm' },
             ]}
         >
-            {media ? (media.map((video) =>{return(
+            {media ? (media.map((video) =>{
+
+                console.dir('---MOVIDEVIDEO---')
+                console.dir(video.attributes)
+                return(
+
                     <>
                     <ReactPlayer url={video.attributes.lien} width='100%' height='100%' controls />
                     </>
