@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import {getAlbums} from "../libs/fetchAlbums";
 import styles from '../styles/home.module.css'
 import ListenSeparator from "../components/albums/ListenSeparator";
 import BioSeparator from "../components/home/BioSeparator";
@@ -79,12 +80,7 @@ export async function getStaticProps({locale}, ctx) {
             }
         })
 
-        const fetchAlbums = await fetch(`${process.env.DB_HOST}/api/albums?locale=${locale}&${query}&populate=*`,{
-            headers: {
-
-                Authorization: `Bearer ${jwt}`
-            }
-        })
+        const fetchAlbums = await getAlbums({locale}, jwt)
 
         const fetchTestimonials = await fetch(`${process.env.DB_HOST}/api/testimonials?locale=${locale}&${query}&populate=*`,{
             headers: {
@@ -92,13 +88,15 @@ export async function getStaticProps({locale}, ctx) {
                 Authorization: `Bearer ${jwt}`
             }
         })
-        const albums = await fetchAlbums.json()
-        console.log(albums)
+
 
         const testimonials = await fetchTestimonials.json()
 
-        const album = albums.data.slice(0,1)
+        const album = fetchAlbums.slice(0,1)
+        console.dir('---LATESTALBUM----')
         console.log(album)
+        console.dir('---LATESTALBUM----')
+
         const blogPost = await fetchBlog.json()
         console.log(blogPost)
         const blogs = blogPost.data.slice(0,8)
@@ -163,21 +161,16 @@ export async function getStaticProps({locale}, ctx) {
             Authorization: `Bearer ${loginResponseData.jwt}`
         }
     })
-    const fetchAlbums = await fetch(`${process.env.DB_HOST}/api/albums?locale=${locale}&${query}&populate=*`,{
-        headers: {
+    const fetchAlbums = await getAlbums({locale},loginResponseData.jwt)
 
-            Authorization: `Bearer ${loginResponseData.jwt}`
-        }
-    })
     const fetchTestimonials = await fetch(`${process.env.DB_HOST}/api/testimonials?locale=${locale}&${query}&populate=*`,{
         headers: {
 
             Authorization: `Bearer ${loginResponseData.jwt}`
         }
     })
-    const albums = await fetchAlbums.json()
-    console.log(albums)
-    const album = albums.data.slice(0,1)
+
+    const album = fetchAlbums.slice(0,1)
     console.log(album)
     console.log(fetchBlog)
     const blogPost = await fetchBlog.json()
