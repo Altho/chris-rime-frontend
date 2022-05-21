@@ -107,8 +107,10 @@ function AlbumTitle({name, image, album, buy, digital}) {
                 onClose={() => setOpened(false)}
             >
                     <div className={styles.modalButtonContainer}>
-                        <a href={album.buy} target="_blank" rel={'noreferrer'}><Button className={styles.buyButton}>{locale==='en' ? 'BUY ON GUITAR4FANS (PHYSICAL)' : 'ACHETER SUR GUITAR4FANS (PHYSIQUE)'}</Button></a>
-                        <a href={album.digital} target="_blank" rel={'noreferrer'}> <Button className={styles.buyButton}>{locale==='en' ? 'BUY ON BANDCAMP (DIGITAL)' : 'ACHETER SUR BANDCAMP (NUMERIQUE)'}</Button></a>
+                        {album.buy && (<a href={album.buy} target="_blank" rel={'noreferrer'}><Button className={styles.buyButton}>{locale==='en' ? 'BUY CD (PHYSICAL)' : 'ACHETER CD (PHYSIQUE)'}</Button></a>
+                        )}
+                        {album.digital && (<a href={album.digital} target="_blank" rel={'noreferrer'}> <Button className={styles.buyButton}>{locale==='en' ? 'BUY CD (DIGITAL)' : 'ACHETER CD (NUMERIQUE)'}</Button></a>
+                        )}
 
                     </div>
 

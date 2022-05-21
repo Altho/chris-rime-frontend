@@ -1,0 +1,64 @@
+.card{
+    background-color: var(--primary);
+    color:var(--secondary);
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    transition: 0.4s;
+    min-height: 300px;
+    width: 350px;
+    margin-left:10px;
+    margin-right: 10px;
+    max-height: 250px;
+
+
+}
+
+.button {
+    font-family: "Nanum Gothic", sans-serif;
+    position: absolute;
+    bottom:15px;
+    width:90%;
+    color: var(--primary);
+    margin-top:10px;
+}
+
+.content {
+    font-family: sans-serif;
+}
+
+.content p {
+    margin-top: 1em;
+    margin-bottom:1em;
+    line-height: 1.2em;
+
+}
+
+.imageWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerContainer{
+    display:block;
+}
+
+.content em {
+    font-style: italic;
+}
+
+.content strong{
+    font-weight: bold;
+}
+
+
+
+@media (max-width: 900px) {
+   .card{
+       width:80vw;
+   }
+    .content p{
+        text-align: justify;
+    }
+
+}
+

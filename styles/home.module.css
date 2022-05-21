@@ -272,6 +272,8 @@ padding:35px;
 
 .quote {
   color:white;
+  display: flex;
+  align-items: center;
 }
 
 .btnRead{
@@ -350,6 +352,11 @@ padding:35px;
     flex-wrap: wrap;
   }
 
+  .flicking {
+    display: flex;
+    align-items: center;
+  }
+
   .paragraphContainer {
     flex-grow: unset;
     flex-basis: unset;
@@ -404,6 +411,7 @@ width: 100%;
   .fitting{
     padding:10px 0 0 0;
     text-align: justify;
+
 
   }
 }

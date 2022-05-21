@@ -24,7 +24,6 @@ export default function ShortBio({testimonials}) {
                 <div className={style.fitting}>
 
                     <Flicking
-                        className={style.vp}
                         align="prev"
                         circular={true}
                         bound={true}
@@ -45,7 +44,10 @@ export default function ShortBio({testimonials}) {
                             const auteur = testiNode.author;
                             return (
                                 <div
-                                    key={id}>
+                                    key={id}
+
+                                >
+
 
 
                                         <Blockquote className={style.quote} cite={`"- ${auteur}"`} icon={width > 900 ? < Quote /> : null}>
