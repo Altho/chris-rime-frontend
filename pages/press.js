@@ -97,6 +97,11 @@ export default function Articles({articles}){
         magazine:'',
         date:''
     });
+    let keyIndex = 0
+    const newKey = () => {
+        keyIndex++
+        return keyIndex
+    }
 
     console.log(isMobile())
 
@@ -164,7 +169,7 @@ export default function Articles({articles}){
                             ]}>
                     {articles.map((article) => {
                         return(
-                            <ArticleCard data={article} locale={locale} onClick={() => handleClick(article)} />
+                            <ArticleCard key={newKey()} data={article} locale={locale} onClick={() => handleClick(article)} />
                         )
                     })}
                 </SimpleGrid>
