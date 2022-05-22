@@ -119,6 +119,7 @@ export function MenuItems() {
 
                     <div className={styles.dropdownContent}>
                         <Link className={styles.subMenuItem} href="/biography">Biograpy</Link>
+                        <Link className={styles.subMenuItem} href="/press">Press</Link>
                         <Link className={styles.subMenuItem} href="/albums">Discography</Link>
                         <Link className={styles.subMenuItem} href="/movies">TV/Cinema</Link>
                         <Link className={styles.subMenuItem} href="/games">Video games</Link>
@@ -164,6 +165,7 @@ export function MenuItems() {
 
                     <div className={styles.dropdownContent}>
                         <Link className={styles.subMenuItem} href="/biography">Biographie</Link>
+                        <Link className={styles.subMenuItem} href="/press">Presse</Link>
                         <Link className={styles.subMenuItem} href="/albums">Discographie</Link>
                         <Link className={styles.subMenuItem} href="/movies">Télé/Films</Link>
                         <Link className={styles.subMenuItem} href="/games">Jeux vidéos</Link>
