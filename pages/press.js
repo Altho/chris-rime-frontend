@@ -12,6 +12,7 @@ import useWindowDimensions from "../hooks/useWindowDimensions";
 import {marked} from 'marked'
 import DOMPurify from 'isomorphic-dompurify'
 import ReactMarkdown from 'react-markdown'
+import InfiniteScroll from 'react-infinite-scroller';
 
 import style from "../styles/blogList.module.css";
 
@@ -23,11 +24,16 @@ export async function getServerSideProps({locale}, ctx) {
     const jwt = parseCookies(ctx).jwt
 
     if (jwt) {
-        const articles = await getArticles({locale}, jwt)
+        const getArticlesList = await getArticles({locale}, jwt, 1, 8)
+        const articles = getArticlesList.articlesList
+        const pages = getArticlesList.pages
+        const cookieJwt = jwt
         return {
 
             props: {
-                articles
+                articles,
+                cookieJwt,
+                pages
 
 
             },
@@ -67,12 +73,19 @@ export async function getServerSideProps({locale}, ctx) {
         path: '/',
 
     })
+    const cookieJwt = loginResponseData.jwt
 
-    const articles = await getArticles({locale}, loginResponseData.jwt)
+    const getArticlesList = await getArticles({locale}, cookieJwt, 1, 8)
+    const articles = getArticlesList.articlesList
+    const pages = getArticlesList.pages
+
+
     return {
 
         props: {
-            articles
+            articles,
+            cookieJwt,
+            pages
 
 
         }
@@ -83,11 +96,14 @@ export async function getServerSideProps({locale}, ctx) {
 
 
 
-export default function Articles({articles}){
-
+export default function Articles({articles, cookieJwt, pages}){
+    const locale = useRouter().locale
+    console.log(articles)
     const {height, width}= useWindowDimensions()
     const isMobile = () => {if(width <= 900){return true}else{return false}}
-    const locale = useRouter().locale
+    const [pageCounter, setPageCounter] = useState(2)
+    const [posts, setPosts] = useState(articles);
+    const [hasMore, setHasMore] = useState(true);
     const [opened, setOpened] = useState(false);
     const [modalContent, setModalContent] = useState({
         mainContent:'',
@@ -99,6 +115,22 @@ export default function Articles({articles}){
         date:''
     });
 
+    const getMorePost = async () => {
+        if(pageCounter < pages + 1){
+
+
+            const res = await getArticles({locale},cookieJwt, pageCounter, 8)
+            setPageCounter(prevState => prevState + 1)
+
+            const newPosts = res.articlesList;
+            setPosts((post) => [...post, ...newPosts]);
+        }
+        else {
+            setHasMore(false)
+        }
+
+    };
+
 
     let keyIndex = 0
     const newKey = () => {
@@ -106,7 +138,6 @@ export default function Articles({articles}){
         return keyIndex
     }
 
-    console.log(isMobile())
 
 
 
@@ -138,7 +169,6 @@ export default function Articles({articles}){
 
 
         )
-        console.log(modalContent)
         setOpened(true)
 
 
@@ -178,18 +208,30 @@ export default function Articles({articles}){
             </Modal>
 
             <div className={styles.albumGallery}>
+                <InfiniteScroll
+                    pageStart={0}
+                    loadMore={getMorePost}
+                    hasMore={hasMore}
+                    loader={<div className="loader" key={0}>Loading ...</div>}
+
+                >
                 <SimpleGrid cols={3}
                             spacing={"xl"}
                             breakpoints={[
                                 { maxWidth: 1200, cols: 2, spacing: 'md' },
                                 { maxWidth: 755, cols: 1, spacing: 'sm' },
                             ]}>
-                    {articles.map((article) => {
+
+                    {posts.map((article) => {
                         return(
                             <ArticleCard key={newKey()} data={article} locale={locale} onClick={() => handleClick(article)} />
                         )
-                    })}
+                    }
+
+                    )}
+
                 </SimpleGrid>
+                </InfiniteScroll>
 
             </div>
 
