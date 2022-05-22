@@ -9,8 +9,7 @@ import {fr} from "date-fns/locale";
 import {useRouter} from "next/router";
 import {Fragment, useState} from 'react';
 import useWindowDimensions from "../hooks/useWindowDimensions";
-import {marked} from 'marked'
-import DOMPurify from 'isomorphic-dompurify'
+import { Loader } from '@mantine/core';
 import ReactMarkdown from 'react-markdown'
 import InfiniteScroll from 'react-infinite-scroller';
 
@@ -103,6 +102,7 @@ export default function Articles({articles, cookieJwt, pages}){
     const isMobile = () => {if(width <= 900){return true}else{return false}}
     const [pageCounter, setPageCounter] = useState(2)
     const [posts, setPosts] = useState(articles);
+    const [visible, setVisible] = useState(false)
     const [hasMore, setHasMore] = useState(true);
     const [opened, setOpened] = useState(false);
     const [modalContent, setModalContent] = useState({
@@ -212,7 +212,7 @@ export default function Articles({articles, cookieJwt, pages}){
                     pageStart={0}
                     loadMore={getMorePost}
                     hasMore={hasMore}
-                    loader={<div className="loader" key={0}>Loading ...</div>}
+                    loader={<div className={cardStyle.loaderWrapper}><div className={cardStyle.loader}><Loader color={'orange'} variant={'bars'} /></div></div>}
 
                 >
                 <SimpleGrid cols={3}
@@ -232,7 +232,9 @@ export default function Articles({articles, cookieJwt, pages}){
 
                 </SimpleGrid>
                 </InfiniteScroll>
-
+            <div>
+                {visible && <Loader />}
+            </div>
             </div>
 
 

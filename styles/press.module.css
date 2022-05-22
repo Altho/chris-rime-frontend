@@ -13,6 +13,21 @@
 
 }
 
+.loader {
+    display: flex;
+    justify-content: center;
+    margin-top:20px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 10px;
+    width:100px;
+}
+
+.loaderWrapper {
+    display: flex;
+    justify-content: center;
+
+}
+
 .button {
     font-family: "Nanum Gothic", sans-serif;
     position: absolute;
