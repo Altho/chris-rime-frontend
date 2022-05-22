@@ -117,7 +117,7 @@ padding:35px;
 
 .albumGallery{
   display: flex;
-  padding: 30px;
+  padding: 30px 30px 100px 30px;
   min-height: 100vh;
   background-color: var(--primary);
   justify-content: space-evenly;
@@ -203,7 +203,7 @@ padding:35px;
 
 
 .mainVideo{
-  padding:30px;
+  padding:30px 30px 100px 30px;
   height: 70vh;
   width: 100%;
   background-color: var(--secondary);
@@ -367,6 +367,7 @@ padding:35px;
     justify-content: center;
     /*bottom:-70px;*/
     padding: 5px;
+    /*position: inherit;*/
   }
 
   .footer a{
@@ -404,7 +405,6 @@ width: 100%;
     margin-bottom: 20px;
   }
   .mainVideo{
-    margin-bottom: 50px;
     height: 40vh;
 
   }

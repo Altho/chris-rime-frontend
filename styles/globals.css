@@ -61,7 +61,7 @@ table {
 }html,
 body {
   padding: 0;
-  background-color: var(--primary);
+  background-color: var(--secondary);
   margin: 0;
   color: white;
   font-family: 'Nanum Gothic', sans-serif;
@@ -84,9 +84,15 @@ a {
   position: relative;
 }
 
+.wrapper{
+  background-color: var(--secondary);
+}
+
 .container{
   min-height: calc(100vh - 50px);
-  padding-bottom:30px;
+  /*padding-bottom:30px;*/
+  background-color: var(--primary);
+
 }
 
 

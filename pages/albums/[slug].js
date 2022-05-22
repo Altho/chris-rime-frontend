@@ -84,8 +84,8 @@ export default function AlbumDetails({albumData}) {
             </div>
 
             <MediaSeparator/>
-
             <Media media={album.video.data}/>
+
 
 
         </Layout>

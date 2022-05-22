@@ -84,6 +84,7 @@ export async function getServerSideProps({locale}, ctx) {
 
 
 export default function Articles({articles}){
+
     const {height, width}= useWindowDimensions()
     const isMobile = () => {if(width <= 900){return true}else{return false}}
     const locale = useRouter().locale
@@ -97,6 +98,8 @@ export default function Articles({articles}){
         magazine:'',
         date:''
     });
+
+
     let keyIndex = 0
     const newKey = () => {
         keyIndex++
@@ -109,6 +112,19 @@ export default function Articles({articles}){
 
     const handleClick =  (article) => {
 
+        const parseDate = () => {
+            if( locale === 'en'){
+                const date = format(new Date(article.attributes.date), 'MMMM y')
+                return date
+
+            }
+            else {
+                const date = format(new Date(article.attributes.date), 'MMMM y', {locale: fr})
+                return date
+
+            }
+        }
+
         setModalContent({
             name:article.attributes.name,
             mainContent: article.attributes.content,
@@ -116,7 +132,7 @@ export default function Articles({articles}){
             auteur: article.attributes.auteur,
             editeur: article.attributes.editeur,
             magazine: article.attributes.magasine,
-            date: article.attributes.date,
+            date: parseDate(),
 
             }
 
@@ -148,7 +164,6 @@ export default function Articles({articles}){
                         <div>{modalContent.magazine}</div>
                         <div>{modalContent.name}</div>
                         <div>{modalContent.date}</div>
-                        <div>{modalContent.editeur}</div>
 
 
 
@@ -156,13 +171,15 @@ export default function Articles({articles}){
                 </div>
 
                 <ReactMarkdown className={cardStyle.content}>{modalContent.mainContent}</ReactMarkdown>
+                <div>{modalContent.auteur}</div>
+
 
 
             </Modal>
 
             <div className={styles.albumGallery}>
                 <SimpleGrid cols={3}
-                            spacing="lg"
+                            spacing={"xl"}
                             breakpoints={[
                                 { maxWidth: 1200, cols: 2, spacing: 'md' },
                                 { maxWidth: 755, cols: 1, spacing: 'sm' },
