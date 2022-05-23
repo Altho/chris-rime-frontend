@@ -157,13 +157,13 @@ export default function Articles({articles, cookieJwt, pages}){
         }
 
         setModalContent({
-            name:article.attributes.name,
-            mainContent: article.attributes.content,
-            image: article.attributes.image.data.attributes.url,
-            auteur: article.attributes.auteur,
-            editeur: article.attributes.editeur,
-            magazine: article.attributes.magasine,
-            date: parseDate(),
+                name:article.attributes.name,
+                mainContent: article.attributes.content,
+                image: article.attributes.image.data.attributes.url,
+                auteur: article.attributes.auteur,
+                editeur: article.attributes.editeur,
+                magazine: article.attributes.magasine,
+                date: parseDate(),
 
             }
 
@@ -215,26 +215,26 @@ export default function Articles({articles, cookieJwt, pages}){
                     loader={<div className={cardStyle.loaderWrapper}><div className={cardStyle.loader}><Loader color={'orange'} variant={'bars'} /></div></div>}
 
                 >
-                <SimpleGrid cols={3}
-                            spacing={"xl"}
-                            breakpoints={[
-                                { maxWidth: 1200, cols: 2, spacing: 'md' },
-                                { maxWidth: 755, cols: 1, spacing: 'sm' },
-                            ]}>
+                    <SimpleGrid cols={3}
+                                spacing={"xl"}
+                                breakpoints={[
+                                    { maxWidth: 1200, cols: 2, spacing: 'md' },
+                                    { maxWidth: 755, cols: 1, spacing: 'sm' },
+                                ]}>
 
-                    {posts.map((article) => {
-                        return(
-                            <ArticleCard key={newKey()} data={article} locale={locale} onClick={() => handleClick(article)} />
-                        )
-                    }
+                        {posts.map((article) => {
+                                return(
+                                    <ArticleCard key={newKey()} data={article} locale={locale} onClick={() => handleClick(article)} />
+                                )
+                            }
 
-                    )}
+                        )}
 
-                </SimpleGrid>
+                    </SimpleGrid>
                 </InfiniteScroll>
-            <div>
-                {visible && <Loader />}
-            </div>
+                <div>
+                    {visible && <Loader />}
+                </div>
             </div>
 
 
@@ -264,9 +264,8 @@ function ArticleCard({data, locale, onClick}) {
                 <div>{data.attributes.name}</div>
                 <div>{locale === 'en' ? upDate : upDateFr}</div>
                 <Button  fullWidth color={"orange"}
-                        className={cardStyle.button}>{locale === 'en' ? ('Read the article') : ("Lire l'article")}</Button>
+                         className={cardStyle.button}>{locale === 'en' ? ('Read the article') : ("Lire l'article")}</Button>
             </Card>
         </>
     )
 }
-

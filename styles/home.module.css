@@ -120,7 +120,7 @@ padding:35px;
   padding: 30px 30px 100px 30px;
   min-height: 100vh;
   background-color: var(--primary);
-  justify-content: space-evenly;
+  justify-content: center;
   margin-top: 75px;
   flex-wrap: wrap;
 }

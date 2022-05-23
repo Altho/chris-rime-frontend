@@ -7,12 +7,12 @@ export async function getArticles({locale}, jwt,page, size) {
                 pageSize: size,
             },
 
-        sort: ['date:desc'],
-    },
+            sort: ['date:desc'],
+        },
 
         {
-        encodeValuesOnly: true,
-    });
+            encodeValuesOnly: true,
+        });
     const fetchArticles = await fetch(`${process.env.DB_HOST}/api/articles?_limit=5&_start=0&locale=${locale}&populate=*&${query}`,
         {
             headers: {
