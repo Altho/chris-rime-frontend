@@ -45,7 +45,7 @@ export default function MobileMenu() {
                     <Accordion.Item styles={label} label="Pedagogy">
                         <div className={styles.mobileMenuContainer}>
                             <Link href={'/methods'}><div className={styles.mobileMenuItem}>{locale === 'en' ? 'Methods' : 'Méthodes'}</div></Link>
-                            <Link href={'/internet'}><div className={styles.mobileMenuItem}>Internet</div></Link>
+                            <Link href={'/online-teaching'}><div className={styles.mobileMenuItem}>Internet</div></Link>
                             <Link href={'/publications'}><div className={styles.mobileMenuItem}>Publications</div></Link>
                         </div>                    </Accordion.Item>
                 </Accordion>

@@ -142,7 +142,7 @@ export function MenuItems() {
 
                     <div className={styles.dropdownContent}>
                         <Link className={styles.subMenuItem} href="/methods">Methods</Link>
-                        <Link className={styles.subMenuItem} href="#">Internet</Link>
+                        <Link className={styles.subMenuItem} href="/online-teaching">Internet</Link>
                         <Link className={styles.subMenuItem} href="#">Publications</Link>
                     </div>
 
@@ -188,7 +188,7 @@ export function MenuItems() {
 
                     <div className={styles.dropdownContent}>
                         <Link className={styles.subMenuItem} href="/methods">Méthodes</Link>
-                        <Link className={styles.subMenuItem} href="#">Internet</Link>
+                        <Link className={styles.subMenuItem} href="/online-teaching">Internet</Link>
                         <Link className={styles.subMenuItem} href="#">Journaux</Link>
                     </div>
 
