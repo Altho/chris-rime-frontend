@@ -127,6 +127,21 @@ export default function Articles({articles, cookieJwt, pages}){
         }
         else {
             setHasMore(false)
+            const getMorePost = async () => {
+                if(pageCounter < pages + 1){
+
+
+                    const res = await getArticles({locale},cookieJwt, pageCounter, 8)
+                    setPageCounter(prevState => prevState + 1)
+
+                    const newPosts = res.articlesList;
+                    setPosts((post) => [...post, ...newPosts]);
+                }
+                else {
+                    setHasMore(false)
+                }
+
+            };
         }
 
     };
