@@ -97,7 +97,6 @@ export async function getServerSideProps({locale}, ctx) {
 
 export default function Articles({articles, cookieJwt, pages}){
     const locale = useRouter().locale
-    console.log(articles)
     const {height, width}= useWindowDimensions()
     const isMobile = () => {if(width <= 900){return true}else{return false}}
     const [pageCounter, setPageCounter] = useState(2)

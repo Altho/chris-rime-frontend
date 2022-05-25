@@ -68,11 +68,11 @@ export default function OnlineTeaching(){
                 </div>
                 <div className={Style.textWrapper}>
                     <div className={Style.textContainer}>,
-                        <div className={Style.introText}>
+                        <div className={Style.outroText}>
                             {locale === 'en' ? "Find out more about Chris' online teaching on Imusic School ": "Retrouvez toutes les leçons de Chris directement sur Imusic School"}
                         </div>
 
-                        <a href={`https://www.imusic-school.com/guitare/professeurs/chris-rime/`} target="_blank" rel={'noreferrer'}><div className={Style.buttonWrapper}><Button variant={"outline"} color={"orange"}>Imusic School  </Button></div></a>
+                        <a href={`https://www.imusic-school.com/guitare/professeurs/chris-rime/`} target="_blank" rel={'noreferrer'}><div className={Style.buttonWrapper}><Button className={Style.button} variant={"outline"} color={"orange"}>Imusic School  </Button></div></a>
             </div>
                 </div>
             </div>
