@@ -3,8 +3,8 @@ import qs from 'qs'
 export async function getArticles({locale}, jwt,page, size) {
     const query = qs.stringify({
             pagination: {
-                page: page,
-                pageSize: size,
+                start: page,
+                limit: size,
             },
 
             sort: ['date:desc'],
@@ -23,11 +23,17 @@ export async function getArticles({locale}, jwt,page, size) {
     const articles = await fetchArticles.json()
     const articlesArray = {
         articlesList: articles.data ,
-        pages: articles.meta.pagination.pageCount
+        total: articles.meta.pagination.total
     }
+    console.dir('---START---')
+    console.dir(page)
+    console.dir('---START---')
     console.dir('---ARTICLES---')
     console.dir(articles)
     console.dir('---ARTICLES---')
+    console.dir('---TOTAL---')
+    console.dir(articlesArray.total)
+    console.dir('---TOTAL---')
 
 
     return articlesArray

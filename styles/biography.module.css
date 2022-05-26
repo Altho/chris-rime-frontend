@@ -2,6 +2,34 @@
     margin-top: 75px;
     padding: 30px 30px 100px 30px;
     display: flex;
+    max-width: 1400px;
+    justify-content: center;
+
+}
+
+.pleft {
+    display: flex;
+    justify-content: flex-start;
+    line-height: 1.8em;
+    font-size: 1.4em;
+    gap:30px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+
+}
+
+.paragraph {
+    width:70%;
+}
+
+.pright {
+    display: flex;
+    justify-content: flex-end;
+    line-height: 1.8em;
+    font-size: 1.4em;
+    flex-wrap: wrap;
+    gap:30px;
+    margin-bottom: 40px;
 
 
 }
@@ -63,4 +91,30 @@
     .bioText{
         padding: 30px 10px 10px 10px;
     }
+
+    .pleft {
+        justify-content: center;
+        align-items:center;
+        line-height: 1.8em;
+        font-size: 1.4em;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+
+    }
+
+    .paragraph {
+        width:100%;
+    }
+
+    .pright {
+        justify-content: center;
+        align-items:center;
+        line-height: 1.8em;
+        font-size: 1.4em;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+
+
+    }
 }
+
