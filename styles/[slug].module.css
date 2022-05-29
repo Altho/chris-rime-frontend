@@ -1,33 +1,33 @@
-.nameContainer{
+.nameContainer {
 
-    width:100%;
-    margin-top:75px;
+    width: 100%;
+    margin-top: 75px;
     height: 30vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.methodinfos{
+.methodinfos {
     display: flex;
     /*flex-wrap: wrap;*/
     background-color: #124559;
 
 }
 
-.rightcolumn{
+.rightcolumn {
     padding: 50px;
 }
 
-.albumHeader{
+.albumHeader {
     display: flex;
     justify-content: space-evenly;
-    -webkit-box-shadow: inset 0px 9px 13px -2px rgba(0,0,0,0.36);
-    box-shadow: inset 0px 9px 13px -2px rgba(0,0,0,0.36);
-    padding-top:50px;
+    -webkit-box-shadow: inset 0px 9px 13px -2px rgba(0, 0, 0, 0.36);
+    box-shadow: inset 0px 9px 13px -2px rgba(0, 0, 0, 0.36);
+    padding-top: 50px;
 }
 
-.albumName{
+.albumName {
 
     font-family: "Orbitron", sans-serif;
     font-size: 2em;
@@ -40,21 +40,21 @@
     /*text-align: center;*/
 }
 
-.infoContainer{
-    padding:30px 30px 0 30px;
-    color:var(--secondary);
+.infoContainer {
+    padding: 30px 30px 0 30px;
+    color: var(--secondary);
     align-items: flex-start;
     justify-content: space-around;
-    gap:20px;
+    gap: 20px;
     display: flex;
 }
 
 
-.quote{
+.quote {
 
 }
 
-.mediaSeparator{
+.mediaSeparator {
     background-image: url("/images/bg/astriangle.svg");
     background-repeat: no-repeat;
     background-position: top;
@@ -63,7 +63,7 @@
 
 }
 
-.listenSeparator{
+.listenSeparator {
     background-image: url("/images/bg/tilt.svg");
     transform: rotate(180deg);
     background-repeat: no-repeat;
@@ -76,29 +76,29 @@
 .albumCover {
     margin-left: 30px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    width:400px;
+    width: 400px;
 }
 
-.albumImage{
+.albumImage {
 
 }
 
-.blogImage{
+.blogImage {
     width: 500px;
-    margin:auto;
+    margin: auto;
     -webkit-box-shadow: 5px 5px 21px 9px #000000;
     box-shadow: 5px 5px 21px 9px #000000;
 }
 
-.titleSeparator{
+.titleSeparator {
     background-image: url("/images/bg/paper.svg");
-    height:140px;
+    height: 140px;
     width: 100%;
     background-position: top;
     background-size: cover;
 }
 
-.media{
+.media {
     background-color: var(--secondary);
     /*width:100%;*/
     /*align-items: center;*/
@@ -106,61 +106,72 @@
     /*display: flex;*/
     /*justify-content: space-evenly;*/
     /*gap:30px;*/
-    padding:30px 30px 100px 30px;
+    padding: 100px 30px 100px 30px;
     /*flex-wrap: wrap;*/
 }
-.items{
+
+.video {
+    left:50%;
+    transform: translateX(-50%);
+    position: absolute;
+    padding: 30px;
+    color: white;
+    background-color: var(--secondary);
+    font-family: Orbitron, sans-serif;
+    font-size: 1.8em;
+}
+
+.items {
     display: flex;
     justify-content: space-evenly;
     padding: 30px;
 }
 
 
-
-.items img{
+.items img {
     cursor: pointer;
 }
 
-.listen{
+.listen {
     /*background-color: var(--primary);*/
 
 }
 
-.player{
-    width : 30%;
-    height:200px;
+.player {
+    width: 30%;
+    height: 200px;
 }
 
-.albumRightContainer{
-    padding:0 50px;
+.albumRightContainer {
+    padding: 0 50px;
 }
 
-.albumDescription{
-    color:var(--secondary);
+.albumDescription {
+    color: var(--secondary);
     padding-top: 20px;
     font-family: "Montserrat Alternates", sans-serif;
     line-height: 1.5;
 }
 
-.infoTable{
-    margin-top : 16px;
-    max-width : 100%;
-    max-height:200px;
+.infoTable {
+    margin-top: 16px;
+    max-width: 100%;
+    max-height: 200px;
     flex-shrink: 0;
-    background-color: rgba(255,255,255, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
     color: var(--secondary);
     font-family: "Nanum Gothic", sans-serif;
     margin-bottom: 10px;
 }
 
-.tableTitle{
+.tableTitle {
     font-family: Orbitron, sans-serif;
     font-size: 1.1em;
     color: var(--accent2)
 
 }
 
-.description{
+.description {
 
     font-family: "Montserrat Alternates", sans-serif;
     display: flex;
@@ -168,15 +179,15 @@
     justify-content: center;
 }
 
-.buttonContainer{
+.buttonContainer {
     /*display: flex;*/
     /*width: 100%;*/
     /*justify-content: center;*/
 }
 
-.buy{
+.buy {
 
-    margin-top:20px;
+    margin-top: 20px;
     background-color: var(--accent);
 
 }
@@ -188,31 +199,30 @@
 
 }
 
-.digital{
-    width:60%;
-    height:80px;
-    margin:20px;
+.digital {
+    width: 60%;
+    height: 80px;
+    margin: 20px;
     background-color: #ffe8d6;
-    color:black;
+    color: black;
     font-size: 2.5vw;
     font-family: Orbitron, sans-serif;
 }
 
-.digital:hover{
+.digital:hover {
     background-color: #ddbea9;
 
 }
 
 
-
-.menuItem{
-    height:50px;
-    color:black;
+.menuItem {
+    height: 50px;
+    color: black;
     width: 350px;
     font-size: 2em;
 }
 
-.infoTable td{
+.infoTable td {
     border-bottom: 1px solid var(--accent2);
     padding: 10px;
 }
@@ -225,17 +235,19 @@
 
 }
 
-.tear{
+.tear {
 
 }
-.titleBackground{
+
+.titleBackground {
 
     background-size: cover;
     background-position: center;
     /*height: 40vh;*/
 }
-.filter{
-    background-color: rgba(0,0,0,0.35);
+
+.filter {
+    background-color: rgba(0, 0, 0, 0.35);
     width: 100%;
     height: 100%;
     display: flex;
@@ -243,13 +255,13 @@
     align-items: center;
 }
 
-.nameContainer h1{
+.nameContainer h1 {
     font-family: "Nanum Gothic", sans-serif;
     font-size: 4em;
 }
 
 .buyButton {
-    width : 100%;
+    width: 100%;
     background-color: var(--accent);
     margin: 10px 0 10px 0;
 
@@ -261,53 +273,55 @@
 }
 
 
-@media  (max-width: 1200px){
-    .infoContainer{
+@media (max-width: 1200px) {
+    .infoContainer {
         flex-wrap: wrap;
     }
-    .infoTable{
+
+    .infoTable {
 
         /*max-width : 70%;*/
     }
-    .player{
-        width : 100%;
+
+    .player {
+        width: 100%;
         height: 300px;
     }
 }
 
-@media  (max-width: 900px) {
+@media (max-width: 900px) {
 
 
-    .albumDescription{
+    .albumDescription {
 
         padding: 20px 10px;
 
     }
 
-    .albumName{
+    .albumName {
         padding: 0 10px;
     }
-    .albumCover{
+
+    .albumCover {
         padding: 0;
-        width:100vw;
+        width: 100vw;
         margin-left: 0;
     }
 
-    .albumHeader{
+    .albumHeader {
         flex-wrap: wrap;
         padding-top: 0;
     }
 
 
-
-    .methodinfos{
+    .methodinfos {
 
         flex-wrap: wrap;
 
     }
 
-    .infoContainer{
-        padding:0;
+    .infoContainer {
+        padding: 0;
     }
 
     .infoTable {
@@ -320,7 +334,7 @@
     /*    border-bottom:0;*/
     /*    border-top: 1px solid grey;*/
     /*}*/
-    .buttonContainer{
+    .buttonContainer {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
@@ -331,8 +345,7 @@
     }
 
 
-
-    .albumRightContainer{
+    .albumRightContainer {
         padding: 0;
     }
 
@@ -340,18 +353,18 @@
         /*min-width: 30vw;*/
     }
 
-    .items{
+    .items {
         padding: 30px 0 30px 0;
     }
 
-    .buy{
-        width:90%;
+    .buy {
+        width: 90%;
 
         font-size: 3vw;
     }
 
-    .digital{
-        width:90%;
+    .digital {
+        width: 90%;
 
         font-size: 2.5vw;
     }

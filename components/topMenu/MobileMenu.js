@@ -23,7 +23,7 @@ export default function MobileMenu() {
     return (
         <div>
                 <Accordion >
-                    <Accordion.Item styles={label} label="Work">
+                    <Accordion.Item styles={label} label={locale === 'en' ? 'Work' : 'Productions'}>
                         <div className={styles.mobileMenuContainer}>
                           <Link href={'/biography'}><div className={styles.mobileMenuItem}>{locale === 'en' ? 'Biography' : 'Biographie'}</div></Link>
                             <Link href={'/press'}><div className={styles.mobileMenuItem}>{locale === 'en' ? 'Press' : 'Presse'}</div></Link>
@@ -34,7 +34,7 @@ export default function MobileMenu() {
 
                     </Accordion.Item>
 
-                    <Accordion.Item styles={label} label="Media">
+                    <Accordion.Item styles={label} label={locale === 'en' ? 'Media' : 'Médias'}>
                         <div className={styles.mobileMenuContainer}>
                             <Link href={'/media/videos'}><div className={styles.mobileMenuItem}>{locale === 'en' ? 'Videos' : 'Vidéos'}</div></Link>
                             <Link href={'/media/gallery'}><div className={styles.mobileMenuItem}>Photos</div></Link>
@@ -42,7 +42,7 @@ export default function MobileMenu() {
                         </div>
                     </Accordion.Item>
 
-                    <Accordion.Item styles={label} label="Pedagogy">
+                    <Accordion.Item styles={label} label={locale === 'en' ? 'Pedagogies' : 'Pédagogie'}>
                         <div className={styles.mobileMenuContainer}>
                             <Link href={'/methods'}><div className={styles.mobileMenuItem}>{locale === 'en' ? 'Methods' : 'Méthodes'}</div></Link>
                             <Link href={'/online-teaching'}><div className={styles.mobileMenuItem}>Internet</div></Link>

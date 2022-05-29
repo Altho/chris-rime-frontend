@@ -5,7 +5,15 @@ import { SimpleGrid } from '@mantine/core';
 
 
 export default function Media({media}){
+    let keyIndex = 0
+    let getKey = () => {
+        keyIndex = keyIndex + 1
+        return keyIndex
+
+    };
     return(
+        < div style={{position: 'relative'}}>
+        <div className={style.video}>-VIDEOS-</div>
         <SimpleGrid
             cols={4}
             spacing="lg"
@@ -18,16 +26,16 @@ export default function Media({media}){
         >
             {media ? (media.map((video) =>{
 
-                console.dir('---MOVIDEVIDEO---')
-                console.dir(video.attributes)
+
                 return(
 
                     <>
-                    <ReactPlayer url={video.attributes.lien} width='100%' height='100%' controls />
+                    <ReactPlayer url={video.attributes.lien} key ={getKey} width='100%' height='100%' controls />
                     </>
                 )
             })) : null }
         </SimpleGrid>
+        </div>
 
     )
 }

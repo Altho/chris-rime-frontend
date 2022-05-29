@@ -97,6 +97,7 @@ export default function gameDetails({gameData}) {
 
     const game = gameData['0'].attributes;
     const gameImage = game.image.data.attributes.url
+    console.log(game.videos.data)
 
 
 
