@@ -13,7 +13,7 @@ export default function Media({media}){
     };
     return(
         < div style={{position: 'relative'}}>
-        <div className={style.video}>-VIDEOS-</div>
+        <div className={style.video}>{media.length >= 1 ? '-VIDEOS-' : null}</div>
         <SimpleGrid
             cols={4}
             spacing="lg"

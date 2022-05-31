@@ -118,7 +118,6 @@ padding:35px;
 .albumGallery{
   display: flex;
   padding: 30px 30px 100px 30px;
-  min-height: 100vh;
   background-color: var(--primary);
   justify-content: center;
   margin-top: 75px;

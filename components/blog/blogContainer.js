@@ -34,7 +34,7 @@ export default function BlogContainer({blogs}) {
             return 3
         }
         else {
-            return 3
+            return 4
         }
 
     }
