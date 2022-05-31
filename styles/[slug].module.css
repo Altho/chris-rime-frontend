@@ -370,3 +370,13 @@
     }
 
 }
+
+
+@media only screen and (min-width: 1440px) {
+    .albumHeader{
+        padding: 50px 20% 0 20%;
+
+    }
+
+
+}
