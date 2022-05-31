@@ -80,7 +80,7 @@ width:300px;
 }
 
 @media only screen and (min-width: 2000px) {
-    .videos{
+    .container{
         padding: 30px 10%;
 
     }
@@ -92,7 +92,7 @@ width:300px;
 
 
 @media only screen and (min-width: 2400px) {
-    .videos{
+    .container{
         padding: 30px 20%;
 
     }
