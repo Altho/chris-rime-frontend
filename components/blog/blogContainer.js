@@ -23,12 +23,17 @@ export default function BlogContainer({blogs}) {
 
     const slidesToShow = () => {
         if (width <= 600) {
+            console.log(width)
             return 1
         }
         else if (width <= 900) {
+            console.log(width)
+
             return 2
         }
         else if (width <= 1440) {
+            console.log(width)
+
             return 3
         }
 
