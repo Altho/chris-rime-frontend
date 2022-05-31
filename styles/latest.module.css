@@ -93,7 +93,16 @@
     /*}*/
 }
 
-@media only screen and (min-width: 2560px) {
+@media only screen and (min-width: 2000px) {
+    .wrapper{
+        padding: 70px 10%;
+
+    }
+
+
+}
+
+@media only screen and (min-width: 2400px) {
     .wrapper{
         padding: 70px 20%;
 
