@@ -138,13 +138,17 @@ function AlbumTitle({name, image, album, buy, digital}) {
                         <AlbumInfos release={album.date.toString()} label={album.label} artists={album.artistes}/>
                         <p className={styles.albumDescription}>{album.description}</p>
                         <div className={styles.buttonContainer}>
-                            <Button leftIcon={< Cash/>}
-                                    className={styles.buy}
-                                    onClick={setOpened}
+                            {album.buy && album.digital ? (
+                                    <Button leftIcon={< Cash/>}
+                                            className={styles.buy}
+                                            onClick={setOpened}
 
-                            >{locale === 'en' ? ('BUY') : ('ACHETER')}
+                                    >{locale === 'en' ? ('BUY') : ('ACHETER')}
 
-                            </Button>
+                                    </Button>
+                                ) :
+                                null
+                            }
 
                         </div>
                     </div>
