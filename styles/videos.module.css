@@ -78,3 +78,26 @@ width:300px;
     }
 
 }
+
+@media only screen and (min-width: 2000px) {
+    .videos{
+        padding: 30px 10%;
+
+    }
+
+
+
+
+}
+
+
+@media only screen and (min-width: 2400px) {
+    .videos{
+        padding: 30px 20%;
+
+    }
+
+
+
+
+}
