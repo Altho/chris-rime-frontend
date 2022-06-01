@@ -115,7 +115,7 @@ export function MenuItems() {
         return (
             <div>
                 <div className={styles.dropdown}>
-                    <div className={styles.dropbtn}>Bio</div>
+                    <div className={styles.dropbtn}>About</div>
 
                     <div className={styles.dropdownContent}>
                         <Link className={styles.subMenuItem} href="/biography">Biography</Link>
@@ -161,7 +161,7 @@ export function MenuItems() {
         return (
             <div>
                 <div className={styles.dropdown}>
-                    <div className={styles.dropbtn}>Bio</div>
+                    <div className={styles.dropbtn}>A propos</div>
 
                     <div className={styles.dropdownContent}>
                         <Link className={styles.subMenuItem} href="/biography">Biographie</Link>

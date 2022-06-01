@@ -23,7 +23,7 @@ export default function MobileMenu() {
     return (
         <div>
                 <Accordion >
-                    <Accordion.Item styles={label} label={locale === 'en' ? 'Work' : 'Productions'}>
+                    <Accordion.Item styles={label} label={locale === 'en' ? 'About' : 'A propos'}>
                         <div className={styles.mobileMenuContainer}>
                           <Link href={'/biography'}><div className={styles.mobileMenuItem}>{locale === 'en' ? 'Biography' : 'Biographie'}</div></Link>
                             <Link href={'/press'}><div className={styles.mobileMenuItem}>{locale === 'en' ? 'Press' : 'Presse'}</div></Link>

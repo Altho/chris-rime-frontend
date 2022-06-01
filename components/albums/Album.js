@@ -1,4 +1,4 @@
-import {Image} from "@mantine/core";
+import Image from "next/image";
 import style from "../../styles/albums.module.css"
 import {useState} from "react";
 import Link from 'next/link'
@@ -13,9 +13,8 @@ return (
 
     <Image
 
-        withPlaceholder
 
-
+        loading={'lazy'}
         src={`${url}`}
         width={250}
         height={250}
