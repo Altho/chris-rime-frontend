@@ -90,12 +90,14 @@ export default function methodDetails({methodData}) {
 
     return (
         <Layout>
+            <div className={style.pdfContainer}>
             <MethodTitle name={method.name} image={methodImage} method={method} preview={preview}/>
             <Reviews reviews={method.reviews.data}  />
 
             <div className={styles.infoContainer}>
                 <div className={styles.description}>
                 </div>
+            </div>
             </div>
 
 
