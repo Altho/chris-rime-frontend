@@ -3,6 +3,7 @@ import style from "../../styles/albums.module.css"
 import Link from 'next/link'
 
 export default function Method({url,methodName,methodDate, link}){
+    console.log(url, methodName, methodDate, link)
 
 
     return (
@@ -15,7 +16,7 @@ export default function Method({url,methodName,methodDate, link}){
                     withPlaceholder
 
 
-                    src={`${process.env.DB_HOST}${url}`}
+                    src={`${url}`}
                     width={232}
                     height={287}
 

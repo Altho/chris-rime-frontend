@@ -32,7 +32,7 @@ export default function DisplayPdf({url}){
         <div className={styles.container}>
             <Document
                 className={styles.document}
-                file={`${process.env.DB_HOST}${url}`}
+                file={`${url}`}
                 onLoadSuccess={onDocumentLoadSuccess}
             >
                 <Page                 width={400}

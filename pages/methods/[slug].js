@@ -110,6 +110,10 @@ export default function methodDetails({methodData}) {
 function MethodTitle({name, image, method, preview}) {
 
     const locale = useRouter().locale;
+    console.log('---pdf---')
+    console.log(preview)
+    console.log('---pdf---')
+
     return (
         // <div className={styles.titleBackground} style={headerStyle()}>
         <div >

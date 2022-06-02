@@ -25,35 +25,32 @@
 .navbar{
     background-color: rgba(200,200,200, 0.7);
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-    width:60%;
+    width:100%;
     align-items: center;
     height: 30px;
     display: flex;
     color:black;
-    position:relative;
+    position:absolute;
+    bottom: 0;
     margin-top:-55px;
-    justify-content: center;
+    justify-content: space-between;
     left:50%;
     transform:translateX(-50%);
-    border-radius: 25px;
     gap:10px;
 }
 
 .container button{
     cursor: pointer;
+    background-color: rgba(200,200,200, 0.7);
+    font-family: Orbitron, sans-serif;
+    font-size: 1.4em;
+
+    border: none;
+    height: 100%;
 }
 
-.bleft{
-    background-color: rgba(200,200,200, 0.7);
-    border-radius: 25px 0 0 25px;
-    border: none;
-}
-
-.bright{
-    background-color: rgba(200,200,200, 0.7);
-    border-radius: 0 25px 25px 0;
-    border: none;
-
+.container button:hover {
+    background-color: rgba(0,0,0, 0.3);
 }
 
 @media (max-width: 900px) {
