@@ -1,8 +1,10 @@
 import styles from '../styles/home.module.css'
-import  {getAlbums} from '../libs/fetchAlbums';
+import  {getAlbums, getSideAlbums} from '../libs/fetchAlbums';
 import Layout, {siteTitle} from "../components/layout";
 import ShowAlbums from "../components/albums/showAlbums";
+import {useRouter} from "next/router";
 import Album from '../components/albums/Album'
+import ListenSeparator from "../components/albums/ListenSeparator";
 import {SimpleGrid} from "@mantine/core";
 
 
@@ -34,21 +36,25 @@ export async function getStaticProps({locale}, ctx) {
 
     const loginResponseData = await login.json();
     const albums = await getAlbums({locale}, loginResponseData.jwt)
+    const sideman = await getSideAlbums({locale}, loginResponseData.jwt)
     return {
 
         props: {
-            albums
+            albums,
+            sideman
 
 
         },revalidate: 10
     }
 }
 
-export default function Albums({albums}){
+export default function Albums({albums, sideman}){
+    const locale = useRouter().locale
     return(
         <Layout>
 
             <div className={styles.albumGallery}>
+                <div className={styles.albumTitle}>{locale === 'en' ? "Chris Rime's Albums" : "Albums de Chris Rimes"}</div>
                 <SimpleGrid cols={4}
                             spacing="lg"
                             breakpoints={[
@@ -56,7 +62,20 @@ export default function Albums({albums}){
                                 { maxWidth: 755, cols: 2, spacing: 'sm' },
                                 { maxWidth: 600, cols: 1, spacing: 'sm' },
                             ]}>
-                    <ShowAlbums albums={albums}/>
+                    <ShowAlbums albums={albums} theme={'light'}/>
+                </SimpleGrid>
+            </div>
+            <ListenSeparator />
+            <div className={styles.sidemanGallery}>
+                <div className={styles.sidemanTitle}>{locale === 'en' ? "Albums featuring Chris Rime" : "Albums avec Chris Rime"}</div>
+                <SimpleGrid cols={4}
+                            spacing="lg"
+                            breakpoints={[
+                                { maxWidth: 980, cols: 3, spacing: 'md' },
+                                { maxWidth: 755, cols: 2, spacing: 'sm' },
+                                { maxWidth: 600, cols: 1, spacing: 'sm' },
+                            ]}>
+                    <ShowAlbums albums={sideman} theme={'dark'}/>
                 </SimpleGrid>
             </div>
 

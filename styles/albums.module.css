@@ -36,9 +36,23 @@
     color: var(--secondary);
 
 }
+
+.capTitleDark{
+    font-family: Orbitron, sans-serif;
+    margin: 10px 0 10px 0;
+    max-width:250px;
+    font-size: 1.2em;
+    color: var(--primary);
+
+}
 .capDate{
     font-family: "Montserrat Alternates", sans-serif;
     color:var(--secondary);
+}
+
+.capDateDark{
+    font-family: "Montserrat Alternates", sans-serif;
+    color:var(--primary);
 }
 .albumCover:hover img{
 

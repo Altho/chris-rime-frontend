@@ -1,7 +1,7 @@
 import {format} from "date-fns";
 import Album from "./Album";
 import Link from 'next/link'
-export default function ShowAlbums({albums}) {
+export default function ShowAlbums({albums, theme}) {
     return(
 
         albums.map((album)=> {
@@ -11,7 +11,7 @@ export default function ShowAlbums({albums}) {
             console.log(url, name, link)
             const date = format(new Date(album.attributes.date), 'yyyy');
             return(
-                <Album  url = {url} albumTitle={name} albumDate={date} key={url} link={link}/>
+                <Album  url = {url} theme={theme} albumTitle={name} albumDate={date} key={url} link={link}/>
 
             )
         }))
