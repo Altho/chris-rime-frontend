@@ -55,7 +55,7 @@ export async function getStaticProps(ctx){
 
 
     const videosQ = qs.stringify({
-            sort: ['updatedAt:desc'],
+            sort: ['prioritaire:asc','updatedAt:desc'],
 
             encodeValuesOnly: true,
             populate: '*'
@@ -96,6 +96,16 @@ export async function getStaticProps(ctx){
         },
     });
 
+    const filterAlbums = qs.stringify({
+        filters: {
+            perso: {
+                $eq: true,
+            },
+        },
+
+
+    });
+
 
 
     const [
@@ -111,7 +121,7 @@ export async function getStaticProps(ctx){
         fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${albumQ}`,loginResponseData.jwt),
         fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${jeuQ}`,loginResponseData.jwt),
         fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${guestQ}`,loginResponseData.jwt),
-        fetchDataFromURL(`${process.env.DB_HOST}/api/albums?populate=*`,loginResponseData.jwt),
+        fetchDataFromURL(`${process.env.DB_HOST}/api/albums?populate=*&${filterAlbums}`,loginResponseData.jwt),
     ]);
 
 
