@@ -54,7 +54,7 @@ export default function Albums({albums, sideman}){
         <Layout>
 
             <div className={styles.albumGallery}>
-                <div className={styles.albumTitle}>{locale === 'en' ? "Chris Rime's Albums" : "Albums de Chris Rimes"}</div>
+                <div className={styles.albumTitle}>{locale === 'en' ? "Chris Rime's Albums" : "Albums de Chris Rime"}</div>
                 <SimpleGrid cols={4}
                             spacing="lg"
                             breakpoints={[
