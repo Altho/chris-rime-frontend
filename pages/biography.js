@@ -12,73 +12,37 @@ export default function Biography(){
         return(
             <div>
                 <h1>Biographie</h1>
-                <div className={style.pleft}>
-                    <Image
-                        className={style.mainImage}
-                        src={'/images/rime1.jpg'}
-
-                    />
-                    <p className={style.paragraph}>
-                        Chris Rime, entouré par une famille de musiciens, commence la musique à 10 ans. Au collège, il
-                        joue de la batterie et de la guitare. A 16 ans, il forme un duo avec Nguyen lê qui se produit de
-                        manière régulière dans les clubs de jazz parisiens. La majorité à peine acquise, il traverse
-                        l&#39;atlantique pour s&#39;inscrire au mythique Berklee College of Music.
-                    </p>
-                </div>
-                <div className={style.pright}>
-                    <p className={style.paragraph}>
-                        De retour en France, il multiplie les projets, en tant que sideman mais aussi en tant que leader dans
-                        le jazz et la fusion avec son groupe &quot;Soap Op&quot;.
-                        En 1995, Chris sort son premier album &quot;RIME&quot; enregistré en compagnie de Mokhtar Samba et
-                        Michel Alibo. Ses mélodies sont jouées régulièrement sur les ondes (TSF, FIP, France info).
-                    </p>
-                    <Image src={'/images/bio3.jpg'}
-                           className={style.mainImage}
-
-                    />
-
-                </div>
-
-                    <div className={style.pleft}>
-                        <Image src={'/images/bio2.jpg'}
-                               className={style.mainImage}
-
-                        />
-                        <p className={style.paragraph}>
-                            Les années suivantes, Chris enchaîne plusieurs disques, dont un live, ainsi que d&#39;innombrables
-                            concerts en tant que leader. La liste d&#39;invités est longue : Paco Sery, Linley Marthe, Laurent De
-                            Wilde, Etienne M’Bappé, Stéphane Belmondo, Roger Biwandu, Marcus Miller, Mario Canonge et
-                            bien d&#39;autres. Il joue aussi du Jazz, de la World Music, du Gospel, de la Pop aux cotés de Georges
-                            Seba, Djeli Moussa Diawara, Audren, Nguyen Lê, …
-                        </p>
-                    </div>
-
-                <div className={style.pright}>
-
-                    <p className={style.paragraph}>
-                        En 2021, At the Bar With Mr Punk, sixième disque de Chris, voit le jour, avec lui aussi une longue
-                        liste d&#39;invités (Hadrien Feraud, Federico Malaman, Dominique Di Piazza, Stephane Castry, …). Le
-                        disque après avoir été rodé en concerts en compagnie de Rody Cereyon et Tilo Bertholo, dégage
-                        une atmosphère sombre et envoutante.
-                    </p>
-                    <Image src={'/images/bio4.jpg'}
-                           className={style.mainImage}
-
-                    />
-                </div>
-
-                <div className={style.pright}>
-                    <Image src={'/images/bio5.jpg'}
-                           className={style.mainImage}
-
-                    />
-                    <p  className={style.paragraph}>
-                        Depuis 1997, Chris a composé et produit de nombreuses musiques pour la Télé, les jeux vidéo et le
-                        cinema. Il est également pédagogue et a écrit plusieurs ouvrages sur la guitare et la MAO. Il donne
-                        des master classes et anime des stages partout en France.
-                        Chris Rime est endorsé depuis 2015 par les guitares Framus
-                    </p>
-                </div>
+                <p>
+                    Chris Rime, entouré par une famille de musiciens, commence la musique à 10 ans. Au collège, il
+                    joue de la batterie et de la guitare. A 16 ans, il forme un duo avec Nguyen lê qui se produit de
+                    manière régulière dans les clubs de jazz parisiens. La majorité à peine acquise, il traverse
+                    l&#39;atlantique pour s&#39;inscrire au mythique Berklee College of Music.
+                </p>
+                <p>
+                    De retour en France, il multiplie les projets, en tant que sideman mais aussi en tant que leader dans
+                    le jazz et la fusion avec son groupe &quot;Soap Op&quot;.
+                    En 1995, Chris sort son premier album &quot;RIME&quot; enregistré en compagnie de Mokhtar Samba et
+                    Michel Alibo. Ses mélodies sont jouées régulièrement sur les ondes (TSF, FIP, France info).
+                </p>
+                <p>
+                    Les années suivantes, Chris enchaîne plusieurs disques, dont un live, ainsi que d&#39;innombrables
+                    concerts en tant que leader. La liste d&#39;invités est longue : Paco Sery, Linley Marthe, Laurent De
+                    Wilde, Etienne M’Bappé, Stéphane Belmondo, Roger Biwandu, Marcus Miller, Mario Canonge et
+                    bien d&#39;autres. Il joue aussi du Jazz, de la World Music, du Gospel, de la Pop aux cotés de Georges
+                    Seba, Djeli Moussa Diawara, Audren, Nguyen Lê, …
+                </p>
+                <p>
+                    En 2021, At the Bar With Mr Punk, sixième disque de Chris, voit le jour, avec lui aussi une longue
+                    liste d&#39;invités (Hadrien Feraud, Federico Malaman, Dominique Di Piazza, Stephane Castry, …). Le
+                    disque après avoir été rodé en concerts en compagnie de Rody Cereyon et Tilo Bertholo, dégage
+                    une atmosphère sombre et envoutante.
+                </p>
+                <p>
+                    Depuis 1997, Chris a composé et produit de nombreuses musiques pour la Télé, les jeux vidéo et le
+                    cinema. Il est également pédagogue et a écrit plusieurs ouvrages sur la guitare et la MAO. Il donne
+                    des master classes et anime des stages partout en France.
+                    Chris Rime est endorsé depuis 2015 par les guitares Framus
+                </p>
 
 
             </div>
@@ -130,7 +94,10 @@ export default function Biography(){
             <Layout>
                 <div style={{minHeight:'100vh'}}>
               <section className={style.bioHeader}>
-
+                  <Image
+                      className={style.mainImage}
+                      src={'/images/rime1.webp'}
+                  />
                   <div className={style.bioText}>
                       {locale === 'en' ? (englishBio()) : (frenchhBio())}
                   </div>
