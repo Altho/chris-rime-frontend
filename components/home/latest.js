@@ -2,7 +2,6 @@ import {Image, Badge, Blockquote, Button} from '@mantine/core'
 import Link from 'next/link'
 import style from '../../styles/latest.module.css'
 import {useRouter} from "next/router";
-import ReactPlayer from "react-player";
 
 
 
@@ -31,10 +30,7 @@ export default function LatestRelease(album){
                 <div className={style.textContainer}>
                     <div className={style.titre}>{data.name}</div>
                     <Blockquote icon={null} className={style.quote}> {data.description}</Blockquote>
-                    <ReactPlayer url={'https://soundcloud.com/magazine-records-1/mr167_1?in=magazine-records-1/sets/mr167&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing'}
-                                 width={'100%'}
-                                 height={'80px'}
-                                 controls/>
+                   
 
                 </div>
                 <Link href={`/albums/${data.slug}`}><Button  className={style.button}>{locale === 'en' ? 'Discover' : 'Découvrir'}</Button></Link>
