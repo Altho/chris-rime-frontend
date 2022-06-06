@@ -113,7 +113,9 @@ padding:35px;
 }
 
 
-
+.albumTitleContainer{
+  padding-top: 75px;
+}
 
 .albumGallery{
   display: flex;
@@ -121,6 +123,14 @@ padding:35px;
   background-color: var(--primary);
   justify-content: center;
   margin-top: 75px;
+  flex-wrap: wrap;
+}
+
+.chrisAlbumGallery{
+  display: flex;
+  padding: 30px 30px 0 30px;
+  background-color: var(--primary);
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -137,8 +147,7 @@ padding:35px;
   color : var(--secondary);
   font-family: Orbitron, sans-serif;
   font-size: 2em;
-  margin-top:20px;
-  margin-bottom: 30px;
+  margin-top:40px;
   text-align: center;
   text-transform: uppercase;
 }

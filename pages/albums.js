@@ -52,9 +52,10 @@ export default function Albums({albums, sideman}){
     const locale = useRouter().locale
     return(
         <Layout>
-
-            <div className={styles.albumGallery}>
+            <div className={styles.albumTitleContainer}>
                 <div className={styles.albumTitle}>{locale === 'en' ? "Chris Rime's Albums" : "Albums de Chris Rime"}</div>
+
+                <div className={styles.chrisAlbumGallery}>
                 <SimpleGrid cols={4}
                             spacing="lg"
                             breakpoints={[
@@ -66,7 +67,9 @@ export default function Albums({albums, sideman}){
                 </SimpleGrid>
             </div>
             <ListenSeparator />
-            <div className={styles.sidemanGallery}>
+                <div >
+
+                <div className={styles.sidemanGallery}>
                 <div className={styles.sidemanTitle}>{locale === 'en' ? "Albums featuring Chris Rime" : "Albums avec Chris Rime"}</div>
                 <SimpleGrid cols={4}
                             spacing="lg"
@@ -77,8 +80,9 @@ export default function Albums({albums, sideman}){
                             ]}>
                     <ShowAlbums albums={sideman} theme={'dark'}/>
                 </SimpleGrid>
+                </div>
             </div>
-
+        </div>
 
             <footer className={styles.footer}>
             </footer>
