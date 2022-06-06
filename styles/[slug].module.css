@@ -295,6 +295,12 @@
 
 @media (max-width: 900px) {
 
+    .video {
+
+        padding: 30px 0;
+      
+    }
+
 
     .albumDescription {
 
