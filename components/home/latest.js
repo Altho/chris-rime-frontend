@@ -30,7 +30,7 @@ export default function LatestRelease(album){
                 <div className={style.textContainer}>
                     <div className={style.titre}>{data.name}</div>
                     <Blockquote icon={null} className={style.quote}> {data.description}</Blockquote>
-                   
+
 
                 </div>
                 <Link href={`/albums/${data.slug}`}><Button  className={style.button}>{locale === 'en' ? 'Discover' : 'Découvrir'}</Button></Link>

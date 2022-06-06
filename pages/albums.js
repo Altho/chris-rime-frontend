@@ -67,10 +67,10 @@ export default function Albums({albums, sideman}){
                 </SimpleGrid>
             </div>
             <ListenSeparator />
-                <div >
+                <div style={{backgroundColor:'black'}}>
+                    <div className={styles.sidemanTitle}>{locale === 'en' ? "Albums featuring Chris Rime" : "Albums avec Chris Rime"}</div>
 
                 <div className={styles.sidemanGallery}>
-                <div className={styles.sidemanTitle}>{locale === 'en' ? "Albums featuring Chris Rime" : "Albums avec Chris Rime"}</div>
                 <SimpleGrid cols={4}
                             spacing="lg"
                             breakpoints={[
