@@ -2,6 +2,9 @@ import {Image, Badge, Blockquote, Button} from '@mantine/core'
 import Link from 'next/link'
 import style from '../../styles/latest.module.css'
 import {useRouter} from "next/router";
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
+
 
 
 
@@ -30,6 +33,13 @@ export default function LatestRelease(album){
                 <div className={style.textContainer}>
                     <div className={style.titre}>{data.name}</div>
                     <Blockquote icon={null} className={style.quote}> {data.description}</Blockquote>
+
+                    <AudioPlayer
+                        autoPlay={false}
+                        src={data.audio.data.attributes.url}
+                        preload={'none'}
+
+                    />
 
 
                 </div>
