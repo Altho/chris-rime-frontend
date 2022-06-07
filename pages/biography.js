@@ -96,7 +96,7 @@ export default function Biography(){
               <section className={style.bioHeader}>
                   <Image
                       className={style.mainImage}
-                      src={'/images/rime1.webp'}
+                      src={'/images/rime1.jpg'}
                   />
                   <div className={style.bioText}>
                       {locale === 'en' ? (englishBio()) : (frenchhBio())}
