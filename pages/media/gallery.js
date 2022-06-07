@@ -1,5 +1,5 @@
 import Masonry from 'react-masonry-css'
-import {Image, Modal, Skeleton} from '@mantine/core'
+import {Image, Modal} from '@mantine/core'
 import style from '../../styles/gallery.module.css'
 import Layout from '/components/layout'
 import {useState} from "react";
@@ -101,7 +101,6 @@ export default function Gallery({photos}){
 
     const [opened, setOpened] = useState(false);
     const [url, setUrl] = useState('')
-    const [loading, setLoading] = useState(true);
     const handleClick = (photo) => {
         setOpened(true);
         setUrl(photo);
@@ -128,8 +127,7 @@ export default function Gallery({photos}){
                 noFocusTrap
 
             >
-
-                <Image  onClick={() => setOpened(false)} src={url}/>
+                <Image onClick={() => setOpened(false)} src={url}/>
             </Modal>
             <Masonry
                 breakpointCols={breakpointColumnsObj}
@@ -137,9 +135,7 @@ export default function Gallery({photos}){
                 columnClassName={style.grid_column}>
                 {photos.map(({attributes : image})=>{
                     return(
-                        <Skeleton visible={loading}>
-                        <Image onLoad={() => setLoading(false)} key={image.url} onClick={() => handleClick(`${image.url}`)} src={`${image.url}`}/>
-                            </Skeleton>
+                        <Image key={image.url} onClick={() => handleClick(`${image.url}`)} src={`${image.url}`}/>
                     )
                 })}
             </Masonry>
