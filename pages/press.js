@@ -23,7 +23,7 @@ export async function getServerSideProps({locale}, ctx) {
     const jwt = parseCookies(ctx).jwt
 
     if (jwt) {
-        const articlesArray = await getArticles({locale}, jwt, 0, 9)
+        const articlesArray = await getArticles({locale}, jwt, 0, 10)
         const articles = articlesArray.articlesList
         const total = articlesArray.total
         const cookieJwt = jwt
@@ -74,7 +74,7 @@ export async function getServerSideProps({locale}, ctx) {
     })
     const cookieJwt = loginResponseData.jwt
 
-    const articlesArray = await getArticles({locale}, cookieJwt, 0, 9)
+    const articlesArray = await getArticles({locale}, cookieJwt, 0, 10)
     const articles = articlesArray.articlesList
     const total = articlesArray.total
 
@@ -100,7 +100,7 @@ export default function Articles({articles, cookieJwt, total}){
     const locale = useRouter().locale
     const {height, width}= useWindowDimensions()
     const isMobile = () => {if(width <= 900){return true}else{return false}}
-    const [pageCounter, setPageCounter] = useState(9)
+    const [pageCounter, setPageCounter] = useState(10)
     const [posts, setPosts] = useState(articles);
     const [visible, setVisible] = useState(false)
     const [hasMore, setHasMore] = useState(true);
@@ -123,8 +123,8 @@ export default function Articles({articles, cookieJwt, total}){
         ){
 
 
-            const res = await getArticles({locale},cookieJwt, pageCounter  , 9)
-            setPageCounter(prevState => prevState + 9)
+            const res = await getArticles({locale},cookieJwt, pageCounter  , 10)
+            setPageCounter(pageCounter + 10)
 
 
             const newPosts = res.articlesList;
