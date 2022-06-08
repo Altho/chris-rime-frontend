@@ -60,7 +60,7 @@ export default function Albums({albums, sideman}){
                             spacing="lg"
                             breakpoints={[
                                 { maxWidth: 980, cols: 3, spacing: 'md' },
-                                { maxWidth: 755, cols: 2, spacing: 'sm' },
+                                { maxWidth: 800, cols: 2, spacing: 'sm' },
                                 { maxWidth: 600, cols: 1, spacing: 'sm' },
                             ]}>
                     <ShowAlbums albums={albums} theme={'light'}/>
@@ -75,7 +75,7 @@ export default function Albums({albums, sideman}){
                             spacing="lg"
                             breakpoints={[
                                 { maxWidth: 980, cols: 3, spacing: 'md' },
-                                { maxWidth: 755, cols: 2, spacing: 'sm' },
+                                { maxWidth: 800, cols: 2, spacing: 'sm' },
                                 { maxWidth: 600, cols: 1, spacing: 'sm' },
                             ]}>
                     <ShowAlbums albums={sideman} theme={'dark'}/>

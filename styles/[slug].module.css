@@ -34,6 +34,7 @@
 
     color: var(--secondary);
     font-weight: bold;
+    margin-top: 15px;
     z-index: 2;
     /*width: 80%;*/
     /*padding: 10px 0 0 20px;*/
@@ -148,6 +149,7 @@
 
 .albumRightContainer {
     padding: 0 50px;
+    min-width: 700px;
 }
 
 .albumDescription {
@@ -293,6 +295,13 @@
     }
 }
 
+@media (max-width: 1100px){
+    .albumHeader {
+        flex-wrap: wrap;
+        padding-top: 0;
+    }
+}
+
 @media (max-width: 900px) {
 
     .video {
@@ -318,10 +327,7 @@
         margin-left: 0;
     }
 
-    .albumHeader {
-        flex-wrap: wrap;
-        padding-top: 0;
-    }
+
 
 
     .methodinfos {
