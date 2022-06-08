@@ -1,31 +1,33 @@
 import Layout from "../../components/layout";
 import {getMethodData} from "../../libs/fetchMethods";
 import MethodInfos from "../../components/methods/methodInfos";
+import {Modal, Button} from '@mantine/core'
 import styles from '../../styles/[slug].module.css'
 import Reviews from "../../components/reviews";
 import DisplayPdf from "../../components/methods/DisplayPdf";
 import {useRouter} from "next/router";
+import {useState} from "react";
+import {Cash} from 'tabler-icons-react';
+
 import {Menu, MenuButton, MenuItem} from "@szhsin/react-menu";
 import style from "../../styles/[slug].module.css";
 import {parseCookies, setCookie} from "nookies";
 
 
-
-
 export async function getServerSideProps({query, locale}, ctx) {
     const jwt = parseCookies(ctx).jwt
-   if(jwt){
-       const methodData = await getMethodData(query.slug, locale)
+    if (jwt) {
+        const methodData = await getMethodData(query.slug, locale)
 
-       return {
-           props: {
-               methodData
-           }
+        return {
+            props: {
+                methodData
+            }
 
 
-       }
+        }
 
-   }
+    }
 
     const loginData = {
 
@@ -76,7 +78,6 @@ export async function getServerSideProps({query, locale}, ctx) {
 }
 
 
-
 export default function methodDetails({methodData}) {
 
 
@@ -86,22 +87,17 @@ export default function methodDetails({methodData}) {
     console.log(method.reviews)
 
 
-
-
     return (
         <Layout>
             <div className={style.pdfContainer}>
-            <MethodTitle name={method.name} image={methodImage} method={method} preview={preview}/>
-            <Reviews reviews={method.reviews.data}  />
+                <MethodTitle name={method.name} image={methodImage} method={method} preview={preview}/>
+                <Reviews reviews={method.reviews.data}/>
 
-            <div className={styles.infoContainer}>
-                <div className={styles.description}>
+                <div className={styles.infoContainer}>
+                    <div className={styles.description}>
+                    </div>
                 </div>
             </div>
-            </div>
-
-
-
 
 
         </Layout>
@@ -110,6 +106,7 @@ export default function methodDetails({methodData}) {
 }
 
 function MethodTitle({name, image, method, preview}) {
+    const [opened, setOpened] = useState(false);
 
     const locale = useRouter().locale;
     console.log('---pdf---')
@@ -118,31 +115,65 @@ function MethodTitle({name, image, method, preview}) {
 
     return (
         // <div className={styles.titleBackground} style={headerStyle()}>
-        <div >
+        <div>
+            <Modal
+                centered
+                withCloseButton={false}
+                opened={opened}
+                onClose={() => setOpened(false)}
+            >
+                <div className={styles.modalButtonContainer}>
+                    {method.lien_achat_1 && (<a href={method.lien_achat_1} target="_blank" rel={'noreferrer'}>
+                            <Button
+                                className={styles.buyButton}>{locale === 'en' ? `BUY ON ${method.vendeur_lien_1.toUpperCase()}` : `ACHETER ON ${method.vendeur_lien_1.toUpperCase()}`}
+                            </Button></a>
+                    )}
 
-            <div className={styles.titleContainer} >
+                    {method.lien_achat_2 && (<a href={method.lien_achat_2} target="_blank" rel={'noreferrer'}>
+                            <Button
+                                className={styles.buyButton}>{locale === 'en' ? `BUY ON ${method.vendeur_lien_2.toUpperCase()}` : `ACHETER ON ${method.vendeur_lien_2.toUpperCase()}`}
+                            </Button></a>
+                    )}
+
+                    {method.lien_achat_3 && (<a href={method.lien_achat_3} target="_blank" rel={'noreferrer'}>
+                            <Button
+                                className={styles.buyButton}>{locale === 'en' ? `BUY ON ${method.vendeur_lien_3.toUpperCase()}` : `ACHETER ON ${method.vendeur_lien_3.toUpperCase()}`}
+                            </Button></a>
+                    )}
+
+
+                </div>
+
+
+            </Modal>
+
+            <div className={styles.titleContainer}>
                 <div className={styles.albumHeader}>
                     <div>
                         <div className={styles.albumCover}>
-                            <DisplayPdf url={preview} />
+                            <DisplayPdf url={preview}/>
 
                         </div>
 
                     </div>
                     <div className={styles.albumRightContainer}>
-                        <h1 className={styles.albumName} >{name}</h1>
+                        <h1 className={styles.albumName}>{name}</h1>
 
-                        <MethodInfos release={method.date.toString()} publisher={method.publisher} pages={method.pages} />                        <p className={styles.albumDescription}>{method.description}</p>
+                        <MethodInfos release={method.date.toString()} publisher={method.publisher}
+                                     pages={method.pages}/>                        <p
+                        className={styles.albumDescription}>{method.description}</p>
                         <div className={styles.buttonContainer}>
-                            <Menu menuButton={<MenuButton className={style.buy}>{locale === 'en' ? ('BUY') : ('ACHETER')}</MenuButton>}>
-                                <MenuItem className={styles.menuItem}>Guitar4Fan (CD)</MenuItem>
-                                <MenuItem className={styles.menuItem}>BandCamp (Digital)</MenuItem>
-                            </Menu>
+                            <Button leftIcon={< Cash/>}
+                                    className={styles.buy}
+                                    onClick={setOpened}
+
+                            >{locale === 'en' ? ('BUY') : ('ACHETER')}
+
+                            </Button>
                         </div>
                     </div>
 
                 </div>
-
 
 
                 {/*</div>*/}

@@ -10,6 +10,7 @@ import 'react-h5-audio-player/lib/styles.css';
 
 export default function LatestRelease(album){
 
+
     const router = useRouter()
 
     const locale = useRouter().locale
@@ -17,6 +18,8 @@ export default function LatestRelease(album){
     const data = album.album[0].attributes
     const path = useRouter().pathname
     return(
+
+
         <div className={style.container}>
             <div className={style.badgeContainer}>
                 <Badge className={style.badge} color="orange" size="xl" radius="lg">{locale === 'en' ? 'Now available' : 'Disponible maintenant'}</Badge>
@@ -48,5 +51,6 @@ export default function LatestRelease(album){
             </div>
 
         </div>
+
     )
 }

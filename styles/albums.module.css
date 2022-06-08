@@ -27,6 +27,9 @@
     z-index: 1;
 
 }
+.modalButtonContainer {
+    display: inline-block;
+}
 
 .capTitle{
     font-family: Orbitron, sans-serif;
