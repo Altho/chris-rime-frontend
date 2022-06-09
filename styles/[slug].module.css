@@ -304,6 +304,10 @@
 
 @media (max-width: 900px) {
 
+    .albumRightContainer {
+        max-width: none;
+    }
+
     .video {
 
         padding: 30px 0;
