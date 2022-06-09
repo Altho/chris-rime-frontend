@@ -84,6 +84,11 @@
     width: 400px;
 }
 
+.methodCover {
+    margin-left: 30px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
 .albumImage {
 
 }
@@ -326,6 +331,12 @@
     }
 
     .albumCover {
+        padding: 0;
+        width: 100vw;
+        margin-left: 0;
+    }
+
+    .methodCover {
         padding: 0;
         width: 100vw;
         margin-left: 0;

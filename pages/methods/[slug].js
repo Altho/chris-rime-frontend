@@ -150,7 +150,7 @@ function MethodTitle({name, image, method, preview}) {
             <div className={styles.titleContainer}>
                 <div className={styles.albumHeader}>
                     <div>
-                        <div className={styles.albumCover}>
+                        <div className={styles.methodCover}>
                             <DisplayPdf url={preview}/>
 
                         </div>

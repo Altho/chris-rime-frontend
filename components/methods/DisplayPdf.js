@@ -1,5 +1,6 @@
 import {useState} from "react";
 import { Document, Page } from 'react-pdf';
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 import { pdfjs } from 'react-pdf';
 import styles from '../../styles/pdf.module.css'
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`;
@@ -8,6 +9,8 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/l
 
 
 export default function DisplayPdf({url}){
+    const {dHeight, dWidth} = useWindowDimensions()
+
     const [numPages, setNumPages] = useState(null);
     const [pageNumber, setPageNumber] = useState(1);
 
@@ -35,7 +38,7 @@ export default function DisplayPdf({url}){
                 file={`${url}`}
                 onLoadSuccess={onDocumentLoadSuccess}
             >
-                <Page                 width={400}
+                <Page                 width={370}
                                       pageNumber={pageNumber} className={styles.page} />
                 <div className={styles.navbar}>
 

@@ -9,7 +9,8 @@
 
 }
 .page{
-
+display: flex;
+    justify-content: center;
 }
 
 .document{
