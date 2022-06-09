@@ -305,7 +305,7 @@
 @media (max-width: 900px) {
 
     .albumRightContainer {
-        max-width: none;
+        max-width: 100%;
     }
 
     .video {
