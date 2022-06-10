@@ -11,19 +11,35 @@
     background-clip: padding-box;
 }
 
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.text {
+    position: absolute;
+    bottom: 12px;
+    left: 20px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
 .grid img {
     margin-top: 30px;
     transition: 0.3s;
-    border-radius: 25px;
 
 }
 
 .grid img:hover {
     cursor : pointer;
-    transform: scale(1.1);
-    border-radius: 0;
     border: none;
-    transition: 0.3s;
+    transition: 0.2s;
     -webkit-box-shadow: 5px 5px 15px 5px #000000;
     box-shadow: 5px 5px 15px 5px #000000;
 }

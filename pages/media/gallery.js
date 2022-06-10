@@ -1,5 +1,5 @@
 import Masonry from 'react-masonry-css'
-import {Image, Modal, Loader} from '@mantine/core'
+import {Image,BackgroundImage, Modal, Loader} from '@mantine/core'
 import style from '../../styles/gallery.module.css'
 import Layout from '/components/layout'
 import {useState} from "react";
@@ -101,9 +101,11 @@ export default function Gallery({photos}){
 
     const [opened, setOpened] = useState(false);
     const [url, setUrl] = useState('')
-    const handleClick = (photo) => {
+    const [credit, setCredit] = useState('')
+    const handleClick = (photo, caption) => {
         setOpened(true);
         setUrl(photo);
+        setCredit(caption)
     }
     const breakpointColumnsObj = {
         default: 4,
@@ -120,14 +122,18 @@ export default function Gallery({photos}){
                 onClose={() => setOpened(false)}
                 withCloseButton={false}
                 centered
-                size="80vh"
+                size="40%"
                 overlayOpacity={0.80}
                 padding={0}
                 radius={0}
                 noFocusTrap
 
             >
-                <Image onClick={() => setOpened(false)} src={url}/>
+                <div className={style.container}>
+                <Image  onClick={() => setOpened(false)} src={url} />
+                <div className={style.text}>{credit && `© ${credit}`}</div>
+
+                </div>
             </Modal>
             <Masonry
                 breakpointCols={breakpointColumnsObj}
@@ -135,7 +141,11 @@ export default function Gallery({photos}){
                 columnClassName={style.grid_column}>
                 {photos.map(({attributes : image})=>{
                     return(
-                        <Image key={image.url} withPlaceholder placeholder={<Loader variant={"dots"}/>} onClick={() => handleClick(`${image.url}`)} src={`${image.url}`}/>
+                        <div className={style.container}>
+                        <Image key={image.url}  withPlaceholder placeholder={<Loader variant={"dots"}/>} onClick={() => handleClick(`${image.url}`, `${image.caption}`)} src={`${image.url}`}/>
+                            <div className={style.text}>{image.caption && `© ${image.caption}`}</div>
+
+                        </div>
                     )
                 })}
             </Masonry>

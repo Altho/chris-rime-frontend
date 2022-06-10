@@ -65,7 +65,7 @@ export default function TopMenu() {
             <Link href={'/'}>
                 <div className={styles.logoContainer}>
                     <div className={styles.logo}>Chris Rime<Image
-                        src={'/images/bg/waveform.svg'}
+                        src={'/images/bg/crhat.svg'}
                         width={100}
 
                     /></div>
