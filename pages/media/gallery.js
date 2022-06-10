@@ -141,7 +141,7 @@ export default function Gallery({photos}){
                 columnClassName={style.grid_column}>
                 {photos.map(({attributes : image})=>{
                     return(
-                        <div className={style.container}>
+                        <div key={image.url} className={style.container}>
                         <Image key={image.url}  withPlaceholder placeholder={<Loader variant={"dots"}/>} onClick={() => handleClick(`${image.url}`, `${image.caption}`)} src={`${image.url}`}/>
                             <div className={style.text}>{image.caption && `© ${image.caption}`}</div>
 
