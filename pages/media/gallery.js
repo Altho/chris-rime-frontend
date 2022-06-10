@@ -122,7 +122,7 @@ export default function Gallery({photos}){
                 onClose={() => setOpened(false)}
                 withCloseButton={false}
                 centered
-                size="40%"
+                size="90vh"
                 overlayOpacity={0.80}
                 padding={0}
                 radius={0}
