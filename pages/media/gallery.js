@@ -1,5 +1,5 @@
 import Masonry from 'react-masonry-css'
-import {Image,BackgroundImage, Modal, Loader} from '@mantine/core'
+import {Image,Skeleton, Modal, Loader} from '@mantine/core'
 import style from '../../styles/gallery.module.css'
 import Layout from '/components/layout'
 import {useState} from "react";
@@ -142,7 +142,7 @@ export default function Gallery({photos}){
                 {photos.map(({attributes : image})=>{
                     return(
                         <div key={image.url} className={style.container}>
-                        <Image key={image.url}  withPlaceholder placeholder={<Loader variant={"dots"}/>} onClick={() => handleClick(`${image.url}`, `${image.caption}`)} src={`${image.url}`}/>
+                        <Image key={image.url}  withPlaceholder placeholder={<Skeleton/>} onClick={() => handleClick(`${image.url}`, `${image.caption}`)} src={`${image.url}`}/>
                             <div className={style.text}>{image.caption && `© ${image.caption}`}</div>
 
                         </div>
