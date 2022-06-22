@@ -96,6 +96,11 @@ export async function getStaticProps(ctx){
         },
     });
 
+    const latestQ = qs.stringify({
+        sort: ['updatedAt:desc'],
+
+    });
+
     const filterAlbums = qs.stringify({
         filters: {
             perso: {
@@ -114,7 +119,7 @@ export async function getStaticProps(ctx){
         album,
         jeu,
         guest,
-        albumList
+        albumList,
     ] = await Promise.all([
         fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${videosQ}`,loginResponseData.jwt),
         fetchDataFromURL(`${process.env.DB_HOST}/api/videos?${pedaguoQ}`,loginResponseData.jwt),
@@ -124,7 +129,7 @@ export async function getStaticProps(ctx){
         fetchDataFromURL(`${process.env.DB_HOST}/api/albums?populate=*&${filterAlbums}`,loginResponseData.jwt),
     ]);
 
-
+    
 
 
     return {
@@ -135,7 +140,7 @@ export async function getStaticProps(ctx){
             album,
             jeu,
             guest,
-            albumList
+            albumList,
 
 
 
@@ -157,7 +162,7 @@ export default function Videos({videos, pedaguo, album,jeu, guest, albumList}){
                 backgroundColor:'#fff',
                 minHeight:'100vh'
             }}>
-            <VideoGrid videos={videos} pedaguo={pedaguo} album={album} jeu={jeu} guest={guest} albumList={albumList} />
+            <VideoGrid videos={videos} pedaguo={pedaguo} album={album} jeu={jeu}  guest={guest} albumList={albumList} />
             </div>
         </Layout>
     )

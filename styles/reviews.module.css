@@ -11,9 +11,9 @@ width:20%;
     left:50%;
 }
 
-.vp {
-    width:100vw;
-}
+/*.vp {*/
+/*    width:100vw;*/
+/*}*/
 
 .quote{
     background-color: rgba(0,0,0,0.7);
@@ -23,7 +23,6 @@ width:20%;
     border-radius: 25px;
     transition: 0.2s;
     max-height: 350px;
-    overflow: scroll;
     color: white;
 
 }

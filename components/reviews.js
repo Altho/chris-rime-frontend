@@ -47,7 +47,7 @@ export default function Reviews({reviews}) {
                                 key={id}>
                                 <a href={lien} target={"_blank"} rel="noreferrer">
 
-                                    <Blockquote className={style.quote} cite={`"- ${auteur}"`}>
+                                    <Blockquote className={style.quote} cite={auteur && `"- ${auteur}"`}>
                                         {content}
 
                                     </Blockquote>

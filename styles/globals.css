@@ -65,6 +65,12 @@ body {
   margin: 0;
   color: white;
   font-family: 'Nanum Gothic', sans-serif;
+   scrollbar-width: none;
+
+ }
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
  html {

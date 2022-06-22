@@ -3,36 +3,44 @@ import {parseCookies, setCookie} from "nookies";
 import Layout from "../components/layout";
 import styles from "../styles/home.module.css";
 import cardStyle from "../styles/press.module.css"
-import {SimpleGrid, Modal, Card, Button, Image,Group, Text} from "@mantine/core";
+import {SimpleGrid, Modal, Card, Button, Image, Group, Text} from "@mantine/core";
 import {format} from 'date-fns'
 import {fr} from "date-fns/locale";
 import {useRouter} from "next/router";
 import {Fragment, useState} from 'react';
 import useWindowDimensions from "../hooks/useWindowDimensions";
-import { Loader } from '@mantine/core';
+import {Loader} from '@mantine/core';
 import ReactMarkdown from 'react-markdown'
 import InfiniteScroll from 'react-infinite-scroller';
+import {useInfiniteQuery} from "react-query";
 
 import style from "../styles/blogList.module.css";
-
-
-
 
 
 export async function getServerSideProps({locale}, ctx) {
     const jwt = parseCookies(ctx).jwt
 
     if (jwt) {
-        const articlesArray = await getArticles({locale}, jwt, 0, 10)
-        const articles = articlesArray.articlesList
-        const total = articlesArray.total
+        const articlesArray = await fetch(
+            `${process.env.DB_HOST}/api/articles?locale=${locale}&populate=*?page=1`,
+            {
+                headers: {
+
+                    Authorization: `Bearer ${jwt}`
+                }
+            })
+        const dataD = await articlesArray.json()
+        const articles = dataD.data
+        console.log(dataD)
+
+        console.log(articles)
+
         const cookieJwt = jwt
         return {
 
             props: {
                 articles,
                 cookieJwt,
-                total
 
 
             },
@@ -74,10 +82,17 @@ export async function getServerSideProps({locale}, ctx) {
     })
     const cookieJwt = loginResponseData.jwt
 
-    const articlesArray = await getArticles({locale}, cookieJwt, 0, 10)
-    const articles = articlesArray.articlesList
-    const total = articlesArray.total
+    const articlesArray = await fetch(
+        `${process.env.DB_HOST}/api/articles?locale=${locale}&populate=*?page=1`,
+        {
+            headers: {
 
+                Authorization: `Bearer ${jwt}`
+            }
+        })
+    const dataD = await articlesArray.json()
+    console.log(dataD)
+    const articles = dataD.data
 
 
     return {
@@ -85,7 +100,6 @@ export async function getServerSideProps({locale}, ctx) {
         props: {
             articles,
             cookieJwt,
-            total
 
 
         }
@@ -94,50 +108,50 @@ export async function getServerSideProps({locale}, ctx) {
 }
 
 
-
-
-export default function Articles({articles, cookieJwt, total}){
+export default function Articles({articles, cookieJwt, total}) {
     const locale = useRouter().locale
-    const {height, width}= useWindowDimensions()
-    const isMobile = () => {if(width <= 900){return true}else{return false}}
+    const {height, width} = useWindowDimensions()
+    const isMobile = () => {
+        if (width <= 900) {
+            return true
+        } else {
+            return false
+        }
+    }
     const [pageCounter, setPageCounter] = useState(10)
     const [posts, setPosts] = useState(articles);
     const [visible, setVisible] = useState(false)
     const [hasMore, setHasMore] = useState(true);
     const [opened, setOpened] = useState(false);
     const [modalContent, setModalContent] = useState({
-        mainContent:'',
-        name:'',
-        image:'',
-        auteur:'',
-        editeur:'',
-        magazine:'',
-        date:''
+        mainContent: '',
+        name: '',
+        image: '',
+        auteur: '',
+        editeur: '',
+        magazine: '',
+        date: ''
     });
 
-    const getMorePost = async () => {
-        console.dir('---PAGECOUNTER---')
-        console.dir(pageCounter)
-        console.dir('---PAGECOUNTER---')
-        if(pageCounter < total
-        ){
+    const {isLoading,isError, isFetching, data, status, fetchNextPage, hasNextPage} = useInfiniteQuery(
+        "posts",
+        async ({pageParam = 2}) =>
+            await fetch(
+                `${process.env.DB_HOST}/api/articles?locale=${locale}&populate=*?page=${pageParam}`,
+                {
+                    headers: {
+
+                        Authorization: `Bearer ${cookieJwt}`
+                    }
+
+                }
+            ).then((result) => result.json()), {initialData : articles}
+
+    );
 
 
-            const res = await getArticles({locale},cookieJwt, pageCounter  , 10)
-            setPageCounter(pageCounter + 10)
 
 
-            const newPosts = res.articlesList;
-            setPosts((post) => [...post, ...newPosts]);
-        }
-        else {
-            setHasMore(false)
-
-
-
-        }
-
-    };
 
 
     let keyIndex = 0
@@ -147,17 +161,14 @@ export default function Articles({articles, cookieJwt, total}){
     }
 
 
-
-
-    const handleClick =  (article) => {
+    const handleClick = (article) => {
 
         const parseDate = () => {
-            if( locale === 'en'){
+            if (locale === 'en') {
                 const date = format(new Date(article.attributes.date), 'MMMM y')
                 return date
 
-            }
-            else {
+            } else {
                 const date = format(new Date(article.attributes.date), 'MMMM y', {locale: fr})
                 return date
 
@@ -165,7 +176,7 @@ export default function Articles({articles, cookieJwt, total}){
         }
 
         setModalContent({
-                name:article.attributes.name,
+                name: article.attributes.name,
                 mainContent: article.attributes.content,
                 image: article.attributes.image.data.attributes.url,
                 auteur: article.attributes.auteur,
@@ -174,74 +185,49 @@ export default function Articles({articles, cookieJwt, total}){
                 date: parseDate(),
 
             }
-
-
         )
         setOpened(true)
 
 
     }
 
+    if (isLoading) {
+        return <span>Loading...</span>
+    }
+
+    if (isError) {
+        return <span>Error: {error.message}</span>
+    }
 
 
-    return(
+    return (
 
         <Layout>
 
-            <Modal
-                overflow="inside"
-                size={isMobile() ? '100%' : '85%'}
-                opened={opened}
-                onClose={() => setOpened(false)}
-            >
-                <div className={cardStyle.headerContainer}>
-                    <div className={cardStyle.imageWrapper}>
-                        <Image src={modalContent.image}  width={300} />
-                    </div>
-                    <div className={cardStyle.headerInfos}>
-                        <div>{modalContent.magazine}</div>
-                        <div>{modalContent.name}</div>
-                        <div>{modalContent.date}</div>
 
 
-
-                    </div>
-                </div>
-
-                <ReactMarkdown className={cardStyle.content}>{modalContent.mainContent}</ReactMarkdown>
-                <div>{modalContent.auteur}</div>
-
-
-
-            </Modal>
 
             <div className={styles.albumGallery}>
-                <InfiniteScroll
-                    pageStart={0}
-                    loadMore={getMorePost}
-                    hasMore={hasMore}
-                    loader={<div className={cardStyle.loaderWrapper}><div className={cardStyle.loader}><Loader color={'orange'} variant={'bars'} /></div></div>}
 
-                >
+
                     <SimpleGrid cols={3}
                                 spacing={"xl"}
                                 breakpoints={[
-                                    { maxWidth: 1200, cols: 2, spacing: 'md' },
-                                    { maxWidth: 755, cols: 1, spacing: 'sm' },
+                                    {maxWidth: 1200, cols: 2, spacing: 'md'},
+                                    {maxWidth: 755, cols: 1, spacing: 'sm'},
                                 ]}>
 
-                        {posts.map((article) => {
-                                return(
-                                    <ArticleCard key={newKey()} data={article} locale={locale} onClick={() => handleClick(article)} />
+                        {data.map((article) => {
+                                return (
+                                    <ArticleCard key={newKey()} data={article} locale={locale}
+                                                 onClick={() => handleClick(article)}/>
                                 )
                             }
-
                         )}
 
                     </SimpleGrid>
-                </InfiniteScroll>
                 <div>
-                    {visible && <Loader />}
+                    {visible && <Loader/>}
                 </div>
             </div>
 
@@ -271,8 +257,8 @@ function ArticleCard({data, locale, onClick}) {
                 </Group>
                 <div>{data.attributes.name}</div>
                 <div>{locale === 'en' ? upDate : upDateFr}</div>
-                <Button  fullWidth color={"orange"}
-                         className={cardStyle.button}>{locale === 'en' ? ('Read the article') : ("Lire l'article")}</Button>
+                <Button fullWidth color={"orange"}
+                        className={cardStyle.button}>{locale === 'en' ? ('Read the article') : ("Lire l'article")}</Button>
             </Card>
         </>
     )

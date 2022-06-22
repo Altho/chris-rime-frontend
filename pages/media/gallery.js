@@ -72,8 +72,12 @@ export async function getStaticProps(ctx){
     })
 
     const query = qs.stringify({
-        sort: ['publishedAt:desc'],
-    }, {
+
+
+            sort: ['publishedAt:desc'],
+    },
+
+        {
         encodeValuesOnly: true,
     });
     const fetchPhotos = await fetch(`${process.env.DB_HOST}/api/photos?${query}&populate=*`, {
@@ -83,6 +87,7 @@ export async function getStaticProps(ctx){
         }
     })
     const photoData = await fetchPhotos.json()
+    console.log(photoData.data['0'].attributes.image)
     const photos = photoData.data['0'].attributes.image.data
 
 
@@ -98,7 +103,7 @@ export async function getStaticProps(ctx){
 
 export default function Gallery({photos}){
 
-
+    console.log(photos)
     const [opened, setOpened] = useState(false);
     const [url, setUrl] = useState('')
     const [credit, setCredit] = useState('')
@@ -142,7 +147,7 @@ export default function Gallery({photos}){
                 {photos.map(({attributes : image})=>{
                     return(
                         <div key={image.url} className={style.container}>
-                        <Image key={image.url}  withPlaceholder placeholder={<Skeleton/>} onClick={() => handleClick(`${image.url}`, `${image.caption}`)} src={`${image.url}`}/>
+                            <Image key={image.url}  withPlaceholder placeholder={<Loader variant={"bars"}/>} onClick={() => handleClick(`${image.url}`, `${image.caption}`)} src={`${image.url}`}/>
                             <div className={style.text}>{image.caption && `© ${image.caption}`}</div>
 
                         </div>

@@ -4,6 +4,11 @@ import {NotificationsProvider} from '@mantine/notifications';
 import Router from 'next/router';
 import NProgress from 'nprogress'; //nprogress module
 import '../styles/bar.css'; //styles of nprogress
+import { ReactQueryDevtools } from "react-query/devtools";
+
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 NProgress.configure({ showSpinner: false });
 
@@ -15,12 +20,17 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 function MyApp({Component, pageProps}) {
     return (
+        <QueryClientProvider client={queryClient}>
         <NotificationsProvider>
 
 
             <Component {...pageProps} />
+            <ReactQueryDevtools initialIsOpen={false}></ReactQueryDevtools>
 
         </NotificationsProvider>
+
+        </QueryClientProvider>
+
 
     )
 }

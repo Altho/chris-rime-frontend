@@ -5,8 +5,8 @@ class AppDocument extends Document {
         return (
             <Html>
                 <Head>
-                    <link rel="manifest" href="/manifest.json" />
-
+                    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+                        <link rel="icon" type="image/png" href="/assets/favicon.png" />
 
                 </Head>
                 <body>

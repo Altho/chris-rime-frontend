@@ -12,7 +12,8 @@ export default function Layout({ children, home }) {
         <div className={'wrapper'}>
         <div className={'mainDiv'}>
         <Head>
-            <link rel="icon" href="/favicon.ico" />
+            <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+                <link rel="icon" type="image/png" href="/favicon.png" />
             <meta
                 name="Chris Rime official"
                 content="Chris Rime official website"
