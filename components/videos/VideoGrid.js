@@ -14,7 +14,7 @@ import { SegmentedControl } from '@mantine/core';
 export default function VideoGrid({videos, pedaguo, album, jeu, guest,albumList}){
     console.log(albumList)
     const locale = useRouter().locale;
-    const [displayedVideos, setDisplayedVideos] = useState(videos)
+    const [displayedVideos, setDisplayedVideos] = useState(albumList[1].attributes.video.data)
     const list = albumList.map(({attributes: {name}}) => name)
     console.log('AAAALbums')
     console.log(list)
