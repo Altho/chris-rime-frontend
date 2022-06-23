@@ -1,10 +1,15 @@
-import {Image} from "@mantine/core";
+import {Image, Skeleton} from "@mantine/core";
 import style from "../../styles/albums.module.css"
 import {useState} from "react";
 import Link from 'next/link'
 
 export default function Album({url,albumTitle,albumDate, link, theme}){
 
+const ph = () => {
+    return (
+        <Skeleton height={250}  />
+    )
+}
 
 return (
 
@@ -12,7 +17,6 @@ return (
     <div className={style.albumCover} >
 
     <Image
-
 
         src={`${url}`}
         width={250}

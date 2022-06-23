@@ -11,9 +11,9 @@ width:20%;
     left:50%;
 }
 
-/*.vp {*/
-/*    width:100vw;*/
-/*}*/
+.vp {
+    width:100vw;
+}
 
 .quote{
     background-color: rgba(0,0,0,0.7);

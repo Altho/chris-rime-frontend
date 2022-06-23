@@ -147,7 +147,7 @@ export default function Gallery({photos}){
                 {photos.map(({attributes : image})=>{
                     return(
                         <div key={image.url} className={style.container}>
-                            <Image key={image.url}  withPlaceholder placeholder={<Loader variant={"bars"}/>} onClick={() => handleClick(`${image.url}`, `${image.caption}`)} src={`${image.url}`}/>
+                            <Image key={image.url}  withPlaceholder placeholder={<Skeleton height={250} />} onClick={() => handleClick(`${image.url}`, `${image.caption}`)} src={`${image.url}`}/>
                             <div className={style.text}>{image.caption && `© ${image.caption}`}</div>
 
                         </div>
