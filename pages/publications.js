@@ -6,6 +6,82 @@ import {useRouter} from "next/router";
 import {List, ThemeIcon, SimpleGrid, Button, Image, Loader} from '@mantine/core';
 import {Music} from 'tabler-icons-react';
 import Masonry from 'react-masonry-css'
+import FlipCards from "../components/publications/FlipCards";
+
+const data = [
+    {
+        magazine: 'Guitarist & Bass Mag',
+        name: 'Special Woodstock',
+        image: '/images/mags/2.jpeg',
+        items: ['Une sélection des 30 meilleurs riffs',
+            'Les meilleurs phrasés de solo', 'Un panel des rééditions cd',
+            '5 scores à la manière de Jimi Hendrix, Carlos Santana, Ten Years After, Joe Cocker, Creedence Clearwater Revival.'
+        ]
+    },
+    {
+        magazine: 'Guitarist & Bass Mag',
+        name: 'Special David Gilmour',
+        image: '/images/mags/3.jpeg',
+        items: ['Analyse complète du jeu : son et phrasé',
+            'Gammes pentatoniques', 'Modes de la gamme Majeure',
+            'Bends','Effets','6 scores complets','Ralentis et play-back'
+        ]
+    },
+    {
+        magazine: 'Guitarist & Bass Mag',
+        name: 'Special Eric Clapton',
+        image: '/images/mags/4.jpeg',
+        items: ['Le phrasé','Discographie sélective',
+            '6 solos complets', '40 plans électriques / bottleneck / acoustiques',
+            'Ralentis et play-back'
+        ]
+    },
+    {
+        magazine: 'Guitarist & Bass Mag',
+        name: 'Special Carlos Santana',
+        image: '/images/mags/5.jpeg',
+        items: ['Le phrasé','Discographie sélective',
+            '7 scores complets', '30 riffs & solos',
+            'Ralentis et play-back'
+        ]
+    },
+    {
+        magazine: 'Guitarist & Bass Mag',
+        name: 'Special Guitaristes de Jazz',
+        image: '/images/mags/1.png',
+        items: ['Les grands guitaristes de jazz ','Les guitares du jazz',
+            'Gamme Majeure et modes grecs', 'La gamme pentatonique',
+            'Les modes','Les accords','Bien accompagner en jazz',' 20 plans jazz',
+            '7 scores','Ralentis et play-back'
+        ]
+    },
+    {
+        magazine: 'Guitarist & Bass Mag',
+        name: 'Special Apprenez à composer',
+        image: '/images/mags/7.png',
+        items: ['Tout sur l’harmonie, la mélodie et la structure d’un morceau','Plus de 50 exemples choisis avec audio et tablature',
+            'Dans les styles actuels : Pop, Rock, Blues, Metal, Jazz ', 'Des explications détaillées',
+
+        ]
+    },
+    {
+        magazine: 'Guitarist & Bass Mag',
+        name: 'Special guitare funk',
+        image: '/images/mags/8.png',
+        items: ['La maîtrise du rythme','Revue des gammes utilisées',
+            '10 scores complets (Sly and The Family Stone, James Brown, Jackson 5, Parliament/ Funkadelic, Prince, Nile Rodgers, Earth, Wind and Fire…)', 'Ralentis et play-back',
+        ]
+    },
+    {
+        magazine: 'Guitarist & Bass Mag',
+        name: 'Special reggae',
+        image: '/images/mags/9.png',
+        items: ['Une sélection de 30 riffs incontournables','Une sélection de riffs avec utilisation d’effets',
+            '6 scores complets à la manière de Bob Marley, UB 40, Peter Tosh, Toots & The Maytals et Steel Pulse', 'Ralentis et play-back',
+        ]
+    },
+
+]
 
 
 export default function Publications() {
@@ -40,8 +116,6 @@ export default function Publications() {
                         </Masonry>
 
 
-
-
                     </div>
                 </div>
             </div>
@@ -49,34 +123,16 @@ export default function Publications() {
                 <SimpleGrid
                     cols={2}
                     spacing="lg"
+                    style={{paddingBottom:'80px'}}
                     breakpoints={[
                         {maxWidth: 755, cols: 1, spacing: 'sm'},
                     ]}
                 >
-                    < Image src={'/images/mags/1.png'}
-                    width={300}
-                    />
-                    < Image src={'/images/mags/2.jpeg'}
-                            width={300}
-                    />
-                    < Image src={'/images/mags/3.jpeg'}
-                            width={300}
-                    />
-                    < Image src={'/images/mags/4.jpeg'}
-                            width={300}
-                    />
-                    < Image src={'/images/mags/5.jpeg'}
-                            width={300}
-                    />
-                    < Image src={'/images/mags/7.png'}
-                            width={300}
-                    />
-                    < Image src={'/images/mags/8.png'}
-                            width={300}
-                    />
-                    < Image src={'/images/mags/9.png'}
-                            width={300}
-                    />
+                    {data.map((i) => {
+                        return (
+                            <FlipCards image={i.image} name={i.name} magazine={i.magazine} items={i.items}/>
+                        )
+                    })}
 
                 </SimpleGrid>
             </div>

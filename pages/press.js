@@ -116,14 +116,12 @@ export default function Articles({articles, cookieJwt, total}){
     });
 
     const getMorePost = async () => {
-        console.dir('---PAGECOUNTER---')
-        console.dir(pageCounter)
-        console.dir('---PAGECOUNTER---')
+
         if(pageCounter < total
         ){
 
 
-            const res = await getArticles({locale},cookieJwt, pageCounter  , 10)
+            const res = await getArticles({locale},cookieJwt, pageCounter+1  , 10)
             setPageCounter(pageCounter + 10)
 
 

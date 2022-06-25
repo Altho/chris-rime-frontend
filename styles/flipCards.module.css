@@ -1,0 +1,38 @@
+.card {
+width:350px;
+height:484px;
+}
+
+.infoContainer {
+    background-color: rgba(0,0,0,0.7);
+    height : 100%;
+    color: lightgray;
+    font-family: "Montserrat Alternates", sans-serif;
+    position: relative;
+}
+
+.infoContainer hr {
+    width : 50%;
+}
+
+
+.infoContainer ul {
+    list-style-type: disc;
+
+    padding: 30px 0 0 20px;
+    line-height: 1.8em;
+
+
+}
+
+
+
+.magazine {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 2em;
+}
+.name {
+    text-align: center;
+    font-size: 1.4em;
+}

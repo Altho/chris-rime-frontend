@@ -25,15 +25,6 @@ export async function getArticles({locale}, jwt,page, size) {
         articlesList: articles.data ,
         total: articles.meta.pagination.total
     }
-    console.dir('---START---')
-    console.dir(page)
-    console.dir('---START---')
-    console.dir('---ARTICLES---')
-    console.dir(articles)
-    console.dir('---ARTICLES---')
-    console.dir('---TOTAL---')
-    console.dir(articlesArray.total)
-    console.dir('---TOTAL---')
 
 
     return articlesArray
