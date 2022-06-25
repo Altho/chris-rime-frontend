@@ -4,6 +4,11 @@ import {useState} from "react";
 
 export default function FlipCards({magazine,image,name,items}){
     const [visible, setVisible] = useState(false)
+    let key = 0
+    const addKey = () => {
+        key = key + 1;
+        return key
+    }
 
     return (
         <BackgroundImage
@@ -20,7 +25,7 @@ export default function FlipCards({magazine,image,name,items}){
             <ul>
                 {items.map((item) =>{
                     return (
-                        <li>{item}</li>
+                        <li key={addKey()}>{item}</li>
                     )
                 } )}
             </ul>
