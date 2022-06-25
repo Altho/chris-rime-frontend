@@ -11,15 +11,18 @@ import FlipCards from "../components/publications/FlipCards";
 const data = [
     {
         magazine: 'Guitarist & Bass Mag',
+        key:1,
         name: 'Special Woodstock',
         image: '/images/mags/2.jpeg',
         items: ['Une sélection des 30 meilleurs riffs',
             'Les meilleurs phrasés de solo', 'Un panel des rééditions cd',
             '5 scores à la manière de Jimi Hendrix, Carlos Santana, Ten Years After, Joe Cocker, Creedence Clearwater Revival.'
         ]
+
     },
     {
         magazine: 'Guitarist & Bass Mag',
+        key:2,
         name: 'Special David Gilmour',
         image: '/images/mags/3.jpeg',
         items: ['Analyse complète du jeu : son et phrasé',
@@ -29,6 +32,7 @@ const data = [
     },
     {
         magazine: 'Guitarist & Bass Mag',
+        key:3,
         name: 'Special Eric Clapton',
         image: '/images/mags/4.jpeg',
         items: ['Le phrasé','Discographie sélective',
@@ -38,6 +42,7 @@ const data = [
     },
     {
         magazine: 'Guitarist & Bass Mag',
+        key:4,
         name: 'Special Carlos Santana',
         image: '/images/mags/5.jpeg',
         items: ['Le phrasé','Discographie sélective',
@@ -47,6 +52,7 @@ const data = [
     },
     {
         magazine: 'Guitarist & Bass Mag',
+        key:5,
         name: 'Special Guitaristes de Jazz',
         image: '/images/mags/1.png',
         items: ['Les grands guitaristes de jazz ','Les guitares du jazz',
@@ -57,6 +63,7 @@ const data = [
     },
     {
         magazine: 'Guitarist & Bass Mag',
+        key:6,
         name: 'Special Apprenez à composer',
         image: '/images/mags/7.png',
         items: ['Tout sur l’harmonie, la mélodie et la structure d’un morceau','Plus de 50 exemples choisis avec audio et tablature',
@@ -66,6 +73,7 @@ const data = [
     },
     {
         magazine: 'Guitarist & Bass Mag',
+        key:7,
         name: 'Special guitare funk',
         image: '/images/mags/8.png',
         items: ['La maîtrise du rythme','Revue des gammes utilisées',
@@ -74,6 +82,7 @@ const data = [
     },
     {
         magazine: 'Guitarist & Bass Mag',
+        key:8,
         name: 'Special reggae',
         image: '/images/mags/9.png',
         items: ['Une sélection de 30 riffs incontournables','Une sélection de riffs avec utilisation d’effets',
@@ -130,7 +139,7 @@ export default function Publications() {
                 >
                     {data.map((i) => {
                         return (
-                            <FlipCards image={i.image} name={i.name} magazine={i.magazine} items={i.items}/>
+                            <FlipCards key={i.key} image={i.image} name={i.name} magazine={i.magazine} items={i.items}/>
                         )
                     })}
 
