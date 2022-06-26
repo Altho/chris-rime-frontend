@@ -94,6 +94,7 @@ width: 340px;
     font-family: "Nanum Gothic",sans-serif;
     border-top:2px black solid;
     z-index:2;
+    min-height:400px;
 }
 
 .date{

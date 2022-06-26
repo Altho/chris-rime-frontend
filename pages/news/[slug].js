@@ -89,6 +89,10 @@ export default function postsDetails({postData}) {
     console.log(postData)
     const post = postData['0'].attributes;
     const postImage = post.image.data.attributes.url
+    console.log('----POST-MARKDOWN-------')
+    console.log(post.content)
+    console.log('----POST-MARKDOWN-------')
+
 
 
     return (
