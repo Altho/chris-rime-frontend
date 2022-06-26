@@ -1,8 +1,12 @@
 import {BackgroundImage} from '@mantine/core'
 import Styles from '../../styles/flipCards.module.css'
 import {useState} from "react";
+import {useRouter} from "next/router";
+
 
 export default function FlipCards({magazine,image,name,items, content}){
+    const locale = useRouter().locale
+
     const [visible, setVisible] = useState(false)
     let key = 0
     const addKey = () => {
@@ -21,7 +25,7 @@ export default function FlipCards({magazine,image,name,items, content}){
             <div className={Styles.infoContainer} style={{visibility : visible ? 'visible' : 'hidden'}}>
                 <div className={Styles.magazine}>{magazine}</div>
                 <hr/>
-                <div className={Styles.name}>{name}</div>
+                <div className={Styles.name}>{locale ==='en' ? name.en : name.fr}</div>
             <ul>
                 {items.map((item) =>{
                     return (
@@ -30,7 +34,7 @@ export default function FlipCards({magazine,image,name,items, content}){
                 } )}
             </ul>
                 <hr/>
-                <div className={Styles.content}>{content}</div>
+                <div className={Styles.content}>{locale ==='en' ? content.en : content.fr}</div>
             </div>
         </BackgroundImage>
     )
