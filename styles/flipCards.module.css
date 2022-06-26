@@ -6,6 +6,8 @@ height:484px;
 .infoContainer {
     background-color: rgba(0,0,0,0.7);
     height : 100%;
+    max-height: 484px;
+    overflow-x: scroll;
     color: lightgray;
     font-family: "Montserrat Alternates", sans-serif;
     position: relative;
@@ -19,9 +21,17 @@ height:484px;
 .infoContainer ul {
     list-style-type: disc;
 
-    padding: 30px 0 0 20px;
-    line-height: 1.8em;
+    padding: 30px 0 20px 20px;
+    line-height: 1.4em;
 
+
+}
+
+.content {
+    padding:10px;
+    overflow: hidden;
+    line-height: 1.4em;
+    text-align: justify;
 
 }
 

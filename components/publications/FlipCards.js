@@ -2,7 +2,7 @@ import {BackgroundImage} from '@mantine/core'
 import Styles from '../../styles/flipCards.module.css'
 import {useState} from "react";
 
-export default function FlipCards({magazine,image,name,items}){
+export default function FlipCards({magazine,image,name,items, content}){
     const [visible, setVisible] = useState(false)
     let key = 0
     const addKey = () => {
@@ -29,6 +29,8 @@ export default function FlipCards({magazine,image,name,items}){
                     )
                 } )}
             </ul>
+                <hr/>
+                <div className={Styles.content}>{content}</div>
             </div>
         </BackgroundImage>
     )
