@@ -3,7 +3,13 @@
     background-image: url("/images/rime.webp");
     background-size: cover;
     background-attachment: fixed;
-    background-position: bottom;
+    background-position: center;
+}
+
+@supports ( -webkit-touch-callout : none) {
+    .jumbotron {
+        background-attachment:scroll
+    }
 }
 
 .pic{
