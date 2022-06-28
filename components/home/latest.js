@@ -4,6 +4,8 @@ import style from '../../styles/latest.module.css'
 import {useRouter} from "next/router";
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
+import styles from "../../styles/home.module.css";
+import ReactPlayer from "react-player";
 
 
 
@@ -35,14 +37,17 @@ export default function LatestRelease(album){
                 />
                 <div className={style.textContainer}>
                     <div className={style.titre}>{data.name}</div>
-                    <Blockquote icon={null} className={style.quote}> {data.description}</Blockquote>
+                    <div className={styles.mainVideo}>
+                        <ReactPlayer url={'https://www.youtube.com/watch?v=dmMRsHp725s'} width={'100%'} height={'100%'}
+                                     controls/>
+                    </div>
 
-                    <AudioPlayer
-                        autoPlay={false}
-                        src={data.audio.data.attributes.url}
-                        preload={'none'}
+                    {/*<AudioPlayer*/}
+                    {/*    autoPlay={false}*/}
+                    {/*    src={data.audio.data.attributes.url}*/}
+                    {/*    preload={'none'}*/}
 
-                    />
+                    {/*/>*/}
 
 
                 </div>

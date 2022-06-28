@@ -42,14 +42,10 @@ export default function Home({blogs, album, testimonials}) {
             <main className={styles.main}>
                 <LatestRelease album={album} />
                 <ShortBio testimonials={testimonials.data}/>
-                <Presentation/>
+                {/*<Presentation/>*/}
                 <BlogContainer blogs={blogs}/>
 
-                <ListenSeparator/>
-                <div className={styles.mainVideo}>
-                    <ReactPlayer url={'https://www.youtube.com/watch?v=dmMRsHp725s'} width={'100%'} height={'100%'}
-                                 controls/>
-                </div>
+
             </main>
 
 
