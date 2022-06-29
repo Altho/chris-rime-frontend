@@ -15,7 +15,14 @@ const data = [{
         fr: 'Special Woodstock', en: 'Special issue : Woodstock',
     },
     image: '/images/mags/2.jpeg',
-    items: ['Une sélection des 30 meilleurs riffs', 'Les meilleurs phrasés de solo', 'Un panel des rééditions cd', '5 scores à la manière de Jimi Hendrix, Carlos Santana, Ten Years After, Joe Cocker, Creedence Clearwater Revival.'],
+    items: {
+        fr: ['Une sélection des 30 meilleurs riffs', 'Les meilleurs phrasés de solo',
+            'Un panel des rééditions cd', '5 scores à la manière de Jimi Hendrix, Carlos Santana, ' +
+            'Ten Years After, Joe Cocker, Creedence Clearwater Revival.'],
+        en: ['Best 30 riffs', 'Best chorus',
+            'Selection of albums re-releases', '5 scores in the style of Hendrix and Santana ' +
+            'Ten Years After, Joe Cocker, Creedence Clearwater Revival.'],
+    },
     content: {
         fr: 'Un numéro hors série à propos du plus gros événement de la « Pop Culture ». Les histoires, les artistes,\n' + 'des photos, et surtout beaucoup de musique, à l\'occasion des 40 ans de Woodstock. Un numéro hors série\n' + 'en forme d\'hommage à tous les guitaristes qui ont écrit l\'histoire du Rock. 89 pages dédiées a cet\n' + 'événement.',
         en: 'A special issue about the biggest event in "Pop Culture". Stories, artists, photos, and\n' + 'above all a lot of music, on the occasion of 40 years of Woodstock. A special issue in\n' + 'the form of a tribute to all the guitarists who wrote the history of Rock. 89 pages\n' + 'dedicated to this event.',
@@ -29,7 +36,11 @@ const data = [{
         fr: 'Special David Gilmour', en: 'Special issue : David Gilmour',
     },
     image: '/images/mags/3.jpeg',
-    items: ['Analyse complète du jeu : son et phrasé', 'Gammes pentatoniques', 'Modes de la gamme Majeure', 'Bends', 'Effets', '6 scores complets', 'Ralentis et play-back'],
+    items: {
+        en: ['Analyse complète du jeu : son et phrasé', 'Gammes pentatoniques', 'Modes de la gamme Majeure',
+        'Bends', 'Effets', '6 scores complets', 'Ralentis et play-back'],
+        fr: ['Analyse complète du jeu : son et phrasé', 'Gammes pentatoniques', 'Modes de la gamme Majeure',
+            'Bends', 'Effets', '6 scores complets', 'Ralentis et play-back']},
     content: {
         fr: `David Gilmour a inventé un son, un phrasé qui lui vaut le surnom de « l'homme à la stratocaster ». Son
 approche mélodique et son utilisation des effets est unique et a influencé de nombreux guitaristes tout
@@ -47,7 +58,12 @@ pages.`,
         fr: 'Special Eric Clapton', en: 'Special issue : Eric Clapton',
     },
     image: '/images/mags/4.jpeg',
-    items: ['Le phrasé', 'Discographie sélective', '6 solos complets', '40 plans électriques / bottleneck / acoustiques', 'Ralentis et play-back'],
+    items: {
+        en:['Le phrasé', 'Discographie sélective', '6 solos complets',
+        '40 plans électriques / bottleneck / acoustiques', 'Ralentis et play-back'],
+        fr:['Le phrasé', 'Discographie sélective', '6 solos complets',
+            '40 plans électriques / bottleneck / acoustiques', 'Ralentis et play-back'],
+    },
     content: {
         fr: 'Une analyse précise du phrasé du guitariste légendaire Eric Clapton. Comment jouer ses phrases,\n'
             + 'comprendre ses grilles, quelles sont ses influences, comment décrypter la magie du jeu du musicien. 89\n'
@@ -63,7 +79,14 @@ pages.`,
         fr: 'Special Carlos Santana', en: 'Special issue : Carlos Santana',
     },
     image: '/images/mags/5.jpeg',
-    items: ['Le phrasé', 'Discographie sélective', '7 scores complets', '30 riffs & solos', 'Ralentis et play-back'],
+    items:  {
+        en: ['Le phrasé', 'Discographie sélective', '7 scores complets',
+            '30 riffs & solos', 'Ralentis et play-back'],
+        fr: ['Le phrasé', 'Discographie sélective', '7 scores complets',
+            '30 riffs & solos', 'Ralentis et play-back'],
+    },
+
+
     content: {
         fr: 'Un numéro hors série consacré à un des plus grands guitaristes de la planete Pop-Rock-World, mais aussi\n'
             + 'à un des plus grands compositeurs de hit instrumentaux. Son phrasé, ses découpes rythmiques, ses grilles,\n'
@@ -79,7 +102,15 @@ pages.`,
         fr: 'Special Guitaristes de jazz', en: 'Special issue : Jazz guitarists',
     },
     image: '/images/mags/1.png',
-    items: ['Les grands guitaristes de jazz ', 'Les guitares du jazz', 'Gamme Majeure et modes grecs', 'La gamme pentatonique', 'Les modes', 'Les accords', 'Bien accompagner en jazz', ' 20 plans jazz', '7 scores', 'Ralentis et play-back'],
+    items: {
+        en: ['Le phrasé', 'Discographie sélective', '7 scores complets',
+            '30 riffs & solos', 'Ralentis et play-back'],
+        fr: ['Les grands guitaristes de jazz ', 'Les guitares du jazz',
+            'Gamme Majeure et modes grecs', 'La gamme pentatonique', 'Les modes',
+            'Les accords', 'Bien accompagner en jazz', ' 20 plans jazz', '7 scores', 'Ralentis et play-back'],
+    },
+
+
     content: {
         fr: 'Un numéro hors série consacré aux grands guitaristes de jazz : Charlie christian, Django Reinhardt, Wes\n'
             + 'Montgomery, Joe Pass, John Scofield, Grant Green. De la théorie mais surtout beaucoup de transcription\n'
@@ -94,9 +125,15 @@ pages.`,
     name: {
         fr: 'Special apprenez à composer', en: 'Special issue : How to compose',
     }, image: '/images/mags/7.png',
-    items: ['Tout sur l’harmonie, la mélodie et la structure d’un morceau', 'Plus de 50 exemples choisis avec audio et tablature', 'Dans les styles actuels : Pop, Rock, Blues, Metal, Jazz ', 'Des explications détaillées',
+    items: {
+        en: ['Le phrasé', 'Discographie sélective', '7 scores complets',
+            '30 riffs & solos', 'Ralentis et play-back'],
+        fr:  ['Tout sur l’harmonie, la mélodie et la structure d’un morceau',
+            'Plus de 50 exemples choisis avec audio et tablature',
+            'Dans les styles actuels : Pop, Rock, Blues, Metal, Jazz ', 'Des explications détaillées',],
+    },
 
-    ],
+
     content: {
         fr: '89 pages consacrées à la composition Pop-Rock. Des données théoriques, des analyses des classiques de\n'
             + 'la Pop expliquées et jouées afin que vous compreniez mieux les clefs de la composition. Pour la guitare,\n'
@@ -111,7 +148,15 @@ pages.`,
     name: {
         fr: 'Special funk', en: 'Special issue : Funk',
     }, image: '/images/mags/8.png',
-    items: ['La maîtrise du rythme', 'Revue des gammes utilisées', '10 scores complets (Sly and The Family Stone, James Brown, Jackson 5, Parliament/ Funkadelic, Prince, Nile Rodgers, Earth, Wind and Fire…)', 'Ralentis et play-back',],
+    items: {
+        en: ['Le phrasé', 'Discographie sélective', '7 scores complets',
+            '30 riffs & solos', 'Ralentis et play-back'],
+        fr:   ['La maîtrise du rythme', 'Revue des gammes utilisées',
+            '10 scores complets (Sly and The Family Stone, James Brown, Jackson 5, Parliament/ Funkadelic, Prince, ' +
+            'Nile Rodgers, Earth, Wind and Fire…)', 'Ralentis et play-back',],
+    },
+
+
     content: {
         fr: 'Cette musique dans laquelle la guitare tient un rôle majeur, se devait d’être décortiquée et analysée dans\n'
             + 'un numéro hors série. De l’écurie Motown à Prince, tous les phrasés des guitaristes de funk analysés. 89\n'
@@ -126,7 +171,15 @@ pages.`,
     name: {
         fr: 'Special reggae', en: 'Special issue : Reggae',
     }, image: '/images/mags/9.png',
-    items: ['La maîtrise du rythme', 'Revue des gammes utilisées', '10 scores complets (Sly and The Family Stone, James Brown, Jackson 5, Parliament/ Funkadelic, Prince, Nile Rodgers, Earth, Wind and Fire…)', 'Ralentis et play-back',],
+    items:{
+        en: ['Le phrasé', 'Discographie sélective', '7 scores complets',
+            '30 riffs & solos', 'Ralentis et play-back'],
+        fr:    ['La maîtrise du rythme', 'Revue des gammes utilisées',
+            '10 scores complets (Sly and The Family Stone, James Brown, Jackson 5,' +
+            ' Parliament/ Funkadelic, Prince, Nile Rodgers, Earth, Wind and Fire…)', 'Ralentis et play-back',],
+    },
+
+
     content: {
         fr: 'Cette musique dans laquelle la guitare tient un rôle majeur, se devait d’être décortiquée et analysée dans\n'
             + 'un numéro hors série. De l’écurie Motown à Prince, tous les phrasés des guitaristes de funk analysés. 89\n'
@@ -140,12 +193,19 @@ pages.`,
     name: {
         fr: 'Comment bien jouer ?', en: 'How to play well ?',
     }, image: '/images/mags/11.png',
-    items: ['Tracklist complète', 'Portrait', 'Phrasé', 'Ralentis et play-back',],
+    items: {
+        en: ['Le phrasé', 'Discographie sélective', '7 scores complets',
+            '30 riffs & solos', 'Ralentis et play-back'],
+        fr:    ['Tracklist complète', 'Portrait', 'Phrasé', 'Ralentis et play-back',],
+    },
     content: {
-        fr: 'Toutes les guitares du Reggae de Ernest Ranglin à UB40 en passant par Bob Marley expliquées. Des\n'
-            + 'scores incluants les parties de guitare et de basse, des gammes, des exercices de rythme, des phrases de\n'
-            + 'solo, en 89 pages.',
-        en: ''
+        fr: `145 Pages dediées aux plus grands guitaristes de l'histoire du Rock et du Blues.
+        Une quinzaine de scores avec partitions et playbacks, des plans, des
+        gammes, des exercices vous permettant de mieux jouer la musique des
+        ces deux géant de la guitare.`,
+        en: `145 pages dedicated to the greatest guitarists in the history of Rock and Blues.
+Fifteen scores with tablatures and playbacks, licks, scales, exercises
+allowing you to better play the music of these two guitar giants.`,
     }
 },
 
