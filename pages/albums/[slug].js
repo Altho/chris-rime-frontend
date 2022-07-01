@@ -138,7 +138,7 @@ function AlbumTitle({name, image, album, buy, digital}) {
                         <AlbumInfos release={album.date.toString()} label={album.label} artists={album.artistes}/>
                         <p className={styles.albumDescription}>{album.description}</p>
                         <div className={styles.buttonContainer}>
-                            {album.buy && album.digital ? (
+                            {album.buy || album.digital ? (
                                     <Button leftIcon={< Cash/>}
                                             className={styles.buy}
                                             onClick={setOpened}
