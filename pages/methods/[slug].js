@@ -108,7 +108,7 @@ export default function methodDetails({methodData}) {
 
 function MethodTitle({name, image, method, preview}) {
     const [opened, setOpened] = useState(false);
-    const parsed = DOMPurify.sanitize(marked.parse(method.description))
+    const parsed = DOMPurify.sanitize(method.description)
 
 
     const locale = useRouter().locale;

@@ -99,7 +99,7 @@ export default function AlbumDetails({albumData}) {
 function AlbumTitle({name, image, album, buy, digital}) {
     const {classes} = useStyles();
     const [opened, setOpened] = useState(false);
-    const parsed = DOMPurify.sanitize(marked.parse(album.description))
+    const parsed = DOMPurify.sanitize(album.description)
 
     const locale = useRouter().locale;
     return (

@@ -129,7 +129,7 @@ function GameTitle({name, image, game}) {
     console.log(game)
 
     const locale = useRouter().locale;
-    const parsed = DOMPurify.sanitize(marked.parse(game.description))
+    const parsed = DOMPurify.sanitize(game.description)
 
     return (
         // <div className={styles.titleBackground} style={headerStyle()}>
