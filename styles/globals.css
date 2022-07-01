@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Orbitron&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,400;0,700;1,400&family=Nanum+Gothic:wght@400;700&family=Orbitron&display=swap');
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -52,6 +51,8 @@ table {
   border-spacing: 0;
 }
 
+strong {font-weight:bold;}
+
 :root {
   --primary: #ebebeb;
   --secondary:#000;
@@ -65,7 +66,7 @@ body {
   margin: 0;
   color: white;
   font-family: 'Nanum Gothic', sans-serif;
-   scrollbar-width: none;
+
 
  }
 

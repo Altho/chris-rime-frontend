@@ -8,7 +8,8 @@ import DisplayPdf from "../../components/methods/DisplayPdf";
 import {useRouter} from "next/router";
 import {useState} from "react";
 import {Cash} from 'tabler-icons-react';
-
+import {marked} from 'marked'
+import DOMPurify from 'isomorphic-dompurify'
 import {Menu, MenuButton, MenuItem} from "@szhsin/react-menu";
 import style from "../../styles/[slug].module.css";
 import {parseCookies, setCookie} from "nookies";
@@ -107,6 +108,8 @@ export default function methodDetails({methodData}) {
 
 function MethodTitle({name, image, method, preview}) {
     const [opened, setOpened] = useState(false);
+    const parsed = DOMPurify.sanitize(marked.parse(method.description))
+
 
     const locale = useRouter().locale;
     console.log('---pdf---')
@@ -160,8 +163,9 @@ function MethodTitle({name, image, method, preview}) {
                         <h1 className={styles.albumName}>{name}</h1>
 
                         <MethodInfos release={method.date.toString()} publisher={method.publisher}
-                                     pages={method.pages}/>                        <p
-                        className={styles.albumDescription}>{method.description}</p>
+                                     pages={method.pages}/>                        <div dangerouslySetInnerHTML ={{ __html: parsed }} className={style.albumDescription}>
+
+                    </div>
                         <div className={styles.buttonContainer}>
                             <Button leftIcon={< Cash/>}
                                     className={styles.buy}

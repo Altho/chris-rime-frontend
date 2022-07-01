@@ -14,6 +14,9 @@ import {Menu, MenuButton, MenuItem} from "@szhsin/react-menu";
 import '@szhsin/react-menu/dist/core.css';
 import {useRouter} from "next/router";
 import {useState} from "react";
+import {marked} from 'marked'
+import DOMPurify from 'isomorphic-dompurify'
+import style from "../../styles/blogList.module.css";
 
 export async function getServerSideProps({locale, query}, ctx) {
 
@@ -96,6 +99,7 @@ export default function AlbumDetails({albumData}) {
 function AlbumTitle({name, image, album, buy, digital}) {
     const {classes} = useStyles();
     const [opened, setOpened] = useState(false);
+    const parsed = DOMPurify.sanitize(marked.parse(album.description))
 
     const locale = useRouter().locale;
     return (
@@ -136,7 +140,9 @@ function AlbumTitle({name, image, album, buy, digital}) {
                         <h1 className={styles.albumName}>{name}</h1>
 
                         <AlbumInfos release={album.date.toString()} label={album.label} artists={album.artistes}/>
-                        <p className={styles.albumDescription}>{album.description}</p>
+                        <div dangerouslySetInnerHTML ={{ __html: parsed }} className={styles.albumDescription}>
+
+                        </div>
                         <div className={styles.buttonContainer}>
                             {album.buy || album.digital ? (
                                     <Button leftIcon={< Cash/>}

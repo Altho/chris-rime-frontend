@@ -16,6 +16,8 @@ import {Menu, MenuButton, MenuItem} from "@szhsin/react-menu";
 import style from "../../styles/[slug].module.css";
 import Media from "../../components/albums/Media";
 import {parseCookies, setCookie} from "nookies";
+import {marked} from 'marked'
+import DOMPurify from 'isomorphic-dompurify'
 
 const useStyles = createStyles((theme) => ({
     image: {
@@ -127,6 +129,8 @@ function GameTitle({name, image, game}) {
     console.log(game)
 
     const locale = useRouter().locale;
+    const parsed = DOMPurify.sanitize(marked.parse(game.description))
+
     return (
         // <div className={styles.titleBackground} style={headerStyle()}>
         <div >
@@ -148,7 +152,10 @@ function GameTitle({name, image, game}) {
                     <div className={styles.albumRightContainer}>
                         <h1 className={styles.albumName} >{name}</h1>
 
-                        <GameInfos release={game.release.toString()} publisher={game.publisher} developper={game.developper} genre={game.genre} platforms={game.plateformes} />                        <p className={styles.albumDescription}>{game.description}</p>
+                        <GameInfos release={game.release.toString()} publisher={game.publisher} developper={game.developper} genre={game.genre} platforms={game.plateformes} />
+                        <div dangerouslySetInnerHTML ={{ __html: parsed }} className={style.albumDescription}>
+
+                        </div>
 
                     </div>
 

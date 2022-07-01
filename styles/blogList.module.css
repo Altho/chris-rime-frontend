@@ -92,7 +92,7 @@ width: 340px;
     background-color: var(--primary);
     color:var(--secondary);
     line-height: 2;
-    font-family: "Nanum Gothic",sans-serif;
+    font-family: "Montserrat Alternates",sans-serif;
     border-top:2px black solid;
     z-index:2;
     min-height:400px;
