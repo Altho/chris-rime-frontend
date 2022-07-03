@@ -38,7 +38,6 @@ export async function getGamesData(slug,locale, jwt) {
         }
     })
     const gamesData = await games.json()
-    console.log(games)
 
 
     return {

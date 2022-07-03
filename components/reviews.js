@@ -14,8 +14,6 @@ export default function Reviews({reviews}) {
     const pluginsList = () => [new AutoPlay({ duration: 4000, direction: "NEXT", stopOnHover: false }),new Pagination({ type: 'bullet' })]
 
     if (reviews) {
-        {   console.log('------------------reviews.js----------------')
-            console.log(reviews)}
         const length = reviews.length;
         return (
 
@@ -35,8 +33,7 @@ export default function Reviews({reviews}) {
 
 
                     {reviews.map((rev) => {
-                        console.log('-----------map-----------')
-                        console.log(rev)
+
                         const id = rev.id;
                         const reviewNode = rev.attributes
                         const content = reviewNode.review;

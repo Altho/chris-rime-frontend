@@ -87,7 +87,6 @@ export async function getStaticProps(ctx){
         }
     })
     const photoData = await fetchPhotos.json()
-    console.log(photoData.data['0'].attributes.image)
     const photos = photoData.data['0'].attributes.image.data
 
 
@@ -103,7 +102,6 @@ export async function getStaticProps(ctx){
 
 export default function Gallery({photos}){
 
-    console.log(photos)
     const [opened, setOpened] = useState(false);
     const [url, setUrl] = useState('')
     const [credit, setCredit] = useState('')
@@ -118,7 +116,6 @@ export default function Gallery({photos}){
         700: 2,
         500: 1
     };
-    console.log(photos)
     return(
 
         <Layout>

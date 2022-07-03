@@ -6,7 +6,6 @@ import { fr, en } from 'date-fns/locale'
 
 
 export default function MethodInfos({release,publisher,pages}){
-    console.log(release, publisher, pages)
     const currentLocale = useRouter().locale
     const localisation = () => {
         if(currentLocale === 'fr'){

@@ -26,8 +26,7 @@ const useStyles = createStyles((theme) => ({
 
 export async function getServerSideProps({query, locale}, ctx) {
     const jwt = parseCookies(ctx).jwt
-    console.dir('---QUERY---')
-    console.dir(query.slug)
+
     if(jwt){
         const movieData = await getMovieData(query.slug, locale,jwt)
 
@@ -96,7 +95,6 @@ export default function movieDetails({movieData}) {
     const movie = movieData['0'].attributes;
     const movieImage = movie.image.data.attributes.url
 
-    console.dir(movie)
 
 
 

@@ -15,7 +15,6 @@ export async function getAlbums({locale}, jwt) {
         {
         encodeValuesOnly: true,
     });
-    console.log(query)
     const fetchImages = await fetch(`${process.env.DB_HOST}/api/albums?locale=${locale}&populate=*&${query}`, {
 
         headers: {
@@ -44,7 +43,6 @@ export async function getSideAlbums({locale}, jwt) {
         {
             encodeValuesOnly: true,
         });
-    console.log(query)
     const fetchImages = await fetch(`${process.env.DB_HOST}/api/albums?locale=${locale}&populate=*&${query}`, {
 
         headers: {

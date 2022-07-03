@@ -89,12 +89,9 @@ export async function getStaticProps({locale}, ctx) {
         const testimonials = await fetchTestimonials.json()
 
         const album = fetchAlbums.slice(0,1)
-        console.dir('---LATESTALBUM----')
-        console.log(album)
-        console.dir('---LATESTALBUM----')
+
 
         const blogPost = await fetchBlog.json()
-        console.log(blogPost)
         const blogs = blogPost.data.slice(0,8)
 
         return {
@@ -167,12 +164,10 @@ export async function getStaticProps({locale}, ctx) {
     })
 
     const album = fetchAlbums.slice(0,1)
-    console.log(album)
-    console.log(fetchBlog)
+
     const blogPost = await fetchBlog.json()
     const testimonials = await fetchTestimonials.json()
-    console.log(blogPost)
-    console.log(loginResponseData)
+
 
     const blogs = blogPost.data.slice(0,8)
 

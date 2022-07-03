@@ -1,7 +1,6 @@
 import {format} from "date-fns";
 import Method from "./method";
 export default function ShowMethods({methods}) {
-    console.log('---------method-----------')
 
 
     return(
@@ -12,7 +11,6 @@ export default function ShowMethods({methods}) {
             const url = method.attributes.cover.data['0'].attributes.url;
             const name = method.attributes.name;
             const link = method.attributes.slug;
-            console.log(url, name, link)
             const date = format(new Date(method.attributes.date), 'yyyy');
             return(
                 <Method  url = {url} methodName={name} methodDate={date} key={id} link={link}/>

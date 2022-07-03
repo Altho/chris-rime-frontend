@@ -71,7 +71,6 @@ export default function Contact() {
 
         }
         catch(err){
-            console.log(err)
         }
 
 

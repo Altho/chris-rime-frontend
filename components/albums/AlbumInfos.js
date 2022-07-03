@@ -6,8 +6,6 @@ import { fr, en } from 'date-fns/locale'
 
 
 export default function AlbumInfos({release,label,artists}){
-    console.log('album info !!')
-    console.log(release, label, artists)
     const currentLocale = useRouter().locale
     const localisation = () => {
     if(currentLocale === 'fr'){

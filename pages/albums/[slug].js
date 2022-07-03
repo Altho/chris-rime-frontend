@@ -20,7 +20,6 @@ import style from "../../styles/blogList.module.css";
 
 export async function getServerSideProps({locale, query}, ctx) {
 
-    console.log(query.slug)
 
     const loginData = {
 
@@ -70,8 +69,7 @@ const useStyles = createStyles((theme) => ({
 
 
 export default function AlbumDetails({albumData}) {
-    console.log('ALBUM DATA')
-    console.log(albumData)
+
     const album = albumData['0'].attributes;
     const albumImage = album.image.data.attributes.url
 
@@ -99,7 +97,9 @@ export default function AlbumDetails({albumData}) {
 function AlbumTitle({name, image, album, buy, digital}) {
     const {classes} = useStyles();
     const [opened, setOpened] = useState(false);
-    const parsed = DOMPurify.sanitize(album.description)
+    const oembed_2_player = album.description.replaceAll(/\<(oembed) ([^\>]*)\>([^\<]*)<\/\1\>/gi,"<ReactPLayer $2>$3</ReactPLayer>");
+    const parsed = DOMPurify.sanitize(oembed_2_player)
+
 
     const locale = useRouter().locale;
     return (

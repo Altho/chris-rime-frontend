@@ -13,8 +13,7 @@ export async function getMovies({locale}, jwt) {
         }
     })
     const movies = await fetchMovies.json()
-    console.dir('---movies---')
-    console.dir(movies)
+
 
 
     return movies.data
@@ -22,9 +21,7 @@ export async function getMovies({locale}, jwt) {
 
 export async function getMovieData(slug,locale, jwt) {
 
-    console.dir('---FETCH-MOVIE-ON-SLUG---')
-    console.dir(slug)
-    console.dir(jwt)
+
     const query = qs.stringify({
         filters: {
             slug: {
@@ -35,7 +32,6 @@ export async function getMovieData(slug,locale, jwt) {
     }, {
         encodeValuesOnly: true,
     });
-    console.dir(query)
 
     const movie = await fetch(`${process.env.DB_HOST}/api/movies?locale=${locale}&populate=*&${query}`,
         { headers: {
@@ -43,8 +39,7 @@ export async function getMovieData(slug,locale, jwt) {
                 Authorization: `Bearer ${jwt}`
             }})
     const movieData = await movie.json()
-    console.dir(movieData)
-    console.dir('---FETCH-MOVIE-ON-SLUG---')
+
 
 
 

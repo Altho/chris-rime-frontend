@@ -179,8 +179,7 @@ export default function Articles({articles, cookieJwt, total}){
 
 
     }
-console.log('markdown')
-console.log(modalContent.mainContent)
+
 
     return(
 

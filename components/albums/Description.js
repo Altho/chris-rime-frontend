@@ -8,7 +8,6 @@ import '@szhsin/react-menu/dist/core.css';
 
 export default function Description({description,auteur,buy, digital}){
     const locale= useRouter().locale
-    console.log(auteur)
     return(
     <>
     <Blockquote cite={auteur} className={style.quote} styles={{body: {color: 'black'}, cite: {color: 'white'}}}>{description}</Blockquote>

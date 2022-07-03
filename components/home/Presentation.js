@@ -67,7 +67,6 @@ export default function Presentation() {
     }
     const handleClick = () => {
         setIsOpened(!isOpened)
-        console.log(isOpened)
     }
     return (
         <div>

@@ -36,7 +36,6 @@ export async function getMethodData(slug,locale, jwt) {
                 Authorization: `Bearer ${jwt}`
             }})
     const postData = await post.json()
-    console.log(post)
 
 
     return {

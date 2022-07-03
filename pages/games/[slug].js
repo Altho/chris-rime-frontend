@@ -99,7 +99,6 @@ export default function gameDetails({gameData}) {
 
     const game = gameData['0'].attributes;
     const gameImage = game.image.data.attributes.url
-    console.log(game.videos.data)
 
 
 
@@ -125,8 +124,7 @@ export default function gameDetails({gameData}) {
 
 function GameTitle({name, image, game}) {
     const { classes } = useStyles();
-    console.log('---GAME---')
-    console.log(game)
+
 
     const locale = useRouter().locale;
     const parsed = DOMPurify.sanitize(game.description)

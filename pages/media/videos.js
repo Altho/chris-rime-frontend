@@ -154,7 +154,6 @@ export async function getStaticProps(ctx){
 
 export default function Videos({videos, pedaguo, album,jeu, guest, albumList}){
 
-    console.log(pedaguo)
     return(
         <Layout>
             <div style={{

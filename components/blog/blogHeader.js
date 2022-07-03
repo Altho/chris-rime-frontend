@@ -6,7 +6,6 @@ import { fr } from 'date-fns/locale'
 
 
 export default function BlogHeader({img, title,date}){
-    console.log(date)
     const locale = useRouter().locale
     const upDate = format(new Date(date), 'MMMM do y')
     const upDateFr = format(new Date(date), 'd MMMM y', {locale : fr})

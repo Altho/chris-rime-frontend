@@ -85,7 +85,6 @@ export default function methodDetails({methodData}) {
     const method = methodData['0'].attributes;
     const methodImage = method.cover.data['0'].attributes.url
     const preview = method.preview.data.attributes.url
-    console.log(method.reviews)
 
 
     return (
@@ -112,9 +111,7 @@ function MethodTitle({name, image, method, preview}) {
 
 
     const locale = useRouter().locale;
-    console.log('---pdf---')
-    console.log(preview)
-    console.log('---pdf---')
+
 
     return (
         // <div className={styles.titleBackground} style={headerStyle()}>

@@ -3,7 +3,6 @@ import style from "../../styles/albums.module.css"
 import Link from 'next/link'
 
 export default function Method({url,methodName,methodDate, link}){
-    console.log(url, methodName, methodDate, link)
 
 
     return (

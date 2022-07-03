@@ -7,13 +7,6 @@ import {Drawer, Button, Group, Burger, Image} from '@mantine/core';
 import {useMediaQuery} from '@mantine/hooks';
 import MobileMenu from './MobileMenu'
 import {useRef} from "react";
-import {
-    motion,
-    useSpring,
-    useTransform,
-    useViewportScroll,
-    useElementScroll
-} from "framer-motion";
 import ListenSeparator from "../albums/ListenSeparator";
 
 const drawerStyles = {
@@ -66,12 +59,11 @@ export default function TopMenu() {
     //
     // })
     const matches = useMediaQuery('(min-width: 900px)');
-    const { scrollYProgress } = useViewportScroll()
 
 
 
     return (
-        <motion.nav className={styles.menu}>
+        <nav className={styles.menu}>
             <Link href={'/'}>
                 <div className={styles.logoContainer}>
                     <div className={styles.logo}>Chris Rime<Image
@@ -112,7 +104,7 @@ export default function TopMenu() {
 
             </div>
 
-        </motion.nav>
+        </nav>
     )
 }
 
@@ -179,8 +171,6 @@ export function MenuItems() {
                         <Link className={styles.subMenuItem} href="/albums">Discographie</Link>
                         <Link className={styles.subMenuItem} href="/movies">Télé/Films</Link>
                         <Link className={styles.subMenuItem} href="/games">Jeux vidéos</Link>
-
-
                     </div>
                 </div>
                 <div className={styles.dropdown}>

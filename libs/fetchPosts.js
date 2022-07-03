@@ -8,10 +8,8 @@ export async function getBlogPosts({locale}){
         encodeValuesOnly: true,
     });
 
-    console.log(locale)
     const fetchBlog = await fetch(`${process.env.DB_HOST}/api/blogs?locale=${locale}&${query}&populate=*`)
     const blogPost = await fetchBlog.json()
-    console.log(blogPost.data)
     return blogPost.data.slice(0,3)
 }
 
@@ -26,9 +24,7 @@ export async function getPostData(slug,locale,jwt) {
     }, {
         encodeValuesOnly: true,
     });
-    console.log(query)
-    console.log('locale!!!')
-    console.log(locale)
+
     const post = await fetch(`${process.env.DB_HOST}/api/blogs?locale=${locale}&${query}&populate=*`,
         {
             headers: {
@@ -37,8 +33,7 @@ export async function getPostData(slug,locale,jwt) {
             }
         }  )
     const postData = await post.json()
-    console.log('post query !')
-    console.log(postData.data)
+
 
 
     return {

@@ -31,9 +31,7 @@ export async function getServerSideProps({locale}, ctx) {
             })
         const dataD = await articlesArray.json()
         const articles = dataD.data
-        console.log(dataD)
 
-        console.log(articles)
 
         const cookieJwt = jwt
         return {
@@ -91,7 +89,6 @@ export async function getServerSideProps({locale}, ctx) {
             }
         })
     const dataD = await articlesArray.json()
-    console.log(dataD)
     const articles = dataD.data
 
 

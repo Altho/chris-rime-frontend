@@ -11,7 +11,6 @@ import {  fr } from 'date-fns/locale'
 
 
 export default function  blogList({title, publishedAt, content,locale, children,image,slug}){
-    console.log(image)
 
     let displayTitle = title.slice(0,25)
     if(title.length > 25){

@@ -23,8 +23,7 @@ export async function getServerSideProps({query, locale}, ctx) {
 
     if (jwt) {
         const postData = await getPostData(query.slug, locale, jwt)
-        console.log('albumDATA')
-        console.log(postData)
+
         return {
             props: {
                 postData
@@ -85,13 +84,10 @@ export async function getServerSideProps({query, locale}, ctx) {
 
 export default function postsDetails({postData}) {
 
-    console.log('Post Data !')
-    console.log(postData)
+
     const post = postData['0'].attributes;
     const postImage = post.image.data.attributes.url
-    console.log('----POST-MARKDOWN-------')
-    console.log(post.content)
-    console.log('----POST-MARKDOWN-------')
+
 
 
 
