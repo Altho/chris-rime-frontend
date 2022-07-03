@@ -12,6 +12,8 @@ import useWindowDimensions from "../hooks/useWindowDimensions";
 import { Loader } from '@mantine/core';
 import ReactMarkdown from 'react-markdown'
 import InfiniteScroll from 'react-infinite-scroller';
+import {marked} from 'marked'
+import DOMPurify from 'isomorphic-dompurify'
 
 import style from "../styles/blogList.module.css";
 
@@ -179,6 +181,7 @@ export default function Articles({articles, cookieJwt, total}){
 
 
     }
+    const parsed = DOMPurify.sanitize(modalContent.mainContent)
 
 
     return(
@@ -205,7 +208,9 @@ export default function Articles({articles, cookieJwt, total}){
                     </div>
                 </div>
 
-                <ReactMarkdown className={cardStyle.content}>{modalContent.mainContent}</ReactMarkdown>
+                <div dangerouslySetInnerHTML ={{ __html: parsed }} className={cardStyle.content}>
+
+                </div>
                 <div>{modalContent.auteur}</div>
 
 
