@@ -97,8 +97,7 @@ export default function AlbumDetails({albumData}) {
 function AlbumTitle({name, image, album, buy, digital}) {
     const {classes} = useStyles();
     const [opened, setOpened] = useState(false);
-    const oembed_2_player = album.description.replaceAll(/\<(oembed) ([^\>]*)\>([^\<]*)<\/\1\>/gi,"<ReactPLayer $2>$3</ReactPLayer>");
-    const parsed = DOMPurify.sanitize(oembed_2_player)
+    const parsed = DOMPurify.sanitize(album.description)
 
 
     const locale = useRouter().locale;
