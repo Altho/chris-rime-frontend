@@ -135,7 +135,6 @@ export function MenuItems() {
                     <div className={styles.dropdownContent}>
                         <Link className={styles.subMenuItem} href="/media/videos">Videos</Link>
                         <Link className={styles.subMenuItem} href="/media/gallery">Photos</Link>
-                        <Link className={styles.subMenuItem} href="#">Music</Link>
                     </div>
 
                 </div>
@@ -179,7 +178,6 @@ export function MenuItems() {
                     <div className={styles.dropdownContent}>
                         <Link className={styles.subMenuItem} href="/media/videos">Vidéos</Link>
                         <Link className={styles.subMenuItem} href="/media/gallery">Photos</Link>
-                        <Link className={styles.subMenuItem} href="#">Musique</Link>
                     </div>
 
                 </div>

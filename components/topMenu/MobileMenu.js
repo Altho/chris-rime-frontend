@@ -38,7 +38,6 @@ export default function MobileMenu() {
                         <div className={styles.mobileMenuContainer}>
                             <Link href={'/media/videos'}><div className={styles.mobileMenuItem}>{locale === 'en' ? 'Videos' : 'Vidéos'}</div></Link>
                             <Link href={'/media/gallery'}><div className={styles.mobileMenuItem}>Photos</div></Link>
-                            <Link href={'/media/music'}><div className={styles.mobileMenuItem}>{locale === 'en' ? 'Music' : 'Musique'}</div></Link>
                         </div>
                     </Accordion.Item>
 
