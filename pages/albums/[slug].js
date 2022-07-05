@@ -139,8 +139,10 @@ function AlbumTitle({name, image, album, buy, digital}) {
                         <h1 className={styles.albumName}>{name}</h1>
 
                         <AlbumInfos release={album.date.toString()} label={album.label} artists={album.artistes}/>
-                        <div dangerouslySetInnerHTML ={{ __html: parsed }} className={styles.albumDescription}>
+                        <div className={styles.albumDescription}>
+                        <div dangerouslySetInnerHTML ={{ __html: parsed }} className="ck-editor">
 
+                        </div>
                         </div>
                         <div className={styles.buttonContainer}>
                             {album.buy || album.digital ? (

@@ -5,7 +5,8 @@ import DOMPurify from 'isomorphic-dompurify'
 
 export default function BlogPost({content}) {
     const parsed = DOMPurify.sanitize(content)
-    return (<div dangerouslySetInnerHTML ={{ __html: parsed }} className={style.blogPost}>
+    return (
+        <div className={style.blogPost}><div dangerouslySetInnerHTML ={{ __html: parsed }} className="ck-content">
 
-    </div>)
+    </div></div>)
 }

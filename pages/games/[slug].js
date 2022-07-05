@@ -151,7 +151,10 @@ function GameTitle({name, image, game}) {
                         <h1 className={styles.albumName} >{name}</h1>
 
                         <GameInfos release={game.release.toString()} publisher={game.publisher} developper={game.developper} genre={game.genre} platforms={game.plateformes} />
-                        <div dangerouslySetInnerHTML ={{ __html: parsed }} className={style.albumDescription}>
+                        <div className={styles.albumDescription}>
+                            <div dangerouslySetInnerHTML ={{ __html: parsed }} className="ck-editor">
+
+                            </div>
 
                         </div>
 

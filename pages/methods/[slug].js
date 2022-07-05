@@ -160,7 +160,10 @@ function MethodTitle({name, image, method, preview}) {
                         <h1 className={styles.albumName}>{name}</h1>
 
                         <MethodInfos release={method.date.toString()} publisher={method.publisher}
-                                     pages={method.pages}/>                        <div dangerouslySetInnerHTML ={{ __html: parsed }} className={style.albumDescription}>
+                                     pages={method.pages}/>                       <div className={styles.albumDescription}>
+                        <div dangerouslySetInnerHTML ={{ __html: parsed }} className="ck-editor">
+
+                        </div>
 
                     </div>
                         <div className={styles.buttonContainer}>
