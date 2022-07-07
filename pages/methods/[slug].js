@@ -13,6 +13,7 @@ import DOMPurify from 'isomorphic-dompurify'
 import {Menu, MenuButton, MenuItem} from "@szhsin/react-menu";
 import style from "../../styles/[slug].module.css";
 import {parseCookies, setCookie} from "nookies";
+import parse from 'html-react-parser';
 
 
 export async function getServerSideProps({query, locale}, ctx) {
@@ -107,7 +108,7 @@ export default function methodDetails({methodData}) {
 
 function MethodTitle({name, image, method, preview}) {
     const [opened, setOpened] = useState(false);
-    const parsed = DOMPurify.sanitize(method.description)
+    const parsed = parse(method.description)
 
 
     const locale = useRouter().locale;
@@ -161,8 +162,8 @@ function MethodTitle({name, image, method, preview}) {
 
                         <MethodInfos release={method.date.toString()} publisher={method.publisher}
                                      pages={method.pages}/>                       <div className={styles.albumDescription}>
-                        <div dangerouslySetInnerHTML ={{ __html: parsed }} className="ck-editor">
-
+                        <div className="ck-editor">
+                            {parsed}
                         </div>
 
                     </div>

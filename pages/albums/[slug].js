@@ -17,6 +17,7 @@ import {useState} from "react";
 import {marked} from 'marked'
 import DOMPurify from 'isomorphic-dompurify'
 import style from "../../styles/blogList.module.css";
+import parse from 'html-react-parser';
 
 export async function getServerSideProps({locale, query}, ctx) {
 
@@ -97,7 +98,7 @@ export default function AlbumDetails({albumData}) {
 function AlbumTitle({name, image, album, buy, digital}) {
     const {classes} = useStyles();
     const [opened, setOpened] = useState(false);
-    const parsed = DOMPurify.sanitize(album.description)
+    const parsed = parse(album.description)
 
 
     const locale = useRouter().locale;
@@ -140,8 +141,8 @@ function AlbumTitle({name, image, album, buy, digital}) {
 
                         <AlbumInfos release={album.date.toString()} label={album.label} artists={album.artistes}/>
                         <div className={styles.albumDescription}>
-                        <div dangerouslySetInnerHTML ={{ __html: parsed }} className="ck-editor">
-
+                        <div className="ck-editor">
+                            {parsed}
                         </div>
                         </div>
                         <div className={styles.buttonContainer}>

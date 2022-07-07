@@ -18,6 +18,7 @@ import Media from "../../components/albums/Media";
 import {parseCookies, setCookie} from "nookies";
 import {marked} from 'marked'
 import DOMPurify from 'isomorphic-dompurify'
+import parse from 'html-react-parser';
 
 const useStyles = createStyles((theme) => ({
     image: {
@@ -127,7 +128,7 @@ function GameTitle({name, image, game}) {
 
 
     const locale = useRouter().locale;
-    const parsed = DOMPurify.sanitize(game.description)
+    const parsed = parse(game.description)
 
     return (
         // <div className={styles.titleBackground} style={headerStyle()}>
@@ -152,8 +153,8 @@ function GameTitle({name, image, game}) {
 
                         <GameInfos release={game.release.toString()} publisher={game.publisher} developper={game.developper} genre={game.genre} platforms={game.plateformes} />
                         <div className={styles.albumDescription}>
-                            <div dangerouslySetInnerHTML ={{ __html: parsed }} className="ck-editor">
-
+                            <div className="ck-editor">
+                                {parsed}
                             </div>
 
                         </div>
