@@ -13,7 +13,8 @@ import DOMPurify from 'isomorphic-dompurify'
 import {Menu, MenuButton, MenuItem} from "@szhsin/react-menu";
 import style from "../../styles/[slug].module.css";
 import {parseCookies, setCookie} from "nookies";
-import parse from 'html-react-parser';
+import parse, {attributesToProps} from 'html-react-parser';
+import ReactPlayer from "react-player";
 
 
 export async function getServerSideProps({query, locale}, ctx) {
@@ -107,8 +108,16 @@ export default function methodDetails({methodData}) {
 }
 
 function MethodTitle({name, image, method, preview}) {
+    const options = {
+        replace: domNode => {
+            if (domNode.attribs && domNode.name === 'oembed') {
+                const props = attributesToProps(domNode.attribs);
+                return <ReactPlayer {...props} width={'100%'} />;
+            }
+        }
+    };
     const [opened, setOpened] = useState(false);
-    const parsed = parse(method.description)
+    const parsed = parse(method.description, options)
 
 
     const locale = useRouter().locale;

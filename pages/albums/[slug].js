@@ -17,7 +17,8 @@ import {useState} from "react";
 import {marked} from 'marked'
 import DOMPurify from 'isomorphic-dompurify'
 import style from "../../styles/blogList.module.css";
-import parse from 'html-react-parser';
+import parse, {attributesToProps} from 'html-react-parser';
+import ReactPlayer from "react-player";
 
 export async function getServerSideProps({locale, query}, ctx) {
 
@@ -71,6 +72,8 @@ const useStyles = createStyles((theme) => ({
 
 export default function AlbumDetails({albumData}) {
 
+
+
     const album = albumData['0'].attributes;
     const albumImage = album.image.data.attributes.url
 
@@ -98,7 +101,15 @@ export default function AlbumDetails({albumData}) {
 function AlbumTitle({name, image, album, buy, digital}) {
     const {classes} = useStyles();
     const [opened, setOpened] = useState(false);
-    const parsed = parse(album.description)
+    const options = {
+        replace: domNode => {
+            if (domNode.attribs && domNode.name === 'oembed') {
+                const props = attributesToProps(domNode.attribs);
+                return <ReactPlayer {...props} width={'100%'} />;
+            }
+        }
+    };
+    const parsed = parse(album.description, options)
 
 
     const locale = useRouter().locale;

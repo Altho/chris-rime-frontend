@@ -18,7 +18,8 @@ import Media from "../../components/albums/Media";
 import {parseCookies, setCookie} from "nookies";
 import {marked} from 'marked'
 import DOMPurify from 'isomorphic-dompurify'
-import parse from 'html-react-parser';
+import parse, {attributesToProps} from 'html-react-parser';
+import ReactPlayer from "react-player";
 
 const useStyles = createStyles((theme) => ({
     image: {
@@ -125,10 +126,17 @@ export default function gameDetails({gameData}) {
 
 function GameTitle({name, image, game}) {
     const { classes } = useStyles();
-
+    const options = {
+        replace: domNode => {
+            if (domNode.attribs && domNode.name === 'oembed') {
+                const props = attributesToProps(domNode.attribs);
+                return <ReactPlayer {...props} width={'100%'}/>;
+            }
+        }
+    };
 
     const locale = useRouter().locale;
-    const parsed = parse(game.description)
+    const parsed = parse(game.description, options)
 
     return (
         // <div className={styles.titleBackground} style={headerStyle()}>
