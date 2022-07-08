@@ -109,7 +109,16 @@ function AlbumTitle({name, image, album, buy, digital}) {
             }
         }
     };
-    const parsed = parse(album.description, options)
+    const parsed = () => {
+        if(album.description){
+            return parse(album.description, options)
+        }
+        else {
+            return (null)
+        }
+
+
+    }
 
 
     const locale = useRouter().locale;
