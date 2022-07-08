@@ -117,7 +117,14 @@ function MethodTitle({name, image, method, preview}) {
         }
     };
     const [opened, setOpened] = useState(false);
-    const parsed = parse(method.description, options)
+    const parsed = () => {
+        if(method.description){
+            return parse(method.description, options)
+        }
+        else {
+            return null
+        }
+    }
 
 
     const locale = useRouter().locale;

@@ -114,10 +114,8 @@ function AlbumTitle({name, image, album, buy, digital}) {
             return parse(album.description, options)
         }
         else {
-            return (null)
+            return null
         }
-
-
     }
 
 

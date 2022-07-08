@@ -136,7 +136,14 @@ function GameTitle({name, image, game}) {
     };
 
     const locale = useRouter().locale;
-    const parsed = parse(game.description, options)
+    const parsed = () => {
+        if(game.description){
+            return parse(game.description, options)
+        }
+        else {
+            return null
+        }
+    }
 
     return (
         // <div className={styles.titleBackground} style={headerStyle()}>
