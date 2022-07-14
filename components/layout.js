@@ -17,6 +17,7 @@ export default function Layout({ children, home }) {
             <meta
                 name="Chris Rime official"
                 content="Chris Rime official website"
+
             />
             <meta
                 property="og:image"
