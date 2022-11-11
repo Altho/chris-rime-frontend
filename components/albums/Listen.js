@@ -7,24 +7,24 @@ export default function Listen({spotify,apple,deezer}){
         return (
             <div className={style.listen}>
                 <div className={style.items}>
-                    {spotify && (<Link href={spotify} target="_blank">
+                    {spotify && (<Link legacyBehavior={true} href={spotify} target="_blank">
                         <a target="_blank">
                             <Image
                                 src='/images/listen/spotify.svg'
-                                width={'100%'}
-                                height={'100%'}
+                                width={'100'}
+                                height={'100'}
 
                             />
                         </a>
                     </Link>)}
 
                     {apple && (
-                        <Link href={apple} target="_blank">
+                        <Link legacyBehavior  href={apple} target="_blank">
                             <a target="_blank">
                                 <Image
                                     src='/images/listen/apple.svg'
-                                    width={'100%'}
-                                    height={'100%'}
+                                    width={'100'}
+                                    height={'100'}
 
                                 />
                             </a>
@@ -32,12 +32,12 @@ export default function Listen({spotify,apple,deezer}){
                     )}
 
                     {deezer && (
-                        <Link href={deezer} >
+                        <Link legacyBehavior href={deezer} >
                             <a target="_blank">
                                 <Image
                                     src='/images/listen/deezer.svg'
-                                    width={'100%'}
-                                    height={'100%'}
+                                    width={'100'}
+                                    height={'100'}
 
                                 />
                             </a>

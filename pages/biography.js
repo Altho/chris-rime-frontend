@@ -95,6 +95,7 @@ export default function Biography(){
                 <div style={{minHeight:'100vh'}}>
               <section className={style.bioHeader}>
                   <Image
+                      width={400}
                       className={style.mainImage}
                       src={'/images/rime1.jpg'}
                   />

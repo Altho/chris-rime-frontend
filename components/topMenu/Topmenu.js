@@ -64,7 +64,7 @@ export default function TopMenu() {
 
     return (
         <nav className={styles.menu}>
-            <Link href={'/'}>
+            <Link style={{marginRight: 'auto'}} href={'/'}>
                 <div className={styles.logoContainer}>
                     <div className={styles.logo}>Chris Rime<Image
                         src={'/images/bg/crhat.svg'}
@@ -160,7 +160,7 @@ export function MenuItems() {
 
     const frMenu = () => {
         return (
-            <div>
+            <div style={{display: 'flex'}}>
                 <div className={styles.dropdown}>
                     <div className={styles.dropbtn}>A propos</div>
 
