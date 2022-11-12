@@ -29,13 +29,13 @@ export default function VideoGrid({videos, pedaguo, album, jeu, guest,albumList}
 
             <div className={style.chipContainer}>
                 <div className={style.chipWrapper}>
-                <Chips variant="filled" >
+                <Chip.Group variant="filled" >
                     <Chip value="all" onClick={() => setDisplayedVideos(videos)}>{locale === 'en'? ('All videos') : ('Toutes les vidéos')}</Chip>
                     <Chip value="pedaguo" onClick={() => setDisplayedVideos(pedaguo)}>{locale === 'en'? ('Educational') : ('Pédago')}</Chip>
                     <Chip value="jeux" onClick={() => setDisplayedVideos(jeu)}>{locale === 'en'? ('Video Games') : ('Jeux Vidéos')}</Chip>
                     <Chip value="guest" onClick={() => setDisplayedVideos(guest)}>Sideman</Chip>
 
-                </Chips>
+                </Chip.Group>
                     <div className={style.selectWrapper}>
                         <span>{locale === 'en' ? ('Filter by album | ')  : ('Filtrer par album | ')}</span>
                     <Select
