@@ -2,7 +2,7 @@ import {Table} from '@mantine/core';
 import style from '../../styles/[slug].module.css'
 import {useRouter} from 'next/router'
 import {format} from 'date-fns'
-import {fr, en} from 'date-fns/locale'
+import {fr} from 'date-fns/locale'
 
 
 export default function MovieInfos({date, realisation, acteurs, duree}) {

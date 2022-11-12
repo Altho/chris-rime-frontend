@@ -2,7 +2,7 @@ import style from '../../styles/videos.module.css'
 import ReactPlayer from "react-player";
 import {SimpleGrid} from "@mantine/core";
 import {useState} from "react";
-import { Chips, Chip } from '@mantine/core';
+import {  Chip } from '@mantine/core';
 import {useRouter} from "next/router";
 import Select from 'react-select'
 import {getAlbums} from "../../libs/fetchAlbums";
